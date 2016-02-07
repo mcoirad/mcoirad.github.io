@@ -1,9 +1,279 @@
-<html xmlns="http://www.w3.org/1999/xhtml" >
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-    <title>My Website Home Page</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>d a r i o</title>
+	<meta name="author" content="Dario Macieira Mitchell" />
+	<meta name="description" content="UX generalist" />
+	<meta name="keywords"  content="fullpage,jquery,demo,screen,fullscreen,backgrounds,full-screen" />
+	<meta name="Resource-type" content="Document" />
+
+
+	<link rel="stylesheet" type="text/css" href="../jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="examples.css" />
+	<style>
+
+	/* Style for our header texts
+	* --------------------------------------- */
+	h1{
+		font-size: 5em;
+		font-family: arial,helvetica;
+		color: #fff;
+		margin:0;
+		padding:0;
+	}
+	
+	/* Preformatted ASCII Text
+	* --------------------------------------- */
+	pre{
+		color: #00FF11;
+		margin-bottom:0;
+		padding:0;
+		  text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;
+	}
+	
+	/* GOLD ASCII Text
+	* --------------------------------------- */
+	.gold{
+		color: gold;
+		text-shadow:
+   -1px -1px 0 gold,  
+    1px -1px 0 gold,
+    -1px 1px 0 gold,
+     1px 1px 0 gold;
+	}
+
+	/* Centered texts in each section
+	* --------------------------------------- */
+	.section{
+		text-align:center;
+		overflow: hidden;
+	}
+
+	#myVideo{
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		top:0;
+		right:0;
+		width: 100%;
+		height: 100%;
+		background-size: 100% 100%;
+ 		background-color: black; /* in case the video doesn't fit the whole page*/
+  		background-image: url(moon.png);
+  		background-position: center center;
+  		background-size: contain;
+		backgroud: url(moon.png) no-repeat;
+   		object-fit: cover; /*cover video background */
+   		z-index:3;
+	}
+
+
+
+	/* Layer with position absolute in order to have it over the video
+	* --------------------------------------- */
+	#section0 .layer{
+		position: absolute;
+		z-index: 4;
+		width: 100%;
+		left: -5%;
+		top: 17%;
+	}
+
+	/*solves problem with overflowing video in Mac with Chrome */
+	#section0{
+		overflow: hidden;
+	}
+
+
+	/*solves problem with overflowing video in Mac with Chrome */
+	#section02{
+		background: black;
+	}
+	
+	/*remove text decoration from links */
+	a{
+		text-decoration: none;
+		color: #00FF11;
+	}
+
+
+	</style>
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+
+	<script type="text/javascript" src="../jquery.fullPage.js"></script>
+	<script type="text/javascript" src="examples.js"></script>
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				verticalCentered: true,
+				sectionsColor: ['#000000', '#000000', '#000000'],
+				afterRender: function(){
+
+
+					//playing the video
+					$('video').get(0).play();
+				}
+			});
+		});
+	</script>
+	
 </head>
 <body>
-  <h1>Welcome to my website</h1>
-  <p>Now hosted on Amazon S3!</p>
+
+
+
+<div id="fullpage">
+	<div class="section " id="section0">
+		<video autoplay muted id="myVideo">
+			<source src="moon.mp4" type="video/mp4">
+			<source src="moon.webm" type="video/webm">
+		</video>
+		<div class="layer">
+			<pre>
+        /$$                     /$$                                     
+       | $$                    |__/                                     
+   /$$$$$$$  /$$$$$$   /$$$$$$  /$$  /$$$$$$                            
+  /$$__  $$ |____  $$ /$$__  $$| $$ /$$__  $$                           
+ | $$  | $$  /$$$$$$$| $$  \__/| $$| $$  \ $$                           
+ | $$  | $$ /$$__  $$| $$      | $$| $$  | $$                           
+ |  $$$$$$$|  $$$$$$$| $$      | $$|  $$$$$$/                           
+  \_______/ \_______/|__/      |__/ \______/                            
+                                                                        
+                                                                        
+                                                                        
+                                    /$$           /$$                   
+                                   |__/          |__/                   
+  /$$$$$$/$$$$   /$$$$$$   /$$$$$$$ /$$  /$$$$$$  /$$  /$$$$$$  /$$$$$$ 
+ | $$_  $$_  $$ |____  $$ /$$_____/| $$ /$$__  $$| $$ /$$__  $$|____  $$
+ | $$ \ $$ \ $$  /$$$$$$$| $$      | $$| $$$$$$$$| $$| $$  \__/ /$$$$$$$
+ | $$ | $$ | $$ /$$__  $$| $$      | $$| $$_____/| $$| $$      /$$__  $$
+ | $$ | $$ | $$|  $$$$$$$|  $$$$$$$| $$|  $$$$$$$| $$| $$     |  $$$$$$$
+ |__/ |__/ |__/ \_______/ \_______/|__/ \_______/|__/|__/      \_______/
+                                                                       
+                                                                        
+                                                                        
+                /$$   /$$               /$$                 /$$ /$$     
+               |__/  | $$              | $$                | $$| $$     
+  /$$$$$$/$$$$  /$$ /$$$$$$    /$$$$$$$| $$$$$$$   /$$$$$$ | $$| $$     
+ | $$_  $$_  $$| $$|_  $$_/   /$$_____/| $$__  $$ /$$__  $$| $$| $$     
+ | $$ \ $$ \ $$| $$  | $$    | $$      | $$  \ $$| $$$$$$$$| $$| $$     
+ | $$ | $$ | $$| $$  | $$ /$$| $$      | $$  | $$| $$_____/| $$| $$     
+ | $$ | $$ | $$| $$  |  $$$$/|  $$$$$$$| $$  | $$|  $$$$$$$| $$| $$     
+ |__/ |__/ |__/|__/   \___/   \_______/|__/  |__/ \_______/|__/|__/     
+ </pre>
+		</div>
+	</div>
+	<div class="section" id="section1">
+	    <div class="slide" id="slide1">
+			<a href="https://www.linkedin.com/in/dario-macieira-mitchell-83626692">
+				<pre class="gold">
+    __        __        __        __        __        __    
+  _/  |_    _/  |_    _/  |_    _/  |_    _/  |_    _/  |_  
+ / $$   \  / $$   \  / $$   \  / $$   \  / $$   \  / $$   \ 
+/$$$$$$  |/$$$$$$  |/$$$$$$  |/$$$$$$  |/$$$$$$  |/$$$$$$  |
+$$ \__$$/ $$ \__$$/ $$ \__$$/ $$ \__$$/ $$ \__$$/ $$ \__$$/ 
+$$      \ $$      \ $$      \ $$      \ $$      \ $$      \ 
+ $$$$$$  | $$$$$$  | $$$$$$  | $$$$$$  | $$$$$$  | $$$$$$  |
+/  \__$$ |/  \__$$ |/  \__$$ |/  \__$$ |/  \__$$ |/  \__$$ |
+$$    $$/ $$    $$/ $$    $$/ $$    $$/ $$    $$/ $$    $$/ 
+ $$$$$$/   $$$$$$/   $$$$$$/   $$$$$$/   $$$$$$/   $$$$$$/  
+   $$/       $$/       $$/       $$/       $$/       $$/    
+                                                            
+    __        __        __        __        __        __    
+  _/  |_    _/  |_    _/  |_    _/  |_    _/  |_    _/  |_  
+ / $$   \  / $$   \  / $$   \  / $$   \  / $$   \  / $$   \ 
+/$$$$$$  |/$$$$$$  |/$$$$$$  |/$$$$$$  |/$$$$$$  |/$$$$$$  |
+$$ \__$$/ $$ \__$$/ $$ \__$$/ $$ \__$$/ $$ \__$$/ $$ \__$$/ 
+$$      \ $$      \ $$      \ $$      \ $$      \ $$      \ 
+ $$$$$$  | $$$$$$  | $$$$$$  | $$$$$$  | $$$$$$  | $$$$$$  |
+/  \__$$ |/  \__$$ |/  \__$$ |/  \__$$ |/  \__$$ |/  \__$$ |
+$$    $$/ $$    $$/ $$    $$/ $$    $$/ $$    $$/ $$    $$/ 
+ $$$$$$/   $$$$$$/   $$$$$$/   $$$$$$/   $$$$$$/   $$$$$$/  
+   $$/       $$/       $$/       $$/       $$/       $$/    
+				</pre>
+			</a>
+		</div>
+	    <div class="slide" id="slide2">
+					<a href="https://sunsetofaton.wordpress.com/">
+				<pre class="gold">
+
+
+           __                        __             ______           __        __          __        __                                
+          /  |                      /  |           /      \         /  |      /  |        /  |      /  |                               
+  ______  $$ |____    _______   ____$$ |  ______  /$$$$$$  |______  $$ |____  $$/      __ $$ |   __ $$ | _____  ____                   
+ /      \ $$      \  /       | /    $$ | /      \ $$ |_ $$//      \ $$      \ /  |    /  |$$ |  /  |$$ |/     \/    \                  
+ $$$$$$  |$$$$$$$  |/$$$$$$$/ /$$$$$$$ |/$$$$$$  |$$   |  /$$$$$$  |$$$$$$$  |$$ |    $$/ $$ |_/$$/ $$ |$$$$$$ $$$$  |                 
+ /    $$ |$$ |  $$ |$$ |      $$ |  $$ |$$    $$ |$$$$/   $$ |  $$ |$$ |  $$ |$$ |    /  |$$   $$&lt;  $$ |$$ | $$ | $$ |                 
+/$$$$$$$ |$$ |__$$ |$$ \_____ $$ \__$$ |$$$$$$$$/ $$ |    $$ \__$$ |$$ |  $$ |$$ |    $$ |$$$$$$  \ $$ |$$ | $$ | $$ |                 
+$$    $$ |$$    $$/ $$       |$$    $$ |$$       |$$ |    $$    $$ |$$ |  $$ |$$ |    $$ |$$ | $$  |$$ |$$ | $$ | $$ |                 
+ $$$$$$$/ $$$$$$$/   $$$$$$$/  $$$$$$$/  $$$$$$$/ $$/      $$$$$$$ |$$/   $$/ $$/__   $$ |$$/   $$/ $$/ $$/  $$/  $$/                  
+                                                          /  \__$$ |            /  \__$$ |                                             
+                                                          $$    $$/             $$    $$/                                              
+                                                           $$$$$$/               $$$$$$/                                               
+                                                               __                                                                      
+                                                              /  |                                                                     
+ _______    ______    ______    ______    ______    _______  _$$ |_    __    __  __     __  __   __   __  __    __  __    __  ________ 
+/       \  /      \  /      \  /      \  /      \  /       |/ $$   |  /  |  /  |/  \   /  |/  | /  | /  |/  \  /  |/  |  /  |/        |
+$$$$$$$  |/$$$$$$  |/$$$$$$  |/$$$$$$  |/$$$$$$  |/$$$$$$$/ $$$$$$/   $$ |  $$ |$$  \ /$$/ $$ | $$ | $$ |$$  \/$$/ $$ |  $$ |$$$$$$$$/ 
+$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$/ $$      \   $$ | __ $$ |  $$ | $$  /$$/  $$ | $$ | $$ | $$  $$&lt;  $$ |  $$ |  /  $$/  
+$$ |  $$ |$$ \__$$ |$$ |__$$ |$$ \__$$ |$$ |       $$$$$$  |  $$ |/  |$$ \__$$ |  $$ $$/   $$ \_$$ \_$$ | /$$$$  \ $$ \__$$ | /$$$$/__ 
+$$ |  $$ |$$    $$/ $$    $$/ $$    $$ |$$ |      /     $$/   $$  $$/ $$    $$/    $$$/    $$   $$   $$/ /$$/ $$  |$$    $$ |/$$      |
+$$/   $$/  $$$$$$/  $$$$$$$/   $$$$$$$ |$$/       $$$$$$$/     $$$$/   $$$$$$/      $/      $$$$$/$$$$/  $$/   $$/  $$$$$$$ |$$$$$$$$/ 
+                    $$ |            $$ |                                                                           /  \__$$ |          
+                    $$ |            $$ |                                                                           $$    $$/           
+                    $$/             $$/                                                                             $$$$$$/            
+
+
+				</pre>
+			</a></div>
+	</div>
+	<div class="section" id="section2"><pre class="layer">
+	
+
+                ____________ _____   ___ _____ _____ _____ _____ _        _                   
+                | ___ \ ___ \  _  | |_  |  ___/  __ \_   _/  ___| |      | |                  
+                | |_/ / |_/ / | | |   | | |__ | /  \/ | | \ `--.| |___  _| |_                 
+                |  __/|    /| | | |   | |  __|| |     | |  `--. \ __\ \/ / __|                
+                | |   | |\ \\ \_/ /\__/ / |___| \__/\ | | /\__/ / |_ >  &lt;| |_                 
+                \_|   \_| \_|\___/\____/\____/ \____/ \_/ \____(_)__/_/\_\\__|                
+                                                                              
+                +==============================================================================+                
+                |                                                                              |                
+                |   PERSONAL                                                                   |                
+                |                                                                              |                
+                |   <a href="https://sunsetofaton.wordpress.com/">Shadows of Aton .................................... 2015-present</a>          |                
+                |                                                                              |                
+                |   <a href="http://sushi.cheap/">sushi.cheap ........................................ 2013-present</a>          |                
+                |                                                                              |                
+                |   <a href="http://openbookproject.net/">Open Book Project  ................................. 2011-2012</a>             |                
+                |                                                                              |                
+                |   ACADEMIC                                                                   |                
+                |                                                                              |                
+                |   <a href="http://www.atsjournals.org/doi/abs/10.1164/ajrccm-conference.2015.191.1_MeetingAbstracts.A1258">Transcriptome Analysis of COPD  ................... 2014, 2015</a>             |                
+                |                                                                              |                
+                |   <a href="http://bumster.host22.com/">Bumster  ........................................... 2013-2014</a>             |                
+                |                                                                              |                
+                +==============================================================================+                
+
+</pre></div>
+	<div class="section" id="section3"><h1>gorbachev italic</h1></div>
+</div>
+
 </body>
 </html>
