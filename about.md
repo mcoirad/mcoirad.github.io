@@ -4,15 +4,15 @@ layout: page
 ---
 ![Profile Image]({% if site.external-image %}{{ site.picture }}{% else %}{{ site.url }}/{{ site.picture }}{% endif %})
 
-<p>My work concerns the creation and reproduction of narratives and interactions in both virtual and lived environments.</p>
+<p>My work broadly concerns the creation and reproduction of narratives and interactions in both virtual and lived environments.</p>
 
-<p>As an engineer, I am interested in the development of novel forms of computational narrative and expression. My background as a data scientist was about telling stories with data, now I am more concerned with creation of frameworks for creating stories. Concerning data science -- this means data engineering. Concerning interaction design -- this means the tools for creating interactions.</p>
+<p>As an engineer, I am interested in the development of novel forms of computational narrative and expression using both artificial intelligence as well as classical procedural techniques. My background as a data scientist was about telling stories with data, now I am more concerned with creation of frameworks for creating stories. Concerning data science -- this means data engineering. Concerning interaction design -- this means the tools for creating interactions.</p>
 	
-<p>As a writer, I am concerned with the “engineering of history”: how power and communications technologies shape knowledge systems and public narratives. I am especially interested in the impact of technology on academia.</p>
+<p>Also as an engineer, I am concerned with the “engineering of history”: how power and communications technologies shape knowledge systems and public narratives. It is my goal to properly historicize the technological developments that I am part of as an active observer, and I am passionate about the use of technology to counter authoritarian political systems and critical of its use to further them. I am especially interested in the impact of recent technological developments on society today.</p>
 	
-<p>I put these interests together in a variety of projects spanning 2D and 3D art, interactive design, data visualization, and especially, writing code.</p>
+<p>I put these interests together in a variety of projects spanning 2D and 3D art, interactive design, data visualization, writing non-fiction, and most especially, writing code.</p>
 
-<p>I've worked as a consultant for a variety of clients such as the US State Department, ACLU, Partners for the Americas, Priorities USA, the Democratic Senate Campaign Committee, and the Biden for President campaign. Most recently I worked at a startup called Retina AI.</p>
+<p>I've worked as a consultant for a variety of clients such as the [US State Department](https://www.100kstrongamericas.org/), [ACLU](https://www.acludc.org/), [Partners for the Americas](https://www.partners.net/), [Priorities USA](https://priorities.org/), [the Democratic Senate Campaign Committee](https://www.dscc.org/), and [the Biden for President campaign](https://joebiden.com/). Most recently I worked at a startup called [Retina AI](https://www.crunchbase.com/organization/retina-ai).</p>
 
 <h2>Skills</h2>
 
