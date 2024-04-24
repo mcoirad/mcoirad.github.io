@@ -14,7 +14,9 @@ layout: page
 	
 <p>I put these interests together in a variety of projects spanning 2D and 3D art, interactive design, data visualization, writing non-fiction, and most especially, writing code.</p>
 
-I've worked as a consultant for a variety of clients such as the [US State Department](https://www.100kstrongamericas.org/), [ACLU](https://www.acludc.org/), [Partners for the Americas](https://www.partners.net/), [Priorities USA](https://priorities.org/), [the Democratic Senate Campaign Committee](https://www.dscc.org/), and [the Biden for President campaign](https://joebiden.com/). Most recently I worked at a startup called [Retina AI](https://www.crunchbase.com/organization/retina-ai).
+I've worked as a consultant for a variety of clients such as the [US State Department](https://www.100kstrongamericas.org/), [ACLU](https://www.acludc.org/), [Partners for the Americas](https://www.partners.net/), [Priorities USA](https://priorities.org/), [the Democratic Senate Campaign Committee](https://www.dscc.org/), and [the Biden for President campaign](https://joebiden.com/). Most recently I worked at a startup called [Retina AI](https://www.crunchbase.com/organization/retina-ai). 
+
+I studied History and Statistics at [the New College of Florida](https://www.ncf.edu/), taking a B.A. with Honors, graduating before [the right-wing takeover](https://apnews.com/article/desantis-new-college-florida-woke-timeline-5a5bcd78230ddd2a1adb8021fea8a755). I am deeply indebted to my professors and advisors from my time there.
 
 <h2>Skills</h2>
 
