@@ -32,6 +32,8 @@ I was interested in creating similar games, but found most frameworks for intera
 
 I wanted to create a system for multiplayer storytelling. Something like a novel, that can be shared with multiple people. So I started work on a framework for my own interactive novel efforts. The basic goal was to replicate the gameplay of Ace Attorney, as if it were a multiplayer game.
 
-This precluded the creation of my own scripting language, which has borrowed heavily from Renpy. So far I have used Unity as the view layer, but have also been looking at Godot as an alternative. I am now at work polishing its features, and scraping the time to together to produce art mockups for the game I would like to build.
+This precluded the creation of my own scripting language, which has borrowed heavily from Renpy. So far I have used Unity as the view layer, but have also been looking at Godot as an alternative. 
+
+At this point [I'm about 50-60% in on what I'd like to implement in my base feature set for the framework](https://docs.google.com/document/d/1zSwSUPcDkkznFxj8uB94N8eU8m4bri6jeO3hq-L-hWw/edit?usp=sharing). I'm kind of caught between two goals -- developing the framework as to use as the basis for my own game, and developing the framework as something that could be shared and published. To the first end I've been working on getting out some art mockups of what I'd want the game to look like. And to the second I'm working on cleaning up the code and creating better documentation. But I probably don't have the time to do both so I need to determine my goals so I know what to focus on.
 
 ![Game Demo Screenshot](/assets/images/preview.png)
