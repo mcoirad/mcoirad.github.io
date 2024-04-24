@@ -4,42 +4,35 @@ layout: page
 ---
 ![Profile Image]({% if site.external-image %}{{ site.picture }}{% else %}{{ site.url }}/{{ site.picture }}{% endif %})
 
-<p>Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>My work concerns the creation and reproduction of narratives and interactions in both virtual and lived environments.</p>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>As an engineer, I am interested in the development of novel forms of computational narrative and expression. My background as a data scientist was about telling stories with data, now I am more concerned with creation of frameworks for creating stories. Concerning data science -- this means data engineering. Concerning interaction design -- this means the tools for creating interactions.</p>
+	
+<p>As a writer, I am concerned with the “engineering of history”: how power and communications technologies shape knowledge systems and public narratives. I am especially interested in the impact of technology on academia.</p>
+	
+<p>I put these interests together in a variety of projects spanning 2D and 3D art, interactive design, data visualization, and especially, writing code.</p>
+
+<p>I've worked as a consultant for a variety of clients such as the US State Department, ACLU, Partners for the Americas, Priorities USA, the Democratic Senate Campaign Committee, and the Biden for President campaign. Most recently I worked at a startup called Retina AI.</p>
 
 <h2>Skills</h2>
 
 <ul class="skill-list">
-	<li>HTML - Jade - Haml - Erb</li>
-	<li>Responsive (Mobile First)</li>
-	<li>CSS (Stylus, Sass, Less)</li>
-	<li>Css Frameworks (Bootstrap, Foundation)</li>
-	<li>Javascript (Design Patterns, Tests)</li>
-	<li>AngularJS - ReactJS</li>
-	<li>Grunt - Gulp - Yeoman</li>
-	<li>Git</li>
-	<li>PHP</li>
-	<li>Python</li>
-	<li>MySQL - MongoDB</li>
-	<li>Scrum and Kanban</li>
-	<li>TDD e Continuous Integration</li>
+	<li>Data Ops (Python, Spark, all the SQL)</li>
+	<li>Dev Ops (Docker, AWS CDK, Github Actions)</li>
+	<li>Cloud Tech (AWS, Google Cloud)</li>
+	<li>AI Stuff (Tensorflow, LangChain)</li>
+	<li>Software Dev (Django, FastAPI, Unity3D)</li>
+	<li>Hardware Prototyping (Raspberry Pi, Arduino)</li>
+	<li>Data Viz (Shiny/Dash, Chart.js, Tableau/Google Data Studio/etc.)</li>
+	<li>Adobe Creative Suite + open source alternatives</li>
+	<li>C#, Typescript, PHP, R (as needed)</li>
+	<li>Git, Agile (the real version)</li>
 </ul>
 
-<h2>Projects</h2>
+<h2>Selected Writing</h2>
 
 <ul>
-	<li><a href="https://github.com/">Lorem Lorem</a></li>
-	<li><a href="https://github.com/">Ipsum Dolor</a></li>
-	<li><a href="https://github.com/">Dolor Lorem</a></li>
+	<li><a href="https://medium.com/@macieiramitchell/why-ai-will-and-wont-kill-the-humanities-78f6cee5446a">Why AI will and won’t kill the Humanities.</a></li>
+	<li><a href="https://github.com/">Flo Health: How to badly (and unethically) use the Facebook SDK</a></li>
+	<li><a href="https://github.com/">The Facebook Social Contagion Experiment: How Tech Corrupted the Social Sciences</a></li>
 </ul>
