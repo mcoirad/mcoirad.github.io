@@ -1,0 +1,79 @@
+---
+title: "Building a Political Media Research Platform"
+layout: post
+date: 2023-08-10 22:44
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- data engineering
+star: true
+category: project
+projects: true
+author: dario
+description: Building a Political Media Intelligence Platform
+---
+
+2016 was a watershed year in American politics. It was a watershed year for me too, but all the details are too big for the scope of this post. But suffice to say it opened the eyes of many (including mine) to the power of data to manipulate social movement.
+
+Not too long after, I became professionally involved in leading the development the data infrastructure for political campaigns and organizations. One of my first projects, and what was soon to become my main project, was building the tools for automatic capture and analysis of political advertising data.
+
+## Building an accurate data intelligence pipeline
+
+Capturing digital political advertising data required building a realtime data collection pipeline that scraped public advertising transparency reports. Unlike your traditional data pipeline, a web-scraping pipeline suffers from the following downsides:
+
+- Data on a website changes on an indeterminate schdule
+- Changes to web pages cause previous information there to be lost
+- Changes to how data is presented 
+- You can be ratelimited
+- Authentication to access data can be through a UI
+- Data you collect can be incomplete
+
+Solving for all of these issues requires a careful attention to detail, as well as some creative problem-solving.
+
+#### Data scheduling
+The answer is simply you need to find the assumptions you can safely make, and be prepared to collect a ton of data, all the time.
+
+As an example the Facebook Transparency Reports make CSVs of daily data available on most days. This is can usually be collected once a day. However their ad-level reporting updates indetermiately. This required running multi-threaded web scrapers so that we could scrape each ad at least once a day.
+
+#### Changes to Website structure
+This is pretty similar to traditional data pipelines in that you need to be able to detect when a data source is down, or if the pipeline is not exporting outputs properly. You need canary tests that will trigger if no data is being collected over a certain point in time. You also need to log errors or missing data so you can trigger an alarm if missing data counts go over a certain threshold.
+
+#### Data Access
+There is exist fairly decent rights when it comes to collecting data from public webpages. This has unfortunate consequences for individuals who may not be anticipating that their Facebook photos are being used in large-scale computer vision and surveillance projects. But as long as it is open-season, it also applies to corporations and the content on their websites.
+
+However, they unlike individuals, have the ability to shut you down so you need to be careful.
+Even when not provided, you need to determine respectful limits for how often you are querying webpages.
+
+Finally you may have to authenticate using a UI process built for a human user. 2FA can be handled by automating the relevant protocols whether it is SMS or OTP (rotating numbers). I used Tossable Digits and PyOTP.
+
+#### Incomplete and inaccurate data
+The biggest issue for any web scraping project is making sure your data is complete. This is issue is big enough that I would discourage web scraping for most projects with serious goals. You are basically trying to reverse engineer a dataset. 100% of the time, it is better to get access to the actual dataset. (Data = Power) But if you have 0% chance of getting access to it and decided to go the web scraping route, you need to have a way of testing your data to make sure it is accurate and complete.
+
+To give an example of the problem, consider that the Facebook Transparency Report offers ad level data. However, metrics such as ad spend and ad reach are bucketed in fairly fuzzy bucket amounts. So if you are trying to evaluate the daily spend on an ad, it is impossible from just looking at what Facebook provides at the ad level. In addition, Facebook offers no history of the spend -- you have to build that history yourself with daily web scraping.
+
+However, Facebook also provides exact daily ad spends at the advertiser level. So by collecting those you can know the daily spend for all ads for an advertiser.
+
+All this gives you enough data points to estimate the actual daily spend of an advertisement on Facebook. You just have to ensure that you are collecting one data point per day, per ad, as well as the daily spend of an advertiser per day. You can use the date of when an ad spend bucket changes to know when it has hit a minimum of spend. And using the advertiser level spend you can distribute the estimated spend among all the active ads that day.
+
+Finally, if you are running your own ads, or know someone that is. You can double check against the real numbers. And thus be confident in your own estimates.
+
+## Political Advertising Analysis
+
+#### When not to use AI
+I'm a big believer in not using more than what you need. Plenty of times I've seen attempts to us the latest AI or machine learning techniques to build a predictive model that then works less well than a basic technique such as linear regression. The linear regression is also easier to build. But it doesn't sound as fun as chasing the buzzwords.
+
+On this project I had a data engineer who attempted to build a machine learning model that would automatically categorize ads into categories as well as predict the emotional content of the ad. They utilized paid coders to code the training data. It was an ambitious project that ultimately failed because to build the perfect model with so many prediction points, you need a very large amount of training data.
+
+As a backup plan I had prepared a very simple NLP algorithm that simply counted the occurances of coded keywords. For example if "immigration" appeared in an ad's text, we assigned the label of "immigration" to the ad's topics. For this we needed to manually maintain a list of keywords, but this was much less expensive that hiring manual data coders. It could also be developed and implemented by an analyst. And unlike the machine learning model, it actually worked. We were able to do something similar with sentiment analysis using coded "positive" and "negative" keywords.
+
+#### When to use AI
+Sometimes, however, simple classical techniques are not enough to obtain the results we need. Returning to the problem of emotional content of ads -- many ads do not contain much text at all. Ad copy like "Vote Now!" tells you some important information about the ad creative, but an ad is as much images and it is words. Even by processing all image, video, and audio from ads to extract the textual information contained within, (We used AI for this) you are still missing key points of information. So I decided to add a facial emotion recognition component to our pipeline.
+
+#### Final Product
+Once all these data points have been established, together with the ad-level spend estimates, one can easily answer a variety of questions about the current digital political ad environment:
+
+- How much are conservative groups spending on immigration topics?
+- How much money was spent on immigration related ads for certain period of time?
+- How much money was spent on ads using 'happiness' as an emotion?
+
+At GMMB we ended up producing a variety of dashboards, alert triggers, automated emails -- all that were only possible due to time spent creating a reliable data pipeline. Our base dataset and assorted research tools were used by a variety of media groups and organizations such as BFP, the Kamala Harris campaign, DSCC, DGA, Priorities USA, as well as in-house for GMMB digital campaigns.

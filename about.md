@@ -6,13 +6,15 @@ layout: page
 
 ## Hi! I'm Dario Macieira Mitchell
 
-<p>My work broadly concerns the creation and reproduction of narratives and interactions in both virtual and lived environments.</p>
+<p>I'm a software engineer and data scientist with two main interests:</p>
+- Harnessing the power of data for social good
+- Exploring the creation of novel forms of computational narrative
 
-<p>As an engineer, I am interested in the development of novel forms of computational narrative and expression using both artificial intelligence as well as classical procedural techniques. My background as a data scientist was about telling stories with data, now I am more concerned with creation of frameworks for creating stories. Concerning data science -- this means data engineering. Concerning interaction design -- this means the tools for creating interactions.</p>
-	
-<p>Also as an engineer, I am concerned with the “engineering of history”: how power and communications technologies shape knowledge systems and public narratives. It is my goal to properly historicize the technological developments that I am part of as an active observer, and I am passionate about the use of technology to counter authoritarian political systems and critical of its use to further them. I am especially interested in the impact of recent technological developments on society today.</p>
-	
-<p>I put these interests together in a variety of projects spanning 2D and 3D art, interactive design, data visualization, writing non-fiction, and most especially, writing code.</p>
+The first of these comes from my belief that data is power, and that its power should serve the interests of the public. Too often (and one could argue systematically) data science is used to centralize power among institutions who are not answerable to any of the methods and rituals of public debate and democracy. If left unchecked the result will be a world of increased social and economic inequality.
+
+The second comes from my interest in human-computer interaction. The potential of computational narratives lies in its interactivity, which allows for greater immersion and possibility for those interacting with it. I pursue this interest by utilizing both artifical intelligence as well as classical procedural techniques.
+
+Both of these interests come together in a variety of projects spanning art and interactive design, data visualization and modeling, as well as in writing non-fiction, and writing code.
 
 I've worked as a consultant for a variety of clients such as the [US State Department](https://www.100kstrongamericas.org/), [ACLU](https://www.acludc.org/), [Partners for the Americas](https://www.partners.net/), [Priorities USA](https://priorities.org/), [the Democratic Senate Campaign Committee](https://www.dscc.org/), and [the Biden for President campaign](https://joebiden.com/). Most recently I worked at a startup called [Retina AI](https://www.crunchbase.com/organization/retina-ai). 
 
