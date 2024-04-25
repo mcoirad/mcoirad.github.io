@@ -804,7 +804,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
     
 
     
-        1 min
+        2 mins
     
 </span>
 
@@ -822,7 +822,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 
 <h2 id="building-fantasy-maps">Building fantasy maps</h2>
 
-<p>I really love fantasy maps. There is something about the gestalt escapism of new worlds that is captured by them for me. To the point where they maybe interest me more than reading fantasy books, for example. I used to spend time drawing them by hand and imagining the cultures and peoples that would inhabit them. So eventually I got to thinking about how I could build rules for generating my own.</p>
+<p>On taking a break from some of my other projects I got into another interest. I really love fantasy maps. There is something about the gestalt escapism of new worlds that is captured by them for me. To the point where they maybe interest me more than reading fantasy books, for example. I used to spend time drawing them by hand and imagining the cultures and peoples that would inhabit them. So eventually I got to thinking about how I could build rules for generating my own.</p>
 
 <p>I found some great already existing work:</p>
 
@@ -833,10 +833,42 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 
 <p>So naturally I cribbed some to create my own.</p>
 
+<h3 id="environment-modeling">Environment modeling</h3>
+
+<p>The basic steps to follow are to do a simple simulation of natural forces. I used fractals but you can get good results from a variety of noise generators.</p>
+
+<p>First randomly generate a heighmap of elevation.</p>
+
+<p>Then do a gradient for temperature.</p>
+
+<p>Another fractal to simulate rainfall.</p>
+
+<p>Then use these different values to color your biomes.</p>
+
+<p>From there you can do a lot of different things, but you may find that attention realism may slow you down and actually produce worse results. For example, I tried to include an erosion simulation. But I don’t really like the results.</p>
+
+<p>Placing map symbols though turned out very nicely.</p>
+
+<h3 id="politicaleconomic-boundaries">Political/economic boundaries</h3>
+
+<p>Next I came up with some different country boundaries. Also creatd a method to place cities.</p>
+
+<p>Then roads to connect the cities, placed with an A* Pathfinding algorithm. This however turned out to be quite slow so I wonder if there is a better way to build realistic looking results with a lot less computation.</p>
+
+<h3 id="turning-it-into-a-video-game">Turning it into a video game</h3>
+
+<p>After spending so much time on the map I tried adding some gameplay to flesh out a minigame. Since I had countries and cities I added units that can be built and sent out to fight other units or conquer cities. For now I just used a Fire Emblem style Horses vs. Spears vs. Swords rock-paper-scissors type of deal.</p>
+
+<p>At this point this turned from a side-project into a real project! I think this could be the basis of a very fun game. But I don’t have unlimited time so I’ll put it back to the side and return to my other projects.</p>
+
 <p><img src="/assets/images/maps/map1.png" alt="2D Pixel Art Fantasy Map" />
 <img src="/assets/images/maps/map2.png" alt="2D Pixel Art Fantasy Map" />
 <img src="/assets/images/maps/map3.png" alt="2D Pixel Art Fantasy Map" /></p>
 
+<h2 id="more-maps">More maps</h2>
+
+<p>I’m happy with how they’ve come out generally. I don’t really like how the sea monster came out.
+But they have a unique style. If I return to this there will be some need for optimization. Currently things really bog down after 3000px size maps. Ideally would want to be able to generate a chunk of a map, and then continually generate other chunks as needed.</p>
 
 
 
@@ -869,7 +901,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
                     <ul>
                     
                     <li class="relatedPost">
-                        <a href="https://dario.technology/creating-framework-multiplayer-novel-copy/">Creating a framework for multiplayer interactive novels
+                        <a href="https://dario.technology/creating-framework-multiplayer-novel-copy/">Building a Multiplayer Framework for Interactive Novels
                         
                         </a>
                     </li>
@@ -894,36 +926,6 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
             
                 
             
-        
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-        
-    
-        
         
             
                 

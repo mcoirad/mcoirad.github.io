@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2024-04-24T12:23:44-05:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Procedural Fantasy Map Generation</title><link href="https://dario.technology/creating-fantasy-maps/" rel="alternate" type="text/html" title="Procedural Fantasy Map Generation" /><published>2024-03-11T22:44:00-05:00</published><updated>2024-03-11T22:44:00-05:00</updated><id>https://dario.technology/creating-fantasy-maps</id><content type="html" xml:base="https://dario.technology/creating-fantasy-maps/"><![CDATA[<h2 id="building-fantasy-maps">Building fantasy maps</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2024-04-24T22:21:23-05:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Procedural Fantasy Map Generation</title><link href="https://dario.technology/creating-fantasy-maps/" rel="alternate" type="text/html" title="Procedural Fantasy Map Generation" /><published>2024-03-11T22:44:00-05:00</published><updated>2024-03-11T22:44:00-05:00</updated><id>https://dario.technology/creating-fantasy-maps</id><content type="html" xml:base="https://dario.technology/creating-fantasy-maps/"><![CDATA[<h2 id="building-fantasy-maps">Building fantasy maps</h2>
 
-<p>I really love fantasy maps. There is something about the gestalt escapism of new worlds that is captured by them for me. To the point where they maybe interest me more than reading fantasy books, for example. I used to spend time drawing them by hand and imagining the cultures and peoples that would inhabit them. So eventually I got to thinking about how I could build rules for generating my own.</p>
+<p>On taking a break from some of my other projects I got into another interest. I really love fantasy maps. There is something about the gestalt escapism of new worlds that is captured by them for me. To the point where they maybe interest me more than reading fantasy books, for example. I used to spend time drawing them by hand and imagining the cultures and peoples that would inhabit them. So eventually I got to thinking about how I could build rules for generating my own.</p>
 
 <p>I found some great already existing work:</p>
 
@@ -11,9 +11,42 @@
 
 <p>So naturally I cribbed some to create my own.</p>
 
+<h3 id="environment-modeling">Environment modeling</h3>
+
+<p>The basic steps to follow are to do a simple simulation of natural forces. I used fractals but you can get good results from a variety of noise generators.</p>
+
+<p>First randomly generate a heighmap of elevation.</p>
+
+<p>Then do a gradient for temperature.</p>
+
+<p>Another fractal to simulate rainfall.</p>
+
+<p>Then use these different values to color your biomes.</p>
+
+<p>From there you can do a lot of different things, but you may find that attention realism may slow you down and actually produce worse results. For example, I tried to include an erosion simulation. But I don’t really like the results.</p>
+
+<p>Placing map symbols though turned out very nicely.</p>
+
+<h3 id="politicaleconomic-boundaries">Political/economic boundaries</h3>
+
+<p>Next I came up with some different country boundaries. Also creatd a method to place cities.</p>
+
+<p>Then roads to connect the cities, placed with an A* Pathfinding algorithm. This however turned out to be quite slow so I wonder if there is a better way to build realistic looking results with a lot less computation.</p>
+
+<h3 id="turning-it-into-a-video-game">Turning it into a video game</h3>
+
+<p>After spending so much time on the map I tried adding some gameplay to flesh out a minigame. Since I had countries and cities I added units that can be built and sent out to fight other units or conquer cities. For now I just used a Fire Emblem style Horses vs. Spears vs. Swords rock-paper-scissors type of deal.</p>
+
+<p>At this point this turned from a side-project into a real project! I think this could be the basis of a very fun game. But I don’t have unlimited time so I’ll put it back to the side and return to my other projects.</p>
+
 <p><img src="/assets/images/maps/map1.png" alt="2D Pixel Art Fantasy Map" />
 <img src="/assets/images/maps/map2.png" alt="2D Pixel Art Fantasy Map" />
-<img src="/assets/images/maps/map3.png" alt="2D Pixel Art Fantasy Map" /></p>]]></content><author><name>dario</name></author><category term="project" /><category term="game development" /><category term="procedural generation" /><summary type="html"><![CDATA[Generating 2D Fantasy Maps]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Creating a framework for multiplayer interactive novels</title><link href="https://dario.technology/creating-framework-multiplayer-novel-copy/" rel="alternate" type="text/html" title="Creating a framework for multiplayer interactive novels" /><published>2024-02-24T22:44:00-06:00</published><updated>2024-02-24T22:44:00-06:00</updated><id>https://dario.technology/creating-framework-multiplayer-novel%20copy</id><content type="html" xml:base="https://dario.technology/creating-framework-multiplayer-novel-copy/"><![CDATA[<h2 id="the-ease-of-developing-interactive-narratives">The ease of developing interactive narratives</h2>
+<img src="/assets/images/maps/map3.png" alt="2D Pixel Art Fantasy Map" /></p>
+
+<h2 id="more-maps">More maps</h2>
+
+<p>I’m happy with how they’ve come out generally. I don’t really like how the sea monster came out.
+But they have a unique style. If I return to this there will be some need for optimization. Currently things really bog down after 3000px size maps. Ideally would want to be able to generate a chunk of a map, and then continually generate other chunks as needed.</p>]]></content><author><name>dario</name></author><category term="project" /><category term="game development" /><category term="procedural generation" /><summary type="html"><![CDATA[Generating 2D Fantasy Maps]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Building a Multiplayer Framework for Interactive Novels</title><link href="https://dario.technology/creating-framework-multiplayer-novel-copy/" rel="alternate" type="text/html" title="Building a Multiplayer Framework for Interactive Novels" /><published>2024-02-24T22:44:00-06:00</published><updated>2024-02-24T22:44:00-06:00</updated><id>https://dario.technology/creating-framework-multiplayer-novel%20copy</id><content type="html" xml:base="https://dario.technology/creating-framework-multiplayer-novel-copy/"><![CDATA[<h2 id="the-ease-of-developing-interactive-narratives">The ease of developing interactive narratives</h2>
 
 <p>Today there exist many tools and engines that allow for the easy creation of interactive literature.</p>
 
@@ -35,344 +68,43 @@
 
 <p>At this point <a href="https://docs.google.com/document/d/1zSwSUPcDkkznFxj8uB94N8eU8m4bri6jeO3hq-L-hWw/edit?usp=sharing">I’m about 50-60% in on what I’d like to implement in my base feature set for the framework</a>. I’m kind of caught between two goals – developing the framework as to use as the basis for my own game, and developing the framework as something that could be shared and published. To the first end I’ve been working on getting out some art mockups of what I’d want the game to look like. And to the second I’m working on cleaning up the code and creating better documentation. But I probably don’t have the time to do both so I need to determine my goals so I know what to focus on.</p>
 
-<p><img src="/assets/images/preview.png" alt="Game Demo Screenshot" /></p>]]></content><author><name>dario</name></author><category term="project" /><category term="game development" /><category term="interactive narratives" /><summary type="html"><![CDATA[Building a framework with Unity3D]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Markdown Extra Components</title><link href="https://dario.technology/markdown-extra-components/" rel="alternate" type="text/html" title="Markdown Extra Components" /><published>2016-02-24T22:48:00-06:00</published><updated>2016-02-24T22:48:00-06:00</updated><id>https://dario.technology/markdown-extra-components</id><content type="html" xml:base="https://dario.technology/markdown-extra-components/"><![CDATA[<h2 id="summary">Summary:</h2>
+<p><img src="/assets/images/preview.png" alt="Game Demo Screenshot" /></p>]]></content><author><name>dario</name></author><category term="project" /><category term="game development" /><category term="interactive narratives" /><summary type="html"><![CDATA[Building a framework with Unity3D]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Turning the Table on Basketball’s Advanced Stats</title><link href="https://dario.technology/basketball-stats-on-basketball-executives/" rel="alternate" type="text/html" title="Turning the Table on Basketball’s Advanced Stats" /><published>2023-11-24T22:44:00-06:00</published><updated>2023-11-24T22:44:00-06:00</updated><id>https://dario.technology/basketball-stats-on-basketball-executives</id><content type="html" xml:base="https://dario.technology/basketball-stats-on-basketball-executives/"><![CDATA[<p>As a basketball fan of a bad basketball team, something has always bothered me about the inaccessible nature of major league sports leadership. It seems… to put it nicely… to be less than a meritocracy. While playing sports at a professional level seems to be an extremely unique talent, I would argue that managing a sports team is much less than that. Of any NBA team, for example, there are probably some percentage of the fans that could conceivably make better decisions than the team’s own front office. (The same could probably said for large corporations)</p>
 
-<p>You can pick as item to see how to apply in markdown.</p>
+<p>The performance of NBA players is scrutinized at a level that exemplifies data science’s “race to the bottom.” Just about everything is tracked statistically in the hope that some advantage can be gleaned. Draft evaluations include not just basic anthromorphic data but also surveys of NBA prospects mental states.</p>
 
-<h4 id="especial-elements">Especial Elements</h4>
+<p>I find it disappointing that we don’t have the same data points to measure the performance of the basketball executives that are at the end of the day responsible for the entire team’s performance. (Once again I feel the same way about executives of corporations in general) Thus I set out to create my own statistic for this.</p>
+
+<h3 id="assembling-the-dataset">Assembling the dataset</h3>
+
+<p>Most stats are easily available. However I needed transactions. I got this from basketball-reference.com and matched players to basic and advanced stats from there. The goal was to be able to assign a value to each transaction an executive made. Transaction are grouped into the following categories:</p>
 <ul>
-  <li><a href="#evidence">Evidence</a></li>
-  <li><a href="#side-by-side">Side-by-Side</a></li>
-  <li><a href="#star">Star</a></li>
-  <li><a href="#especial-breaker">Especial Breaker</a></li>
-  <li><a href="#spoiler">Spoiler</a></li>
+  <li>Trade</li>
+  <li>Draft</li>
+  <li>Free agent signing</li>
+  <li>Sale</li>
 </ul>
 
-<h4 id="external-elements">External Elements</h4>
+<p>Free agent losses are hard to track and I would have to do more work to build the dataset for this type of transaction – so I have left that out for now.</p>
+
+<p>For the value of the transaction I used a very simple formula of:</p>
+
+<p>Player BPM * Number of minutes played for team</p>
+
+<p>By creating a running total of these values I can create a stat I’ll call “Executive BPM”.</p>
+
+<p>This works alright – but like any stat has its shortcomings:</p>
 <ul>
-  <li><a href="#gist">Gist</a></li>
-  <li><a href="#codepen">Codepen</a></li>
-  <li><a href="#slideshare">Slideshare</a></li>
-  <li><a href="#videos">Videos</a></li>
+  <li>trading for/playing a prospect heavy minutes will generate a lot of negative EBPM</li>
+  <li>Intentionally tanking will lead to a lot of negative EBPM</li>
+  <li>Trading a good player for picks also leads to negative EBPM</li>
 </ul>
 
-<hr />
+<p>We account for some of these like doing things like assigning a value to future first round and second round picks. But these will always be lower than that of a star player (and in the case of second round picks, may actually have negative value if an executive is bad at drafting.)</p>
 
-<h2 id="evidence">Evidence</h2>
+<h3 id="visualizing-results">Visualizing results</h3>
 
-<p>You can try the evidence!</p>
+<p>In getting some results up and out I opted for a static site generator. Creating a full-stack website would be fun but I’m more interested in the data and analysis for this rather than digging into the infrastructure.</p>
 
-<p><span class="evidence">Paragraphs can be written like so. A paragraph is the basic block of Markdown. A paragraph is what text will turn into when there is no reason it should become anything else.</span></p>
+<p>I know Jekyll is falling behind Hugo these days in popularity as a static site generator. But Jekyll is still so much simpler than Hugo to set up and get going. I used it to generate pages for each executive in the data I collected. I also used Chart.js to generate some interactive visualizations. I took a long look at D3 but I don’t really like the way its gone with Observable (with all due respect to the folks using Observable) it the attempt to emulate Juptyer/R Markdown style notebooks. It seems that a lot of d3 examples got nuked and are no longer available. Chart.js was a lot easier to get up and running with.</p>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"evidence"</span><span class="nt">&gt;</span>Paragraphs can be written like so. A paragraph is the basic block of Markdown. A paragraph is what text will turn into when there is no reason it should become anything else.<span class="nt">&lt;/span&gt;</span></code></pre></figure>
-
-<hr />
-
-<h2 id="side-by-side">Side-by-side</h2>
-
-<p>Like the <a href="https://medium.com/">Medium</a> component.</p>
-
-<p><strong>Image</strong> on the left and <strong>Text</strong> on the right:</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"side-by-side"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"toleft"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"image"</span> <span class="na">src=</span><span class="s">"https://dario.technology/assets/images/profile.jpg"</span> <span class="na">alt=</span><span class="s">"Alt Text"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;figcaption</span> <span class="na">class=</span><span class="s">"caption"</span><span class="nt">&gt;</span>Photo by John Doe<span class="nt">&lt;/figcaption&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"toright"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;p&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<span class="nt">&lt;/p&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre></figure>
-
-<div class="side-by-side">
-    <div class="toleft">
-        <img class="image" src="https://dario.technology/assets/images/profile.jpg" alt="Alt Text" />
-        <figcaption class="caption">Photo by John Doe</figcaption>
-    </div>
-
-    <div class="toright">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>
-</div>
-
-<p><strong>Text</strong> on the left and <strong>Image</strong> on the right:</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"side-by-side"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"toleft"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;p&gt;</span>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<span class="nt">&lt;/p&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"toright"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"image"</span> <span class="na">src=</span><span class="s">"https://dario.technology/assets/images/profile.jpg"</span> <span class="na">alt=</span><span class="s">"Alt Text"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;figcaption</span> <span class="na">class=</span><span class="s">"caption"</span><span class="nt">&gt;</span>Photo by John Doe<span class="nt">&lt;/figcaption&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre></figure>
-
-<div class="side-by-side">
-    <div class="toleft">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </div>
-
-    <div class="toright">
-        <img class="image" src="https://dario.technology/assets/images/profile.jpg" alt="Alt Text" />
-        <figcaption class="caption">Photo by John Doe</figcaption>
-    </div>
-</div>
-
-<hr />
-
-<h2 id="star">Star</h2>
-
-<p>You can give evidence to a post. Just add the tag to the markdown file.</p>
-
-<figure class="highlight"><pre><code class="language-raw" data-lang="raw">star: true</code></pre></figure>
-
-<hr />
-
-<h2 id="especial-breaker">Especial Breaker</h2>
-
-<p>You can add a especial <em>hr</em> to your text.</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"breaker"</span><span class="nt">&gt;&lt;/div&gt;</span></code></pre></figure>
-
-<div class="breaker"></div>
-
-<hr />
-
-<h2 id="spoiler">Spoiler</h2>
-
-<p>You can add an especial hidden content that appears on hover.</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"spoiler"</span><span class="nt">&gt;&lt;p&gt;</span>your content<span class="nt">&lt;/p&gt;&lt;/div&gt;</span></code></pre></figure>
-
-<div class="spoiler"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
-
-<hr />
-
-<h2 id="gist">Gist</h2>
-
-<p>You can add Gists from github.</p>
-
-<figure class="highlight"><pre><code class="language-raw" data-lang="raw">{ % gist sergiokopplin/91ff4220480727b47224245ee2e9c291 % }</code></pre></figure>
-
-<script src="https://gist.github.com/sergiokopplin/91ff4220480727b47224245ee2e9c291.js"> </script>
-
-<hr />
-
-<h2 id="codepen">Codepen</h2>
-
-<p>You can add Pens from Codepen.</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;p</span> <span class="na">data-height=</span><span class="s">"268"</span> <span class="na">data-theme-id=</span><span class="s">"0"</span> <span class="na">data-slug-hash=</span><span class="s">"gfdDu"</span> <span class="na">data-default-tab=</span><span class="s">"result"</span> <span class="na">data-user=</span><span class="s">"chriscoyier"</span> <span class="na">class=</span><span class="s">'codepen'</span><span class="nt">&gt;</span>
-    See the Pen <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'https://codepen.io/chriscoyier/pen/gfdDu/'</span><span class="nt">&gt;</span>Crappy Recreation of the Book Cover of *The Flame Alphabet*<span class="nt">&lt;/a&gt;</span> by Chris Coyier (<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'https://codepen.io/chriscoyier'</span><span class="nt">&gt;</span>@chriscoyier<span class="nt">&lt;/a&gt;</span>) on <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'https://codepen.io'</span><span class="nt">&gt;</span>CodePen<span class="nt">&lt;/a&gt;</span>.
-<span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;script </span><span class="na">async</span> <span class="na">src=</span><span class="s">"//assets.codepen.io/assets/embed/ei.js"</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></figure>
-
-<p data-height="268" data-theme-id="0" data-slug-hash="gfdDu" data-default-tab="result" data-user="chriscoyier" class="codepen">See the Pen <a href="https://codepen.io/chriscoyier/pen/gfdDu/">Crappy Recreation of the Book Cover of *The Flame Alphabet*</a> by Chris Coyier (<a href="https://codepen.io/chriscoyier">@chriscoyier</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async="" src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<hr />
-
-<h2 id="slideshare">Slideshare</h2>
-
-<p>Add your presentations here!</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;iframe</span> <span class="na">src=</span><span class="s">"//www.slideshare.net/slideshow/embed_code/key/hqDhSJoWkrHe7l"</span> <span class="na">width=</span><span class="s">"560"</span> <span class="na">height=</span><span class="s">"310"</span> <span class="na">frameborder=</span><span class="s">"0"</span> <span class="na">marginwidth=</span><span class="s">"0"</span> <span class="na">marginheight=</span><span class="s">"0"</span> <span class="na">scrolling=</span><span class="s">"no"</span> <span class="na">style=</span><span class="s">"border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;"</span> <span class="na">allowfullscreen</span><span class="nt">&gt;</span> <span class="nt">&lt;/iframe&gt;</span></code></pre></figure>
-
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/hqDhSJoWkrHe7l" width="560" height="310" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen=""> </iframe>
-
-<hr />
-
-<h2 id="videos">Videos</h2>
-
-<p>Do you want some videos? Youtube, Vimeo or Vevo? Copy the embed code and paste on your post!</p>
-
-<p><strong>Example</strong></p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;iframe</span> <span class="na">width=</span><span class="s">"560"</span> <span class="na">height=</span><span class="s">"310"</span> <span class="na">src=</span><span class="s">"https://www.youtube.com/embed/r7XhWUDj-Ts"</span> <span class="na">frameborder=</span><span class="s">"0"</span> <span class="na">allowfullscreen</span><span class="nt">&gt;&lt;/iframe&gt;</span></code></pre></figure>
-
-<iframe width="560" height="310" src="https://www.youtube.com/embed/r7XhWUDj-Ts" frameborder="0" allowfullscreen=""></iframe>]]></content><author><name>jamesfoster</name></author><category term="blog" /><category term="markdown" /><category term="components" /><category term="extra" /><summary type="html"><![CDATA[Markdown summary with different options]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Markdown Common Elements</title><link href="https://dario.technology/markdown-common-elements/" rel="alternate" type="text/html" title="Markdown Common Elements" /><published>2016-02-24T22:44:00-06:00</published><updated>2016-02-24T22:44:00-06:00</updated><id>https://dario.technology/markdown-common-elements</id><content type="html" xml:base="https://dario.technology/markdown-common-elements/"><![CDATA[<h2 id="basic-formatting">Basic formatting</h2>
-
-<p>This note <strong>demonstrates</strong> some of what <a href="https://daringfireball.net/projects/markdown/">Markdown</a> is <em>capable of doing</em>.</p>
-
-<p>And that’s how to do it.</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html">This note **demonstrates** some of what [Markdown][some/link] is *capable of doing*.</code></pre></figure>
-
-<hr />
-
-<h2 id="headings">Headings</h2>
-
-<p>There are six levels of headings. They correspond with the six levels of HTML headings. You’ve probably noticed them already in the page. Each level down uses one more hash character. But we are using just 4 of them.</p>
-
-<h1 id="headings-can-be-small">Headings can be small</h1>
-
-<h2 id="headings-can-be-small-1">Headings can be small</h2>
-
-<h3 id="headings-can-be-small-2">Headings can be small</h3>
-
-<h4 id="headings-can-be-small-3">Headings can be small</h4>
-
-<figure class="highlight"><pre><code class="language-raw" data-lang="raw"># Heading
-## Heading
-### Heading
-#### Heading</code></pre></figure>
-
-<hr />
-
-<h2 id="lists">Lists</h2>
-
-<h3 id="ordered-list">Ordered list</h3>
-
-<ol>
-  <li>Item 1</li>
-  <li>A second item</li>
-  <li>Number 3</li>
-</ol>
-
-<figure class="highlight"><pre><code class="language-raw" data-lang="raw">1. Item 1
-2. A second item
-3. Number 3</code></pre></figure>
-
-<h3 id="unordered-list">Unordered list</h3>
-
-<ul>
-  <li>An item</li>
-  <li>Another item</li>
-  <li>Yet another item</li>
-  <li>And there’s more…</li>
-</ul>
-
-<figure class="highlight"><pre><code class="language-raw" data-lang="raw">* An item
-* Another item
-* Yet another item
-* And there's more...</code></pre></figure>
-
-<hr />
-
-<h2 id="paragraph-modifiers">Paragraph modifiers</h2>
-
-<h3 id="quote">Quote</h3>
-
-<blockquote>
-  <p>Here is a quote. What this is should be self explanatory. Quotes are automatically indented when they are used.</p>
-</blockquote>
-
-<figure class="highlight"><pre><code class="language-raw" data-lang="raw">&gt; Here is a quote. What this is should be self explanatory.</code></pre></figure>
-
-<hr />
-
-<h2 id="urls">URLs</h2>
-
-<p>URLs can be made in a handful of ways:</p>
-
-<ul>
-  <li>A named link to <a href="https://daringfireball.net/projects/markdown/basics">Mark It Down</a>.</li>
-  <li>Another named link to <a href="https://google.com/">Mark It Down</a></li>
-  <li>Sometimes you just want a URL like <a href="https://google.com/">https://google.com/</a>.</li>
-</ul>
-
-<figure class="highlight"><pre><code class="language-raw" data-lang="raw">* A named link to [MarkItDown][3].
-* Another named link to [MarkItDown](https://google.com/)
-* Sometimes you just want a URL like &lt;https://google.com/&gt;.</code></pre></figure>
-
-<hr />
-
-<h2 id="horizontal-rule">Horizontal rule</h2>
-
-<p>A horizontal rule is a line that goes across the middle of the page.
-It’s sometimes handy for breaking things up.</p>
-
-<figure class="highlight"><pre><code class="language-raw" data-lang="raw">---</code></pre></figure>
-
-<hr />
-
-<h2 id="images">Images</h2>
-
-<p>Markdown can also contain images. I’ll need to add something here sometime.</p>
-
-<figure class="highlight"><pre><code class="language-raw" data-lang="raw">![Markdowm Image][/image/url]</code></pre></figure>
-
-<p><img src="https://kune.fr/wp-content/uploads/2013/10/ghost-blog.jpg" alt="Markdowm Image" /></p>
-
-<p><em>Figure Caption</em>?</p>
-
-<figure class="highlight"><pre><code class="language-raw" data-lang="raw">![Markdowm Image][/image/url]
-&lt;figcaption class="caption"&gt;Photo by John Doe&lt;/figcaption&gt;</code></pre></figure>
-
-<p><img src="https://kune.fr/wp-content/uploads/2013/10/ghost-blog.jpg" alt="Markdowm Image" /></p>
-<figcaption class="caption">Photo by John Doe</figcaption>
-
-<p><em>Bigger Images</em>?</p>
-
-<figure class="highlight"><pre><code class="language-raw" data-lang="raw">![Markdowm Image][/image/url]{: class="bigger-image" }</code></pre></figure>
-
-<p><img src="https://kune.fr/wp-content/uploads/2013/10/ghost-blog.jpg" alt="Markdowm Image" class="bigger-image" /></p>
-
-<hr />
-
-<h2 id="code">Code</h2>
-
-<p>A HTML Example:</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
-<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"en"</span><span class="nt">&gt;</span>
-<span class="nt">&lt;head&gt;</span>
-    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;title&gt;</span>Document<span class="nt">&lt;/title&gt;</span>
-<span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;h1&gt;</span>Just a test<span class="nt">&lt;/h1&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span></code></pre></figure>
-
-<p>A CSS Example:</p>
-
-<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">pre</span> <span class="p">{</span>
-    <span class="nl">padding</span><span class="p">:</span> <span class="m">10px</span><span class="p">;</span>
-    <span class="nl">font-size</span><span class="p">:</span> <span class="m">.8em</span><span class="p">;</span>
-    <span class="nl">white-space</span><span class="p">:</span> <span class="n">pre</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nt">pre</span><span class="o">,</span> <span class="nt">table</span> <span class="p">{</span>
-    <span class="nl">width</span><span class="p">:</span> <span class="m">100%</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="nt">code</span><span class="o">,</span> <span class="nt">pre</span><span class="o">,</span> <span class="nt">tt</span> <span class="p">{</span>
-    <span class="nl">font-family</span><span class="p">:</span> <span class="n">Monaco</span><span class="p">,</span> <span class="n">Consolas</span><span class="p">,</span> <span class="n">Inconsolata</span><span class="p">,</span> <span class="nb">monospace</span><span class="p">,</span> <span class="nb">sans-serif</span><span class="p">;</span>
-    <span class="nl">background</span><span class="p">:</span> <span class="n">rgba</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">0</span><span class="p">,</span><span class="m">.05</span><span class="p">);</span>
-<span class="p">}</span></code></pre></figure>
-
-<p>A JS Example:</p>
-
-<figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Sticky Header</span>
-<span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">scroll</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="nb">window</span><span class="p">).</span><span class="nx">scrollTop</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">900</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">body</span><span class="dl">"</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="dl">'</span><span class="s1">show-menu</span><span class="dl">'</span><span class="p">))</span> <span class="p">{</span>
-        <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#hamburguer__open</span><span class="dl">'</span><span class="p">).</span><span class="nx">fadeOut</span><span class="p">(</span><span class="dl">'</span><span class="s1">fast</span><span class="dl">'</span><span class="p">);</span>
-    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">body</span><span class="dl">"</span><span class="p">).</span><span class="nx">hasClass</span><span class="p">(</span><span class="dl">'</span><span class="s1">show-menu</span><span class="dl">'</span><span class="p">))</span> <span class="p">{</span>
-        <span class="nx">$</span><span class="p">(</span><span class="dl">'</span><span class="s1">#hamburguer__open</span><span class="dl">'</span><span class="p">).</span><span class="nx">fadeIn</span><span class="p">(</span><span class="dl">'</span><span class="s1">fast</span><span class="dl">'</span><span class="p">);</span>
-    <span class="p">}</span>
-
-<span class="p">});</span></code></pre></figure>]]></content><author><name>johndoe</name></author><category term="blog" /><category term="markdown" /><category term="elements" /><summary type="html"><![CDATA[Markdown summary with different options]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">:ramen: Indigo, minimalist jekyll theme</title><link href="https://dario.technology/indigo-jekyll-theme/" rel="alternate" type="text/html" title=":ramen: Indigo, minimalist jekyll theme" /><published>2016-01-23T22:10:00-06:00</published><updated>2016-01-23T22:10:00-06:00</updated><id>https://dario.technology/indigo-jekyll-theme</id><content type="html" xml:base="https://dario.technology/indigo-jekyll-theme/"><![CDATA[<p><img src="https://raw.githubusercontent.com/sergiokopplin/indigo/gh-pages/assets/screen-shot.png" alt="Screenshot" /></p>
-
-<p>Example of project - Indigo Minimalist Jekyll Template - <a href="https://sergiokopplin.github.io/indigo/">Demo</a>. This is a simple and minimalist template for Jekyll for those who likes to eat noodles.</p>
-
-<hr />
-
-<p>What has inside?</p>
-
-<ul>
-  <li>Gulp</li>
-  <li>BrowserSync</li>
-  <li>Stylus</li>
-  <li>SVG</li>
-  <li>No JS</li>
-  <li><a href="https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fsergiokopplin.github.io%2Findigo%2F">98/100</a></li>
-</ul>
-
-<hr />
-
-<p><a href="https://sergiokopplin.github.io/indigo/">Check it out</a> here.
-If you need some help, just <a href="https://github.com/sergiokopplin/indigo/issues">tell me</a>.</p>]]></content><author><name>johndoe</name></author><category term="project" /><category term="jekyll" /><summary type="html"><![CDATA[This is a simple and minimalist template for Jekyll for those who likes to eat noodles.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://sergiokopplin.github.io/indigo/assets/images/jekyll-logo-light-solid.png" /><media:content medium="image" url="https://sergiokopplin.github.io/indigo/assets/images/jekyll-logo-light-solid.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>I’ve begun to publish my results <a href="https://www.dario.technology/the-grunfeld">here</a></p>]]></content><author><name>dario</name></author><category term="project" /><category term="data engineering" /><category term="basketball" /><summary type="html"><![CDATA[Building a framework with Unity3D]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

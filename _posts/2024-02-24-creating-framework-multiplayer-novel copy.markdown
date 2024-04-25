@@ -1,5 +1,5 @@
 ---
-title: "Creating a framework for multiplayer interactive novels"
+title: "Building a Multiplayer Framework for Interactive Novels"
 layout: post
 date: 2024-02-24 22:44
 image: /assets/images/markdown.jpg
