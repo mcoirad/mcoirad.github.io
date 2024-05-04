@@ -21,6 +21,10 @@ Not too long after, I became professionally involved in leading the development 
 
 ## Building an accurate data intelligence pipeline
 
+![What is that data?](/assets/images/political/pokemon1.png)
+![Well its not Bulbasaur](/assets/images/political/pokemon2.png)
+
+
 Capturing digital political advertising data required building a realtime data collection pipeline that scraped public advertising transparency reports from Facebook, Google, Snapchat, and others. Unlike a traditional data pipeline where many variables can be controlled for, a web-scraping pipeline suffers from the following downsides:
 
 - Data on a website changes on an indeterminate schdule
@@ -30,7 +34,9 @@ Capturing digital political advertising data required building a realtime data c
 - Authentication to access data can be through a UI
 - Data you collect can be incomplete
 
-Solving for all of these issues requires a careful attention to detail, as well as some creative adaptation of traditional data engineering best practices.
+Solving for all of these issues requires a careful attention to detail, as well as some creative adaptation of traditional data engineering best practices. And a lot of work!
+![New hires to our team got confronted with this beast in our documentation](/assets/images/political/pipeline.png)
+
 
 #### Data scheduling
 The answer is simply you need to find the assumptions you can safely make, be prepared to collect a ton of data, and to be able to catch and adapt from your failures.
@@ -64,12 +70,24 @@ Finally, if you are running your own ads, or know someone that is. You can doubl
 #### When not to use AI
 I'm a big believer in not using more than what you need. Plenty of times I've seen attempts to use the latest AI or machine learning techniques to build a predictive model that then works less well than a basic technique such as linear regression. The linear regression is also easier to build. But it doesn't sound as fun as chasing the buzzwords.
 
-On this project I had a data engineer who attempted to build a machine learning model that would automatically categorize ads into categories as well as predict the emotional content of the ad. They utilized paid coders to code the training data. It was an ambitious project that ultimately failed because to build the perfect model with so many prediction points, you need a very large amount of training data.
+On this project I had a data engineer who attempted to build a machine learning model that would automatically categorize ads into categories as well as predict the emotional content of the ad. They utilized paid data labelers and volunteers from the team to code the training data. It was an ambitious project that ultimately failed because to build the perfect model with so many parameters to predict, you need a very large amount of training data, more than what was available.
 
-As a backup plan I had prepared a very simple NLP algorithm that simply counted the occurances of coded keywords. For example if "immigration" appeared in an ad's text, we assigned the label of "immigration" to the ad's topics. For this we needed to manually maintain a list of keywords, but this was much less expensive that hiring manual data coders. It could also be developed and implemented by an analyst. And unlike the machine learning model, it actually worked. We were able to do something similar with sentiment analysis using coded "positive" and "negative" keywords.
+As a backup plan I had prepared a very simple NLP algorithm that simply counted the occurances of coded keywords. For example if "immigration" appeared in an ad's text, we assigned the label of "immigration" to the ad's topics. For this we needed to manually maintain a list of keywords, but this was much less expensive that hiring manual data coders. It could also be developed and implemented by an analyst. And unlike the machine learning model, it actually worked. We were able to do something similar with sentiment analysis using coded "positive" and "negative" keywords. We even were able to automatically categorize the purpose of ad based on both keywords and basic analysis of the landing pages the ads linked to.
+
+![Ad Issue](/assets/images/political/keyword1.png)
+![Ad Sentiment](/assets/images/political/keyword2.png)
+![Ad Purpose](/assets/images/political/keyword3.png)
+
 
 #### When to use AI
-Sometimes, however, simple classical techniques are not enough to obtain the results we need. Returning to the problem of emotional content of ads -- many ads do not contain much text at all. Ad copy like "Vote Now!" tells you some important information about the ad creative, but an ad is as much images and it is words. Even by processing all image, video, and audio from ads to extract the textual information contained within, (We used AI for this) you are still missing key points of information. So I decided to add a facial emotion recognition component to our pipeline.
+Sometimes, however, simple classical techniques are not enough to obtain the results we need. AI is useful for the cleaning and processing of data where it doesn't make sense to have a series of simple rules. In needing to get all our data into a basic text format for analysis, we had the problem of having many image, video, and audio ads that didn't come with any easily readable text or captions. So I evaluated a few different models for processing and transcribing these formats and put them to work converting our data as it came in.
+
+In addition, returning to the problem of emotional content of ads -- many ads contain information that does not map to text at all. Ad copy like "Vote Now!" tells you some important information about the ad creative, but an ad is as much images and it is words. Even by processing all image, video, and audio from ads to extract the textual information contained within, we were still missing key points of information. So I decided to add a facial emotion recognition component to our pipeline.
+
+I trained a basic model in Tensorflow on already existing public datasets, and used to assign a basic emotional context to ads just based off of the facial expressions in the ad creative.
+
+![Emotion Recognition](/assets/images/political/ai1.png)
+
 
 #### Final Product
 Once a reliable pipeline for ad level spend estimates and categorization has been established, one can easily answer a variety of questions about the current digital political ad environment:
