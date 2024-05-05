@@ -1,4 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2024-05-04T12:58:49-05:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Procedural Fantasy Map Generation</title><link href="https://dario.technology/creating-fantasy-maps/" rel="alternate" type="text/html" title="Procedural Fantasy Map Generation" /><published>2024-03-11T22:44:00-05:00</published><updated>2024-03-11T22:44:00-05:00</updated><id>https://dario.technology/creating-fantasy-maps</id><content type="html" xml:base="https://dario.technology/creating-fantasy-maps/"><![CDATA[<h2 id="building-fantasy-maps">Building fantasy maps</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2024-05-05T10:28:51-05:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Morrowind Lamp Designs</title><link href="https://dario.technology/dunmer-lamp-designs/" rel="alternate" type="text/html" title="Morrowind Lamp Designs" /><published>2024-04-18T22:44:00-05:00</published><updated>2024-04-18T22:44:00-05:00</updated><id>https://dario.technology/dunmer-lamp-designs</id><content type="html" xml:base="https://dario.technology/dunmer-lamp-designs/"><![CDATA[<h2 id="making-my-first-lamp">Making my first lamp</h2>
+
+<p>This past year I’ve come to have access to a hackerspace, something that I’ve never utilized before and honestly I feel like I’ve really missed out!</p>
+
+<p>One of the first things I’ve tried to do is get the hang of the laser cutters.</p>
+
+<p>My first project was to make a lamp, which I did through a class at the hackerspace. This is a super basic project that requires no IRL fabrication skills so seemed like a good start.</p>
+
+<p>My 2D design was centered around making a rectangular shape but avoiding the visible finger joints common in a lot of laser cut pieces. My solution was a bit ambitious as it led to a very difficult assembly process.</p>
+
+<p><img src="/assets/images/lamps/lamp1.png" alt="First lamp 2D design" /></p>
+
+<p>The many small parts in the design made it a bit difficult to punch out all the parts that had been cut out. The laser cutter also didn’t cut through everything, even though I made 2 passes with the laser. Curved pieces in particular didn’t do the best.</p>
+
+<p>However, over a few days I was eventually able to glue it together!</p>
+
+<p><img src="/assets/images/lamps/lamp2.jpg" alt="Assembling the lamp" />
+<img src="/assets/images/lamps/lamp3.jpg" alt="Assembling the lamp" />
+<img src="/assets/images/lamps/lamp4.jpg" alt="Lamp is assembled!" /></p>
+
+<h2 id="but-what-about-morrowind">But what about Morrowind?</h2>
+
+<p>Once I finished the first lamp, I started thinking about other lamps to make.
+I thought it would be cool to make some Morrowind great house themed lamps.</p>
+
+<p>Since my sister played through as Hlaalu, I started with that one as a gift.</p>
+
+<p><img src="/assets/images/lamps/morrowind_lamp1.png" alt="Hlaalu lamp design" /></p>
+
+<p>Still have to finish cutting it out.</p>
+
+<h2 id="source-files">Source Files</h2>
+
+<p>I am keeping all files for these lamps <a href="https://github.com/mcoirad/morrowind-lasercutting-files">in this Github repo</a>.
+Feel free to use them as you see fit!</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="IRL design" /><category term="laser cutting" /><category term="morrowind" /><summary type="html"><![CDATA[Creating morrowind themed lamp designs]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Procedural Fantasy Map Generation</title><link href="https://dario.technology/creating-fantasy-maps/" rel="alternate" type="text/html" title="Procedural Fantasy Map Generation" /><published>2024-03-11T22:44:00-05:00</published><updated>2024-03-11T22:44:00-05:00</updated><id>https://dario.technology/creating-fantasy-maps</id><content type="html" xml:base="https://dario.technology/creating-fantasy-maps/"><![CDATA[<h2 id="building-fantasy-maps">Building fantasy maps</h2>
 
 <p>On taking a break from some of my other projects I got into another interest. I really love fantasy maps. There is something about the gestalt escapism of new worlds that is captured by them for me. To the point where they maybe interest me more than reading fantasy books, for example. I used to spend time drawing them by hand and imagining the cultures and peoples that would inhabit them. So eventually I got to thinking about how I could build rules for generating my own.</p>
 
