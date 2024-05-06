@@ -1,5 +1,5 @@
 ---
-title: "Turning the Table on Basketball's Advanced Stats"
+title: "Advanced Stats for Unadvanced NBA Executives"
 layout: post
 date: 2023-11-24 22:44
 image: /assets/images/markdown.jpg
@@ -11,7 +11,7 @@ star: true
 category: project
 projects: true
 author: dario
-description: Building a framework with Unity3D
+description: Ranking the best and worst NBA executives
 ---
 
 As a basketball fan of a bad basketball team, something has always bothered me about the inaccessible nature of major league sports leadership. It seems... to put it nicely... to be less than a meritocracy. While playing sports at a professional level seems to be an extremely unique talent, I would argue that managing a sports team is much less than that. Of any NBA team, for example, there are probably some percentage of the fans that could conceivably make better decisions than the team's own front office. (The same could probably said for large corporations)
@@ -44,6 +44,8 @@ This works alright -- but like any stat has its shortcomings:
 We account for some of these like doing things like assigning a value to future first round and second round picks. But these will always be lower than that of a star player (and in the case of second round picks, may actually have negative value if an executive is bad at drafting.)
 
 ### Visualizing results
+
+![Popovich performance over time](/assets/images/nba/chart.png)
 
 In getting some results up and out I opted for a static site generator. Creating a full-stack website would be fun but I'm more interested in the data and analysis for this rather than digging into the infrastructure.
 
