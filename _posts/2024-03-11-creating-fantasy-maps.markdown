@@ -31,21 +31,38 @@ The basic steps to follow are to do a simple simulation of natural forces. I use
 
 First randomly generate a heighmap of elevation.
 
+![2D Pixel Art Fantasy Map](/assets/images/maps/height.png)
+
+
 Then do a gradient for temperature.
 
-Another fractal to simulate rainfall.
+![2D Pixel Art Fantasy Map](/assets/images/maps/heat.png)
+
+Simulate moisture and flux.
+
+![2D Pixel Art Fantasy Map](/assets/images/maps/moisture.png)
+![2D Pixel Art Fantasy Map](/assets/images/maps/flux.png)
 
 Then use these different values to color your biomes.
 
+![2D Pixel Art Fantasy Map](/assets/images/maps/biome.png)
+
 From there you can do a lot of different things, but you may find that attention realism may slow you down and actually produce worse results. For example, I tried to include an erosion simulation. But I don't really like the results.
 
+![2D Pixel Art Fantasy Map](/assets/images/maps/erosion.png)
+
 Placing map symbols though turned out very nicely.
+
+![2D Pixel Art Fantasy Map](/assets/images/maps/symbols.png)
 
 ### Political/economic boundaries
 
 Next I came up with some different country boundaries. Also creatd a method to place cities.
 
 Then roads to connect the cities, placed with an A* Pathfinding algorithm. This however turned out to be quite slow so I wonder if there is a better way to build realistic looking results with a lot less computation.
+Once we get too deep into optimization this stops being a side project though lol.
+
+![2D Pixel Art Fantasy Map](/assets/images/maps/territory.png)
 
 ### Turning it into a video game
 
@@ -53,12 +70,17 @@ After spending so much time on the map I tried adding some gameplay to flesh out
 
 At this point this turned from a side-project into a real project! I think this could be the basis of a very fun game. But I don't have unlimited time so I'll put it back to the side and return to my other projects.
 
-
-![2D Pixel Art Fantasy Map](/assets/images/maps/map1.png)
-![2D Pixel Art Fantasy Map](/assets/images/maps/map2.png)
-![2D Pixel Art Fantasy Map](/assets/images/maps/map3.png)
+![2D Pixel Art Fantasy Map](/assets/images/maps/game.png)
 
 ## More maps
 
 I'm happy with how they've come out generally. I don't really like how the sea monster came out.
-But they have a unique style. If I return to this there will be some need for optimization. Currently things really bog down after 3000px size maps. Ideally would want to be able to generate a chunk of a map, and then continually generate other chunks as needed.
+But they have a unique style. If I return to this there will be some need for optimization. Currently things really bog down after 3000px size maps. 
+Ideally would want to be able to generate a chunk of a map, and then continually generate other chunks as needed.
+The game simulation behavior, other than the pathfinding, would scale fine since it doesn't have to be attached to the view.
+
+![2D Pixel Art Fantasy Map](/assets/images/maps/map3.png)
+![2D Pixel Art Fantasy Map](/assets/images/maps/map392.png)
+![2D Pixel Art Fantasy Map](/assets/images/maps/map324.png)
+
+
