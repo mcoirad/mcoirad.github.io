@@ -81,6 +81,10 @@ The game simulation behavior, other than the pathfinding, would scale fine since
 
 ![2D Pixel Art Fantasy Map](/assets/images/maps/map3.png)
 ![2D Pixel Art Fantasy Map](/assets/images/maps/map392.png)
-![2D Pixel Art Fantasy Map](/assets/images/maps/map324.png)
+
+Larger Examples:
+[2000x3000px](/assets/images/maps/map470.png)
+[3000x2000px](/assets/images/maps/map324.png)
+
 
 
