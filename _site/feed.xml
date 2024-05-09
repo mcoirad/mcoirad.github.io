@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2024-05-05T21:56:47-05:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Morrowind Lamp Designs</title><link href="https://dario.technology/dunmer-lamp-designs/" rel="alternate" type="text/html" title="Morrowind Lamp Designs" /><published>2024-04-18T22:44:00-05:00</published><updated>2024-04-18T22:44:00-05:00</updated><id>https://dario.technology/dunmer-lamp-designs</id><content type="html" xml:base="https://dario.technology/dunmer-lamp-designs/"><![CDATA[<h2 id="making-my-first-lamp">Making my first lamp</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2024-05-08T21:48:17-05:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Morrowind Lamp Designs</title><link href="https://dario.technology/dunmer-lamp-designs/" rel="alternate" type="text/html" title="Morrowind Lamp Designs" /><published>2024-04-18T22:44:00-05:00</published><updated>2024-04-18T22:44:00-05:00</updated><id>https://dario.technology/dunmer-lamp-designs</id><content type="html" xml:base="https://dario.technology/dunmer-lamp-designs/"><![CDATA[<h2 id="making-my-first-lamp">Making my first lamp</h2>
 
 <p>This past year I’ve come to have access to a hackerspace, something that I’ve never utilized before and honestly I feel like I’ve really missed out!</p>
 
@@ -51,21 +51,37 @@ Feel free to use them as you see fit!</p>]]></content><author><name>dario</name>
 
 <p>First randomly generate a heighmap of elevation.</p>
 
+<p><img src="/assets/images/maps/height.png" alt="2D Pixel Art Fantasy Map" /></p>
+
 <p>Then do a gradient for temperature.</p>
 
-<p>Another fractal to simulate rainfall.</p>
+<p><img src="/assets/images/maps/heat.png" alt="2D Pixel Art Fantasy Map" /></p>
+
+<p>Simulate moisture and flux.</p>
+
+<p><img src="/assets/images/maps/moisture.png" alt="2D Pixel Art Fantasy Map" />
+<img src="/assets/images/maps/flux.png" alt="2D Pixel Art Fantasy Map" /></p>
 
 <p>Then use these different values to color your biomes.</p>
 
+<p><img src="/assets/images/maps/biome.png" alt="2D Pixel Art Fantasy Map" /></p>
+
 <p>From there you can do a lot of different things, but you may find that attention realism may slow you down and actually produce worse results. For example, I tried to include an erosion simulation. But I don’t really like the results.</p>
 
+<p><img src="/assets/images/maps/erosion.png" alt="2D Pixel Art Fantasy Map" /></p>
+
 <p>Placing map symbols though turned out very nicely.</p>
+
+<p><img src="/assets/images/maps/symbols.png" alt="2D Pixel Art Fantasy Map" /></p>
 
 <h3 id="politicaleconomic-boundaries">Political/economic boundaries</h3>
 
 <p>Next I came up with some different country boundaries. Also creatd a method to place cities.</p>
 
-<p>Then roads to connect the cities, placed with an A* Pathfinding algorithm. This however turned out to be quite slow so I wonder if there is a better way to build realistic looking results with a lot less computation.</p>
+<p>Then roads to connect the cities, placed with an A* Pathfinding algorithm. This however turned out to be quite slow so I wonder if there is a better way to build realistic looking results with a lot less computation.
+Once we get too deep into optimization this stops being a side project though lol.</p>
+
+<p><img src="/assets/images/maps/territory.png" alt="2D Pixel Art Fantasy Map" /></p>
 
 <h3 id="turning-it-into-a-video-game">Turning it into a video game</h3>
 
@@ -73,14 +89,18 @@ Feel free to use them as you see fit!</p>]]></content><author><name>dario</name>
 
 <p>At this point this turned from a side-project into a real project! I think this could be the basis of a very fun game. But I don’t have unlimited time so I’ll put it back to the side and return to my other projects.</p>
 
-<p><img src="/assets/images/maps/map1.png" alt="2D Pixel Art Fantasy Map" />
-<img src="/assets/images/maps/map2.png" alt="2D Pixel Art Fantasy Map" />
-<img src="/assets/images/maps/map3.png" alt="2D Pixel Art Fantasy Map" /></p>
+<p><img src="/assets/images/maps/game.png" alt="2D Pixel Art Fantasy Map" /></p>
 
 <h2 id="more-maps">More maps</h2>
 
 <p>I’m happy with how they’ve come out generally. I don’t really like how the sea monster came out.
-But they have a unique style. If I return to this there will be some need for optimization. Currently things really bog down after 3000px size maps. Ideally would want to be able to generate a chunk of a map, and then continually generate other chunks as needed.</p>]]></content><author><name>dario</name></author><category term="project" /><category term="game development" /><category term="procedural generation" /><summary type="html"><![CDATA[Generating 2D Fantasy Maps]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Building a Multiplayer Framework for Interactive Novels</title><link href="https://dario.technology/creating-framework-multiplayer-novel-copy/" rel="alternate" type="text/html" title="Building a Multiplayer Framework for Interactive Novels" /><published>2024-02-24T22:44:00-06:00</published><updated>2024-02-24T22:44:00-06:00</updated><id>https://dario.technology/creating-framework-multiplayer-novel%20copy</id><content type="html" xml:base="https://dario.technology/creating-framework-multiplayer-novel-copy/"><![CDATA[<h2 id="the-ease-of-developing-interactive-narratives">The ease of developing interactive narratives</h2>
+But they have a unique style. If I return to this there will be some need for optimization. Currently things really bog down after 3000px size maps. 
+Ideally would want to be able to generate a chunk of a map, and then continually generate other chunks as needed.
+The game simulation behavior, other than the pathfinding, would scale fine since it doesn’t have to be attached to the view.</p>
+
+<p><img src="/assets/images/maps/map3.png" alt="2D Pixel Art Fantasy Map" />
+<img src="/assets/images/maps/map392.png" alt="2D Pixel Art Fantasy Map" />
+<img src="/assets/images/maps/map324.png" alt="2D Pixel Art Fantasy Map" /></p>]]></content><author><name>dario</name></author><category term="project" /><category term="game development" /><category term="procedural generation" /><summary type="html"><![CDATA[Generating 2D Fantasy Maps]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Building a Multiplayer Framework for Interactive Novels</title><link href="https://dario.technology/creating-framework-multiplayer-novel-copy/" rel="alternate" type="text/html" title="Building a Multiplayer Framework for Interactive Novels" /><published>2024-02-24T22:44:00-06:00</published><updated>2024-02-24T22:44:00-06:00</updated><id>https://dario.technology/creating-framework-multiplayer-novel%20copy</id><content type="html" xml:base="https://dario.technology/creating-framework-multiplayer-novel-copy/"><![CDATA[<h2 id="the-ease-of-developing-interactive-narratives">The ease of developing interactive narratives</h2>
 
 <p>Today there exist many tools and engines that allow for the easy creation of interactive literature.</p>
 
