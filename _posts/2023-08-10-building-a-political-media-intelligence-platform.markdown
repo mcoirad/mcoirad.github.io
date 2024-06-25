@@ -11,6 +11,7 @@ tag:
 star: true
 category: project
 projects: true
+project: Political Media Research
 author: dario
 description: Building a Political Media Intelligence Platform
 ---
