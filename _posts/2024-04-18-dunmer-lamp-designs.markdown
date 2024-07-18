@@ -5,7 +5,7 @@ date: 2024-04-18 22:44
 image: /assets/images/markdown.jpg
 headerImage: false
 tag:
-- IRL design
+- IRL technology
 - laser cutting
 - morrowind
 star: true

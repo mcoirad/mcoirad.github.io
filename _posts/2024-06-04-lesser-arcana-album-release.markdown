@@ -6,7 +6,7 @@ image: /assets/images/markdown.jpg
 headerImage: false
 tag:
 - music
-- IRL design
+- 2D Arts
 star: true
 category: blog
 projects: false

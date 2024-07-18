@@ -6,7 +6,7 @@ image: /assets/images/markdown.jpg
 headerImage: false
 tag:
 - music
-- electronics
+- IRL technology
 star: true
 category: blog
 projects: false
