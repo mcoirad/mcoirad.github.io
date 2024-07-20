@@ -31,6 +31,12 @@
         </a>
     {% endif %}
 
+    {% if site.github %}
+    <a class="link" data-title="{{ site.bandcamp }}bandcamp.com/" href="https://{{ site.bandcamp }}.bandcamp.com/" target="_blank"  rel="noopener" alt="anchor link for social media bandcamp" aria-label="anchor link for social media bandcamp">
+        <i class="fa-brands fa-bandcamp"></i>
+    </a>
+    {% endif %}
+
     {% if site.email %}
         <a class="link" data-title="{{ site.email }}" href="mailto:{{ site.email }}"  rel="noopener" alt="anchor link for email" aria-label="anchor link for email">
             <i class="fa-regular fa-envelope"></i>
