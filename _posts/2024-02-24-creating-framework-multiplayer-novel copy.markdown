@@ -25,7 +25,7 @@ I was interested in creating similar games, but found most frameworks for intera
 
 ![Renpy Screenshot](/assets/images/1.png)
 
-![Game Demo Screenshot](/assets/images/2.png)
+![Game Demo Screenshot](/assets/images/bossoffice.gif)
 
 ![Game Demo Screenshot](/assets/images/3.png)
 

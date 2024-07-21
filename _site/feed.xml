@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2024-07-18T16:18:42-05:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Sprite Jewelry EP rerelease</title><link href="https://dario.technology/sprite-jewelry-ep-rerelease/" rel="alternate" type="text/html" title="Sprite Jewelry EP rerelease" /><published>2024-07-18T02:44:00-05:00</published><updated>2024-07-18T02:44:00-05:00</updated><id>https://dario.technology/sprite-jewelry-ep-rerelease</id><content type="html" xml:base="https://dario.technology/sprite-jewelry-ep-rerelease/"><![CDATA[<h2 id="sprite-jewelry-ep">Sprite Jewelry EP</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2024-07-20T19:47:55-05:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Multiplayer Visual Novel Art Update</title><link href="https://dario.technology/multiplayer-visual-novel-art-update/" rel="alternate" type="text/html" title="Multiplayer Visual Novel Art Update" /><published>2024-07-20T02:44:00-05:00</published><updated>2024-07-20T02:44:00-05:00</updated><id>https://dario.technology/multiplayer-visual-novel-art-update</id><content type="html" xml:base="https://dario.technology/multiplayer-visual-novel-art-update/"><![CDATA[<h2 id="wip-art">WIP Art</h2>
+
+<p>Have accumulated a bunch of half-finished PC98-style art backgrounds for use in my multiplayer adventure/visual novel game.</p>
+
+<p>I haven’t yet nailed down the resolution I want to use as well as overall design which has kept me from grinding through and finishing these pieces. I’m still considering gameplay elements and I probably don’t want to do too much art until I have more of the plot storyboarded out.</p>
+
+<p>Nevertheless I’ve still needed to keep working and grow as an artist. You can see a bit of how my process works in these work-in-progress pieces.</p>
+
+<p><img src="/assets/images/gameart/govtlab.png" alt="Government Laboratory" />
+<img src="/assets/images/gameart/boss_office2.png" alt="Boss Office" />
+<img src="/assets/images/gameart/mkultra.png" alt="MK Ultra" /></p>
+
+<p>These are still definitely learning pieces. For purposes of comparison here is some art from actual PC98 games:</p>
+
+<p><img src="/assets/images/pc98/city.png" alt="PC98 City" />
+<img src="/assets/images/pc98/hq.png" alt="PC98 HQ" />
+<img src="/assets/images/pc98/street.png" alt="PC98 Street" /></p>
+
+<p>It’s doubtful I could get all the graphics in the game to this level of quality just by myself, but the goal will get to produce at least a few pieces for the demo. Of course, not all PC98 games looked this good, the ones with the best graphics came along in the mid 1990s as opposed to earlier. Honestly it is insane how much effort it takes to get the cluttered machinery cyberpunk look that you can see in <a href="https://www.mobygames.com/game/platform:pc98/sort:moby_score/page:1/">quite a few of the PC98 games.</a></p>
+
+<p>Going beyond the demo I will definitely need some extra help for art production.</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="2D Arts" /><summary type="html"><![CDATA[Sprite Jewelry music release]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Sprite Jewelry EP rerelease</title><link href="https://dario.technology/sprite-jewelry-ep-rerelease/" rel="alternate" type="text/html" title="Sprite Jewelry EP rerelease" /><published>2024-07-09T02:44:00-05:00</published><updated>2024-07-09T02:44:00-05:00</updated><id>https://dario.technology/sprite-jewelry-ep-rerelease</id><content type="html" xml:base="https://dario.technology/sprite-jewelry-ep-rerelease/"><![CDATA[<h2 id="sprite-jewelry-ep">Sprite Jewelry EP</h2>
 
 <iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=3692447939/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless=""><a href="https://spritejewelry.bandcamp.com/album/sprite-jewelry-ep">sprite jewelry EP by sprite jewelry</a></iframe>
 
@@ -6,7 +26,7 @@
 
 <p>I went ahead and made a separate release for it on bandcamp.</p>
 
-<p>It was fun drawing the album art again in a PC98 style. I feel this types of graphics capture some of the minimalism of pixel art without being too reductive. Low resolution pixel art is honestly sort of ugly in my opinion, but it may be that I really don’t have nostalgia for the period of technology. Same for PC98 games, I didn’t play them growing up or anything, and as an adult I only played <a href="https://www.youtube.com/watch?v=Upr6zoYUFAw">Policenauts</a>.</p>
+<p>It was fun drawing the album art again in a PC98 style. I feel this types of graphics capture some of the minimalism of pixel art without being too reductive. Low resolution pixel art is honestly sort of ugly in my opinion, but it may be that I really don’t have nostalgia for the period of technology. Same for PC98 games, I didn’t play them growing up or anything, and as an adult I only played <a href="https://www.youtube.com/watch?v=Upr6zoYUFAw">Policenauts</a>. I got into this more originally just from drawing on a graphing calculator during math class. To me doodling is as much pushing a single pixel around as it is scribbling on paper.</p>
 
 <p><img src="/assets/images/music/policenauts.jpg" alt="Policenauts" /></p>
 
@@ -185,7 +205,7 @@ The game simulation behavior, other than the pathfinding, would scale fine since
 
 <p><img src="/assets/images/1.png" alt="Renpy Screenshot" /></p>
 
-<p><img src="/assets/images/2.png" alt="Game Demo Screenshot" /></p>
+<p><img src="/assets/images/bossoffice.gif" alt="Game Demo Screenshot" /></p>
 
 <p><img src="/assets/images/3.png" alt="Game Demo Screenshot" /></p>
 

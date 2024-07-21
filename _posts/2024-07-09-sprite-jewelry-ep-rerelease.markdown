@@ -1,7 +1,7 @@
 ---
 title: "Sprite Jewelry EP rerelease"
 layout: post
-date: 2024-07-18 02:44
+date: 2024-07-09 02:44
 image: /assets/images/markdown.jpg
 headerImage: false
 tag:
@@ -22,7 +22,7 @@ Cleaning up and backing up an old laptop I found some old music of mine, very mu
 
 I went ahead and made a separate release for it on bandcamp.
 
-It was fun drawing the album art again in a PC98 style. I feel this types of graphics capture some of the minimalism of pixel art without being too reductive. Low resolution pixel art is honestly sort of ugly in my opinion, but it may be that I really don't have nostalgia for the period of technology. Same for PC98 games, I didn't play them growing up or anything, and as an adult I only played [Policenauts](https://www.youtube.com/watch?v=Upr6zoYUFAw).
+It was fun drawing the album art again in a PC98 style. I feel this types of graphics capture some of the minimalism of pixel art without being too reductive. Low resolution pixel art is honestly sort of ugly in my opinion, but it may be that I really don't have nostalgia for the period of technology. Same for PC98 games, I didn't play them growing up or anything, and as an adult I only played [Policenauts](https://www.youtube.com/watch?v=Upr6zoYUFAw). I got into this more originally just from drawing on a graphing calculator during math class. To me doodling is as much pushing a single pixel around as it is scribbling on paper.
 
 ![Policenauts](/assets/images/music/policenauts.jpg)
 
