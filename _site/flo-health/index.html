@@ -9,26 +9,26 @@
     <meta name=author content="Dario Macieira Mitchell">
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Advanced Stats for Unadvanced NBA Executives | Dario Macieira Mitchell</title>
+<title>Flo Health: How to Badly (and Unethically) Use the Facebook SDK | Dario Macieira Mitchell</title>
 <meta name="generator" content="Jekyll v3.9.5" />
-<meta property="og:title" content="Advanced Stats for Unadvanced NBA Executives" />
+<meta property="og:title" content="Flo Health: How to Badly (and Unethically) Use the Facebook SDK" />
 <meta name="author" content="dario" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Ranking the best and worst NBA executives" />
-<meta property="og:description" content="Ranking the best and worst NBA executives" />
-<link rel="canonical" href="https://dario.technology/basketball-stats-on-basketball-executives/" />
-<meta property="og:url" content="https://dario.technology/basketball-stats-on-basketball-executives/" />
+<meta name="description" content="Research article on Flo Health and Data Ethics" />
+<meta property="og:description" content="Research article on Flo Health and Data Ethics" />
+<link rel="canonical" href="https://dario.technology/flo-health/" />
+<meta property="og:url" content="https://dario.technology/flo-health/" />
 <meta property="og:site_name" content="Dario Macieira Mitchell" />
 <meta property="og:image" content="https://dario.technology/assets/images/markdown.jpg" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-11-24T22:44:00-06:00" />
+<meta property="article:published_time" content="2024-09-18T02:44:00-05:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="https://dario.technology/assets/images/markdown.jpg" />
-<meta property="twitter:title" content="Advanced Stats for Unadvanced NBA Executives" />
+<meta property="twitter:title" content="Flo Health: How to Badly (and Unethically) Use the Facebook SDK" />
 <meta name="twitter:site" content="@" />
 <meta name="twitter:creator" content="@dario" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"dario"},"dateModified":"2023-11-24T22:44:00-06:00","datePublished":"2023-11-24T22:44:00-06:00","description":"Ranking the best and worst NBA executives","headline":"Advanced Stats for Unadvanced NBA Executives","image":"https://dario.technology/assets/images/markdown.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://dario.technology/basketball-stats-on-basketball-executives/"},"url":"https://dario.technology/basketball-stats-on-basketball-executives/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"dario"},"dateModified":"2024-09-18T02:44:00-05:00","datePublished":"2024-09-18T02:44:00-05:00","description":"Research article on Flo Health and Data Ethics","headline":"Flo Health: How to Badly (and Unethically) Use the Facebook SDK","image":"https://dario.technology/assets/images/markdown.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://dario.technology/flo-health/"},"url":"https://dario.technology/flo-health/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -796,15 +796,15 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 
 
 
-<h1 class="title">Advanced Stats for Unadvanced NBA Executives</h1>
+<h1 class="title">Flo Health: How to Badly (and Unethically) Use the Facebook SDK</h1>
 
 <span class="date">
-    <time datetime="24-11-2023">Friday. November 24, 2023</time>
+    <time datetime="18-09-2024">Wednesday. September 18, 2024</time>
      - <span class="reading-time" title="Estimated read time">
     
 
     
-        3 mins
+        9 mins
     
 </span>
 
@@ -813,58 +813,114 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 
     <div class="post-tags">
         
-            <a class="item" href="https://dario.technology/tags/#data-engineering">data engineering</a>
+            <a class="item" href="https://dario.technology/tags/#tech-ethics">tech ethics</a>
         
-            <a class="item" href="https://dario.technology/tags/#basketball">basketball</a>
+            <a class="item" href="https://dario.technology/tags/#research">research</a>
         
     </div>
 
 
-<p>As a basketball fan of a bad basketball team, something has always bothered me about the inaccessible nature of major league sports leadership. It seems… to put it nicely… to be less than a meritocracy. While playing sports at a professional level seems to be an extremely unique talent, I would argue that managing a sports team is much less than that. Of any NBA team, for example, there are probably some percentage of the fans that could conceivably make better decisions than the team’s own front office. (The same could probably said for large corporations)</p>
+<p><em>Here is an article originally written for my Medium blog, but posted here as part of my explorations into technology ethics.</em></p>
 
-<p>The performance of NBA players is scrutinized at a level that exemplifies data science’s “race to the bottom.” Just about everything is tracked statistically in the hope that some advantage can be gleaned. Draft evaluations include not just basic anthromorphic data but also surveys of NBA prospects mental states.</p>
+<h2 id="flo-health-how-to-badly-and-unethically-use-the-facebooksdk">Flo Health: How to Badly (and Unethically) Use the Facebook SDK</h2>
 
-<p>I find it disappointing that we don’t have the same data points to measure the performance of the basketball executives that are at the end of the day responsible for the entire team’s performance. (Once again I feel the same way about executives of corporations in general) Thus I set out to create my own statistic for this.</p>
+<p>The cloud computing revolution has made it easier than ever for developers to abstract the code and software they create from the physical hardware used to store and process data. As the specifics of this functionality are usually not explicitly exposed to application users, users must rely on the terms of service and policies they agree to when they begin use of an app. Flo Health, a period and ovulation tracking app for iOS and Android smartphones, came to national attention in 2019 as a result of a Wall Street Journal (WSJ) investigation that revealed it was sending health related data to Facebook.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> This was in contravention to its stated privacy policy that such data would never be sent to “third party vendors.”<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup> The WSJ investigation highlighted that a Facebook software development kit (SDK), originally created to allow developers to track user actions in mobile applications, was used to send Facebook data “when a user was having her period” or had “an intention to get pregnant.”<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup> Once the data entered Facebook’s platform it was subject to Facebook’s terms that allowed for its aggregation and use by Facebook to personalize ads and content, among other general uses.</p>
 
-<h3 id="assembling-the-dataset">Assembling the dataset</h3>
+<h3 id="tools-of-the-trade">Tools of the trade</h3>
+<p>To develop its application, Flo Health used a variety of tools and services such as databases and compute capacity, some of which are typically run on server infrastructure owned and operated by third party cloud providers such as AWS.<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup> While this is a commonplace practice among technology companies, Flo Health would have violated its own privacy policy, as stated in 2018, if it had used this third-party infrastructure to store any data related to “marked cycles, pregnancy, symptoms.”<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup> Despite this potential breach of the agreed terms, the data of users was still likely to be stored in secure systems. Flo Health appears to have utilized Amazon Web Services (AWS), which is among the most established cloud providers. These providers boast highly robust data protection and privacy programs, earning the trust of even the federal government.<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup> However, language covering these typical types of uses, and links to Amazon’s own privacy policies, were only added to Flo Health’s privacy policy in 2020.<sup id="fnref:7" role="doc-noteref"><a href="#fn:7" class="footnote" rel="footnote">7</a></sup></p>
 
-<p>Most stats are easily available. However I needed transactions. I got this from basketball-reference.com and matched players to basic and advanced stats from there. The goal was to be able to assign a value to each transaction an executive made. Transaction are grouped into the following categories:</p>
-<ul>
-  <li>Trade</li>
-  <li>Draft</li>
-  <li>Free agent signing</li>
-  <li>Sale</li>
-</ul>
+<p>The WSJ investigation predominantly concentrated on the fact that Flo Health users consented to Flo Health’s data collection under an agreement of trust that assured it would only be used for the purposes of the app. Users on a computing platform like a smartphone typically lack administrative access to their own operating systems, making this trust especially important.<sup id="fnref:8" role="doc-noteref"><a href="#fn:8" class="footnote" rel="footnote">8</a></sup> The crux of the resultant lawsuits against Flo Health was that the company made the private health data potentially available to Facebook, Google, and other third party vendors for a variety of secondary uses unrelated to the purpose of the app.<sup id="fnref:9" role="doc-noteref"><a href="#fn:9" class="footnote" rel="footnote">9</a></sup> These violations of privacy and trust made Flo Health’s users vulnerable to multiple types of harm.</p>
 
-<p>Free agent losses are hard to track and I would have to do more work to build the dataset for this type of transaction – so I have left that out for now.</p>
+<h3 id="the-potential-harms-caused">The potential harms caused</h3>
 
-<p>For the value of the transaction I used a very simple formula of:</p>
+<p>Both Facebook and Google denied that they used the data they received from Flo Health for the purposes of ads personalization or other data science products, although lawsuits continue to proceed over the matter.<sup id="fnref:10" role="doc-noteref"><a href="#fn:10" class="footnote" rel="footnote">10</a></sup> But by passing the data of users to both of these platforms, Flo Health opened their users’ personal information to a veritable black-box of machine-learning models and other products.<sup id="fnref:11" role="doc-noteref"><a href="#fn:11" class="footnote" rel="footnote">11</a></sup> Even if the only resultant effect was increased ads personalization, this could still result in inadvertent consequences for some users if the ads they received were viewed by coworkers or employers. Additionally, once in the platform, data could potentially be extracted by other developers for any number of other applications, including ones that could result in negative impacts or judgements of Flo Health users. Despite Flo Health’s claims that it had “depersonalized” the data it was sending to Facebook, the WSJ investigation revealed that Flo Health’s app had passed on a unique identifier for the data that could have assisted in any data aggregation efforts.<sup id="fnref:12" role="doc-noteref"><a href="#fn:12" class="footnote" rel="footnote">12</a></sup></p>
 
-<p>Player BPM * Number of minutes played for team</p>
+<p>The state of insecurity created by the privacy breach can also have resultant consequences on future decisions of individuals. Individuals with low trust in the confidentiality of health care systems are more likely to withhold important health information from their providers.<sup id="fnref:13" role="doc-noteref"><a href="#fn:13" class="footnote" rel="footnote">13</a></sup> In addition, when certain forms of reproductive health care are criminalized, unintended information dissemination can result in direct negative legal consequences for the user.<sup id="fnref:14" role="doc-noteref"><a href="#fn:14" class="footnote" rel="footnote">14</a></sup> Finally, in a legal environment where one has no final right to delete or remove oneself or their data from a platform, and where tech companies can routinely flout their own terms of service with little threat to their business models - one cannot predict how data can be used in the future. Official statements from a Facebook spokesperson that data is not being used for certain purposes means little from a company that has been known to violate its own terms of service in the past.<sup id="fnref:15" role="doc-noteref"><a href="#fn:15" class="footnote" rel="footnote">15</a></sup></p>
 
-<p>By creating a running total of these values I can create a stat I’ll call “Executive BPM”.</p>
+<h3 id="what-should-be-learned">What should be learned</h3>
 
-<p>This works alright – but like any stat has its shortcomings:</p>
-<ul>
-  <li>trading for/playing a prospect heavy minutes will generate a lot of negative EBPM</li>
-  <li>Intentionally tanking will lead to a lot of negative EBPM</li>
-  <li>Trading a good player for picks also leads to negative EBPM</li>
-</ul>
+<p>On the part of Flo Health, it is clear that the company’s application developers need to be more aware of and respect the terms that the users of its services agreed to. Whether the original problem stemmed from ignorance, poor internal communication, or malfeasance is uncertain. However, what is known is that after the repeal of Roe vs. Wade in the United States, Flo Health created the option of using the app in “Anonymous Mode,” allowing users to utilize the app without entering any personal information.<sup id="fnref:16" role="doc-noteref"><a href="#fn:16" class="footnote" rel="footnote">16</a></sup> While a welcome change, the release of this feature can also be interpreted as acceptance on the part of Flo Health that it still cannot guarantee security and privacy for the data its users choose to submit.</p>
 
-<p>We account for some of these like doing things like assigning a value to future first round and second round picks. But these will always be lower than that of a star player (and in the case of second round picks, may actually have negative value if an executive is bad at drafting.)</p>
+<p>On the side of Facebook, part of the problem is that documentation for developers on the Facebook platform often lags behind the release of features and functionality by months to years. Sometimes it is even incorrect.<sup id="fnref:17" role="doc-noteref"><a href="#fn:17" class="footnote" rel="footnote">17</a></sup> As an example, custom app events are minimally documented in Facebook’s SDK documentation - and no information is given on what types of events or data are appropriate to be sent through the service.<sup id="fnref:18" role="doc-noteref"><a href="#fn:18" class="footnote" rel="footnote">18</a></sup> If the developer facing documentation could be improved, correct uses of the SDKs would be more clear and there would be less need for developers to coordinate with legal departments to understand and comply with terms of service.<sup id="fnref:19" role="doc-noteref"><a href="#fn:19" class="footnote" rel="footnote">19</a></sup> However, it is probably not in Facebook’s interests to give clear warnings as it may push developers to use platforms that don’t require developers to hand over broad rights to the data they send.</p>
 
-<h3 id="visualizing-results">Visualizing results</h3>
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Sam Schechner, “You Give Apps Sensitive Personal Information. Then They Tell Facebook.,” The Wall Street Journal, June 25, 2022, https://www.wsj.com/articles/you-give-apps-sensitive-personal-information-then-they-tell-facebook-11550851636. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>Ibid. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>Ibid. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>“Flo Health Tech Stack - Flo Health, Inc.,” StackShare, accessed November 21, 2023, https://stackshare.io/flo-health-inc/flo-health-tech-stack. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5" role="doc-endnote">
+      <p>“August 6, 2018 - Flo Privacy Policy (Archived),” Flo Health, August 6, 2018, https://flo.health/privacy-policy-archived/aug-6-2018. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:6" role="doc-endnote">
+      <p>“Data Protection &amp; Privacy at AWS,” Amazon, accessed November 21, 2023, https://aws.amazon.com/compliance/data-protection. <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:7" role="doc-endnote">
+      <p>“Privacy Policy: Archived Versions,” Flo.health - #1 mobile product for women’s health, January 1, 2020, https://flo.health/privacy-policy-archived/january-1-2020. However, the policy that Flo Health links to doesn’t cover the uses Flo Health describes in its own policy, indicating it is either out of date, or was never correct in the first place. <a href="#fnref:7" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:8" role="doc-endnote">
+      <p>Chris Hoffman, “What’s the Difference between Jailbreaking, Rooting, and Unlocking?,” HowToGeek, February 2, 2016, https://www.howtogeek.com/135663/htg-explains-whats-the-difference-between-jailbreaking-rooting-and-unlocking/. <a href="#fnref:8" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:9" role="doc-endnote">
+      <p>Schechner, “You Give Apps Sensitive Information” <a href="#fnref:9" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:10" role="doc-endnote">
+      <p>Jon Styf, “Google Seeks Dismissal of Flo App Privacy Class Action,” Top Class Actions, October 13, 2023, https://topclassactions.com/lawsuit-settlements/consumer-products/mobile-apps/google-seeks-dismissal-of-flo-app-privacy-class-action/. <a href="#fnref:10" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:11" role="doc-endnote">
+      <p>Jessie G Taft, “Facebook and Google Are the New Data Brokers,” DLI @ Cornell Tech, January 6, 2021, https://www.dli.tech.cornell.edu/post/facebook-and-google-are-the-new-data-brokers. <a href="#fnref:11" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:12" role="doc-endnote">
+      <p>Schechner, “You Give Apps Sensitive Information.” Passing a unique identifier allows Facebook to more easily join data between datasets. Without the identifier Facebook must rely on a “fuzzy” matching process that will typically result in a lower and less accurate match rate. <a href="#fnref:12" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:13" role="doc-endnote">
+      <p>Bradley E Iott, Celeste Campos-Castillo, and Denise L Anthony, “Trust and Privacy: How Patient Trust in Providers Is Related to Privacy Behaviors and Attitudes,” AMIA - Annual Symposium proceedings. AMIA Symposium, March 4, 2020, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7153104/. <a href="#fnref:13" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:14" role="doc-endnote">
+      <table>
+        <tbody>
+          <tr>
+            <td>Jennifer Korn and Clare Duffy, “Search Histories, Location Data, Text Messages: How Personal Data Could Be Used to Enforce Anti-Abortion Laws</td>
+            <td>CNN Business,” CNN, June 24, 2022, https://www.cnn.com/2022/06/24/tech/abortion-laws-data-privacy/index.html.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><a href="#fnref:14" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:15" role="doc-endnote">
+      <p>Robinson Meyer, “Everything We Know about Facebook’s Secret Mood-Manipulation Experiment,” The Atlantic, August 5, 2021, https://www.theatlantic.com/technology/archive/2014/06/everything-we-know-about-facebooks-secret-mood-manipulation-experiment/373648/. <a href="#fnref:15" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:16" role="doc-endnote">
+      <p>Nicole Wetsman and Corin Faife, “Flo Period Tracker Launches ‘anonymous Mode’ to Fight Abortion Privacy Concerns,” The Verge, September 14, 2022, https://www.theverge.com/2022/9/14/23351957/flo-period-tracker-privacy-anonymous-mode. <a href="#fnref:16" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:17" role="doc-endnote">
+      <p>Developer support home search - META for developers, accessed November 21, 2023, https://developers.facebook.com/support/search/?query_string=documentation+incorrect. <a href="#fnref:17" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:18" role="doc-endnote">
+      <p>“App Events API for Marketing API,” Meta Marketing API - Documentation - Meta for Developers, accessed November 21, 2023, https://developers.facebook.com/docs/marketing-api/app-event-api/. Additionally, App Events are no longer the standard for tracking custom actions through the SDK, Facebook officially recommends that new apps use the Conversions API which also suffers from similar documentation issues. <a href="#fnref:18" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:19" role="doc-endnote">
+      <p>This does not absolve developers of responsibility in either case. The issue remains that while many developers today are geared to asking questions such as “Is this SDK open source, and licensed for commercial use?,” they may be less likely to ask “Is this SDK license compatible with the license our app’s users are signing?” <a href="#fnref:19" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
 
-<p><img src="/assets/images/nba/chart.png" alt="Popovich performance over time" /></p>
-
-<p>In getting some results up and out I opted for a static site generator. Creating a full-stack website would be fun but I’m more interested in the data and analysis for this rather than digging into the infrastructure.</p>
-
-<p>I know Jekyll is falling behind Hugo these days in popularity as a static site generator. But Jekyll is still so much simpler than Hugo to set up and get going. I used it to generate pages for each executive in the data I collected. I also used Chart.js to generate some interactive visualizations. I took a long look at D3 but I don’t really like the way its gone with Observable (with all due respect to the folks using Observable) it the attempt to emulate Juptyer/R Markdown style notebooks. It seems that a lot of d3 examples got nuked and are no longer available. Chart.js was a lot easier to get up and running with.</p>
-
-<p>I’ve begun to publish my results <a href="https://www.dario.technology/the-grunfeld">here</a></p>
 
 
-
+    <div class="blog-navigation">
+        
+            <a class="prev" href="https://dario.technology/multiplayer-visual-novel-art-update/">&laquo; Multiplayer Visual Novel Art Update</a>
+        
+        
+    </div>
 
 
 
@@ -1043,6 +1099,26 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
         
             
                 
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
                     
                     <h4>Related Posts</h4>
                     <ul>
@@ -1054,26 +1130,6 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
                     </li>
                     
                     
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-        
-            
-                
-            
                 
             
         
@@ -1104,7 +1160,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
             <!-- If site width is set to normal, you may choose any two share links -->
             <a
                 class="twitter"
-                href="https://twitter.com/intent/tweet?text=https://dario.technology/basketball-stats-on-basketball-executives/ - Advanced Stats for Unadvanced NBA Executives by @"
+                href="https://twitter.com/intent/tweet?text=https://dario.technology/flo-health/ - Flo Health: How to Badly (and Unethically) Use the Facebook SDK by @"
             >
                 <i class="fa-brands fa-twitter"></i>
                 <span class="icon-twitter">Tweet</span>
@@ -1119,7 +1175,7 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
                 <span class="icon-facebook-rect">Share</span>
             </a>
 
-            <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://dario.technology/basketball-stats-on-basketball-executives/&amp;title=Advanced Stats for Unadvanced NBA Executives&amp;summary=Ranking the best and worst NBA executives&amp;source=https://dario.technology" target="_blank">
+            <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://dario.technology/flo-health/&amp;title=Flo Health: How to Badly (and Unethically) Use the Facebook SDK&amp;summary=Research article on Flo Health and Data Ethics&amp;source=https://dario.technology" target="_blank">
                 <i class="fa-brands fa-linkedin"></i>
                 <span class="icon-linkedin">Share</span>
             </a> -->
@@ -1135,8 +1191,8 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
     <script type="text/javascript">
 
         var disqus_config = function () {
-            this.page.url = 'https://dario.technology/basketball-stats-on-basketball-executives/';
-            this.page.identifier = '/basketball-stats-on-basketball-executives';
+            this.page.url = 'https://dario.technology/flo-health/';
+            this.page.identifier = '/flo-health';
         };
         var disqus_shortname = 'github';
         var disqus_developer = 0;

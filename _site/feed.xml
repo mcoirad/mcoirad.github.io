@@ -1,4 +1,95 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2024-07-20T19:47:55-05:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Multiplayer Visual Novel Art Update</title><link href="https://dario.technology/multiplayer-visual-novel-art-update/" rel="alternate" type="text/html" title="Multiplayer Visual Novel Art Update" /><published>2024-07-20T02:44:00-05:00</published><updated>2024-07-20T02:44:00-05:00</updated><id>https://dario.technology/multiplayer-visual-novel-art-update</id><content type="html" xml:base="https://dario.technology/multiplayer-visual-novel-art-update/"><![CDATA[<h2 id="wip-art">WIP Art</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2024-09-18T18:06:07-05:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Flo Health: How to Badly (and Unethically) Use the Facebook SDK</title><link href="https://dario.technology/flo-health/" rel="alternate" type="text/html" title="Flo Health: How to Badly (and Unethically) Use the Facebook SDK" /><published>2024-09-18T02:44:00-05:00</published><updated>2024-09-18T02:44:00-05:00</updated><id>https://dario.technology/flo-health</id><content type="html" xml:base="https://dario.technology/flo-health/"><![CDATA[<p><em>Here is an article originally written for my Medium blog, but posted here as part of my explorations into technology ethics.</em></p>
+
+<h2 id="flo-health-how-to-badly-and-unethically-use-the-facebooksdk">Flo Health: How to Badly (and Unethically) Use the Facebook SDK</h2>
+
+<p>The cloud computing revolution has made it easier than ever for developers to abstract the code and software they create from the physical hardware used to store and process data. As the specifics of this functionality are usually not explicitly exposed to application users, users must rely on the terms of service and policies they agree to when they begin use of an app. Flo Health, a period and ovulation tracking app for iOS and Android smartphones, came to national attention in 2019 as a result of a Wall Street Journal (WSJ) investigation that revealed it was sending health related data to Facebook.<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> This was in contravention to its stated privacy policy that such data would never be sent to “third party vendors.”<sup id="fnref:2" role="doc-noteref"><a href="#fn:2" class="footnote" rel="footnote">2</a></sup> The WSJ investigation highlighted that a Facebook software development kit (SDK), originally created to allow developers to track user actions in mobile applications, was used to send Facebook data “when a user was having her period” or had “an intention to get pregnant.”<sup id="fnref:3" role="doc-noteref"><a href="#fn:3" class="footnote" rel="footnote">3</a></sup> Once the data entered Facebook’s platform it was subject to Facebook’s terms that allowed for its aggregation and use by Facebook to personalize ads and content, among other general uses.</p>
+
+<h3 id="tools-of-the-trade">Tools of the trade</h3>
+<p>To develop its application, Flo Health used a variety of tools and services such as databases and compute capacity, some of which are typically run on server infrastructure owned and operated by third party cloud providers such as AWS.<sup id="fnref:4" role="doc-noteref"><a href="#fn:4" class="footnote" rel="footnote">4</a></sup> While this is a commonplace practice among technology companies, Flo Health would have violated its own privacy policy, as stated in 2018, if it had used this third-party infrastructure to store any data related to “marked cycles, pregnancy, symptoms.”<sup id="fnref:5" role="doc-noteref"><a href="#fn:5" class="footnote" rel="footnote">5</a></sup> Despite this potential breach of the agreed terms, the data of users was still likely to be stored in secure systems. Flo Health appears to have utilized Amazon Web Services (AWS), which is among the most established cloud providers. These providers boast highly robust data protection and privacy programs, earning the trust of even the federal government.<sup id="fnref:6" role="doc-noteref"><a href="#fn:6" class="footnote" rel="footnote">6</a></sup> However, language covering these typical types of uses, and links to Amazon’s own privacy policies, were only added to Flo Health’s privacy policy in 2020.<sup id="fnref:7" role="doc-noteref"><a href="#fn:7" class="footnote" rel="footnote">7</a></sup></p>
+
+<p>The WSJ investigation predominantly concentrated on the fact that Flo Health users consented to Flo Health’s data collection under an agreement of trust that assured it would only be used for the purposes of the app. Users on a computing platform like a smartphone typically lack administrative access to their own operating systems, making this trust especially important.<sup id="fnref:8" role="doc-noteref"><a href="#fn:8" class="footnote" rel="footnote">8</a></sup> The crux of the resultant lawsuits against Flo Health was that the company made the private health data potentially available to Facebook, Google, and other third party vendors for a variety of secondary uses unrelated to the purpose of the app.<sup id="fnref:9" role="doc-noteref"><a href="#fn:9" class="footnote" rel="footnote">9</a></sup> These violations of privacy and trust made Flo Health’s users vulnerable to multiple types of harm.</p>
+
+<h3 id="the-potential-harms-caused">The potential harms caused</h3>
+
+<p>Both Facebook and Google denied that they used the data they received from Flo Health for the purposes of ads personalization or other data science products, although lawsuits continue to proceed over the matter.<sup id="fnref:10" role="doc-noteref"><a href="#fn:10" class="footnote" rel="footnote">10</a></sup> But by passing the data of users to both of these platforms, Flo Health opened their users’ personal information to a veritable black-box of machine-learning models and other products.<sup id="fnref:11" role="doc-noteref"><a href="#fn:11" class="footnote" rel="footnote">11</a></sup> Even if the only resultant effect was increased ads personalization, this could still result in inadvertent consequences for some users if the ads they received were viewed by coworkers or employers. Additionally, once in the platform, data could potentially be extracted by other developers for any number of other applications, including ones that could result in negative impacts or judgements of Flo Health users. Despite Flo Health’s claims that it had “depersonalized” the data it was sending to Facebook, the WSJ investigation revealed that Flo Health’s app had passed on a unique identifier for the data that could have assisted in any data aggregation efforts.<sup id="fnref:12" role="doc-noteref"><a href="#fn:12" class="footnote" rel="footnote">12</a></sup></p>
+
+<p>The state of insecurity created by the privacy breach can also have resultant consequences on future decisions of individuals. Individuals with low trust in the confidentiality of health care systems are more likely to withhold important health information from their providers.<sup id="fnref:13" role="doc-noteref"><a href="#fn:13" class="footnote" rel="footnote">13</a></sup> In addition, when certain forms of reproductive health care are criminalized, unintended information dissemination can result in direct negative legal consequences for the user.<sup id="fnref:14" role="doc-noteref"><a href="#fn:14" class="footnote" rel="footnote">14</a></sup> Finally, in a legal environment where one has no final right to delete or remove oneself or their data from a platform, and where tech companies can routinely flout their own terms of service with little threat to their business models - one cannot predict how data can be used in the future. Official statements from a Facebook spokesperson that data is not being used for certain purposes means little from a company that has been known to violate its own terms of service in the past.<sup id="fnref:15" role="doc-noteref"><a href="#fn:15" class="footnote" rel="footnote">15</a></sup></p>
+
+<h3 id="what-should-be-learned">What should be learned</h3>
+
+<p>On the part of Flo Health, it is clear that the company’s application developers need to be more aware of and respect the terms that the users of its services agreed to. Whether the original problem stemmed from ignorance, poor internal communication, or malfeasance is uncertain. However, what is known is that after the repeal of Roe vs. Wade in the United States, Flo Health created the option of using the app in “Anonymous Mode,” allowing users to utilize the app without entering any personal information.<sup id="fnref:16" role="doc-noteref"><a href="#fn:16" class="footnote" rel="footnote">16</a></sup> While a welcome change, the release of this feature can also be interpreted as acceptance on the part of Flo Health that it still cannot guarantee security and privacy for the data its users choose to submit.</p>
+
+<p>On the side of Facebook, part of the problem is that documentation for developers on the Facebook platform often lags behind the release of features and functionality by months to years. Sometimes it is even incorrect.<sup id="fnref:17" role="doc-noteref"><a href="#fn:17" class="footnote" rel="footnote">17</a></sup> As an example, custom app events are minimally documented in Facebook’s SDK documentation - and no information is given on what types of events or data are appropriate to be sent through the service.<sup id="fnref:18" role="doc-noteref"><a href="#fn:18" class="footnote" rel="footnote">18</a></sup> If the developer facing documentation could be improved, correct uses of the SDKs would be more clear and there would be less need for developers to coordinate with legal departments to understand and comply with terms of service.<sup id="fnref:19" role="doc-noteref"><a href="#fn:19" class="footnote" rel="footnote">19</a></sup> However, it is probably not in Facebook’s interests to give clear warnings as it may push developers to use platforms that don’t require developers to hand over broad rights to the data they send.</p>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>Sam Schechner, “You Give Apps Sensitive Personal Information. Then They Tell Facebook.,” The Wall Street Journal, June 25, 2022, https://www.wsj.com/articles/you-give-apps-sensitive-personal-information-then-they-tell-facebook-11550851636. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:2" role="doc-endnote">
+      <p>Ibid. <a href="#fnref:2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:3" role="doc-endnote">
+      <p>Ibid. <a href="#fnref:3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:4" role="doc-endnote">
+      <p>“Flo Health Tech Stack - Flo Health, Inc.,” StackShare, accessed November 21, 2023, https://stackshare.io/flo-health-inc/flo-health-tech-stack. <a href="#fnref:4" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:5" role="doc-endnote">
+      <p>“August 6, 2018 - Flo Privacy Policy (Archived),” Flo Health, August 6, 2018, https://flo.health/privacy-policy-archived/aug-6-2018. <a href="#fnref:5" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:6" role="doc-endnote">
+      <p>“Data Protection &amp; Privacy at AWS,” Amazon, accessed November 21, 2023, https://aws.amazon.com/compliance/data-protection. <a href="#fnref:6" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:7" role="doc-endnote">
+      <p>“Privacy Policy: Archived Versions,” Flo.health - #1 mobile product for women’s health, January 1, 2020, https://flo.health/privacy-policy-archived/january-1-2020. However, the policy that Flo Health links to doesn’t cover the uses Flo Health describes in its own policy, indicating it is either out of date, or was never correct in the first place. <a href="#fnref:7" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:8" role="doc-endnote">
+      <p>Chris Hoffman, “What’s the Difference between Jailbreaking, Rooting, and Unlocking?,” HowToGeek, February 2, 2016, https://www.howtogeek.com/135663/htg-explains-whats-the-difference-between-jailbreaking-rooting-and-unlocking/. <a href="#fnref:8" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:9" role="doc-endnote">
+      <p>Schechner, “You Give Apps Sensitive Information” <a href="#fnref:9" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:10" role="doc-endnote">
+      <p>Jon Styf, “Google Seeks Dismissal of Flo App Privacy Class Action,” Top Class Actions, October 13, 2023, https://topclassactions.com/lawsuit-settlements/consumer-products/mobile-apps/google-seeks-dismissal-of-flo-app-privacy-class-action/. <a href="#fnref:10" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:11" role="doc-endnote">
+      <p>Jessie G Taft, “Facebook and Google Are the New Data Brokers,” DLI @ Cornell Tech, January 6, 2021, https://www.dli.tech.cornell.edu/post/facebook-and-google-are-the-new-data-brokers. <a href="#fnref:11" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:12" role="doc-endnote">
+      <p>Schechner, “You Give Apps Sensitive Information.” Passing a unique identifier allows Facebook to more easily join data between datasets. Without the identifier Facebook must rely on a “fuzzy” matching process that will typically result in a lower and less accurate match rate. <a href="#fnref:12" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:13" role="doc-endnote">
+      <p>Bradley E Iott, Celeste Campos-Castillo, and Denise L Anthony, “Trust and Privacy: How Patient Trust in Providers Is Related to Privacy Behaviors and Attitudes,” AMIA - Annual Symposium proceedings. AMIA Symposium, March 4, 2020, https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7153104/. <a href="#fnref:13" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:14" role="doc-endnote">
+      <table>
+        <tbody>
+          <tr>
+            <td>Jennifer Korn and Clare Duffy, “Search Histories, Location Data, Text Messages: How Personal Data Could Be Used to Enforce Anti-Abortion Laws</td>
+            <td>CNN Business,” CNN, June 24, 2022, https://www.cnn.com/2022/06/24/tech/abortion-laws-data-privacy/index.html.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><a href="#fnref:14" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:15" role="doc-endnote">
+      <p>Robinson Meyer, “Everything We Know about Facebook’s Secret Mood-Manipulation Experiment,” The Atlantic, August 5, 2021, https://www.theatlantic.com/technology/archive/2014/06/everything-we-know-about-facebooks-secret-mood-manipulation-experiment/373648/. <a href="#fnref:15" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:16" role="doc-endnote">
+      <p>Nicole Wetsman and Corin Faife, “Flo Period Tracker Launches ‘anonymous Mode’ to Fight Abortion Privacy Concerns,” The Verge, September 14, 2022, https://www.theverge.com/2022/9/14/23351957/flo-period-tracker-privacy-anonymous-mode. <a href="#fnref:16" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:17" role="doc-endnote">
+      <p>Developer support home search - META for developers, accessed November 21, 2023, https://developers.facebook.com/support/search/?query_string=documentation+incorrect. <a href="#fnref:17" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:18" role="doc-endnote">
+      <p>“App Events API for Marketing API,” Meta Marketing API - Documentation - Meta for Developers, accessed November 21, 2023, https://developers.facebook.com/docs/marketing-api/app-event-api/. Additionally, App Events are no longer the standard for tracking custom actions through the SDK, Facebook officially recommends that new apps use the Conversions API which also suffers from similar documentation issues. <a href="#fnref:18" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+    <li id="fn:19" role="doc-endnote">
+      <p>This does not absolve developers of responsibility in either case. The issue remains that while many developers today are geared to asking questions such as “Is this SDK open source, and licensed for commercial use?,” they may be less likely to ask “Is this SDK license compatible with the license our app’s users are signing?” <a href="#fnref:19" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>dario</name></author><category term="blog" /><category term="tech ethics" /><category term="research" /><summary type="html"><![CDATA[Research article on Flo Health and Data Ethics]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Multiplayer Visual Novel Art Update</title><link href="https://dario.technology/multiplayer-visual-novel-art-update/" rel="alternate" type="text/html" title="Multiplayer Visual Novel Art Update" /><published>2024-07-20T02:44:00-05:00</published><updated>2024-07-20T02:44:00-05:00</updated><id>https://dario.technology/multiplayer-visual-novel-art-update</id><content type="html" xml:base="https://dario.technology/multiplayer-visual-novel-art-update/"><![CDATA[<h2 id="wip-art">WIP Art</h2>
 
 <p>Have accumulated a bunch of half-finished PC98-style art backgrounds for use in my multiplayer adventure/visual novel game.</p>
 
@@ -258,89 +349,4 @@ The game simulation behavior, other than the pathfinding, would scale fine since
 
 <p>I know Jekyll is falling behind Hugo these days in popularity as a static site generator. But Jekyll is still so much simpler than Hugo to set up and get going. I used it to generate pages for each executive in the data I collected. I also used Chart.js to generate some interactive visualizations. I took a long look at D3 but I don’t really like the way its gone with Observable (with all due respect to the folks using Observable) it the attempt to emulate Juptyer/R Markdown style notebooks. It seems that a lot of d3 examples got nuked and are no longer available. Chart.js was a lot easier to get up and running with.</p>
 
-<p>I’ve begun to publish my results <a href="https://www.dario.technology/the-grunfeld">here</a></p>]]></content><author><name>dario</name></author><category term="project" /><category term="data engineering" /><category term="basketball" /><summary type="html"><![CDATA[Ranking the best and worst NBA executives]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Building a Political Media Research Platform</title><link href="https://dario.technology/building-a-political-media-intelligence-platform/" rel="alternate" type="text/html" title="Building a Political Media Research Platform" /><published>2023-08-10T22:44:00-05:00</published><updated>2023-08-10T22:44:00-05:00</updated><id>https://dario.technology/building-a-political-media-intelligence-platform</id><content type="html" xml:base="https://dario.technology/building-a-political-media-intelligence-platform/"><![CDATA[<p>2016 was a watershed year in American politics. It was a watershed year for me too, but all the details are too big for the scope of this post. But suffice to say it opened the eyes of many (including mine) to the power of data to manipulate social movement.</p>
-
-<p>Not too long after, I became professionally involved in leading the development the data infrastructure for political campaigns and organizations. One of my first projects, and what was soon to become my main project, was building the tools for automatic capture and analysis of political advertising data. I never really attempted to collect all my thoughts and lessons learnt from building the research tools, so I’ll try to do so now.</p>
-
-<h2 id="building-an-accurate-data-intelligence-pipeline">Building an accurate data intelligence pipeline</h2>
-
-<p><img src="/assets/images/political/pokemon1.png" alt="What is that data?" />
-<img src="/assets/images/political/pokemon2.png" alt="Well its not Bulbasaur" /></p>
-
-<p>Capturing digital political advertising data required building a realtime data collection pipeline that scraped public advertising transparency reports from Facebook, Google, Snapchat, and others. Unlike a traditional data pipeline where many variables can be controlled for, a web-scraping pipeline suffers from the following downsides:</p>
-
-<ul>
-  <li>Data on a website changes on an indeterminate schdule</li>
-  <li>Changes to web pages cause previous information there to be lost</li>
-  <li>Changes to how data is presented</li>
-  <li>You can be ratelimited without warning</li>
-  <li>Authentication to access data can be through a UI</li>
-  <li>Data you collect can be incomplete</li>
-</ul>
-
-<p>Solving for all of these issues requires a careful attention to detail, as well as some creative adaptation of traditional data engineering best practices. And a lot of work!
-<img src="/assets/images/political/pipeline.png" alt="New hires to our team got confronted with this beast in our documentation" /></p>
-
-<h4 id="data-scheduling">Data scheduling</h4>
-<p>The answer is simply you need to find the assumptions you can safely make, be prepared to collect a ton of data, and to be able to catch and adapt from your failures.</p>
-
-<p>As an example the Facebook Transparency Reports make CSVs of daily data available on most days. This is can usually be collected once a day, but if missed on the date of publication, can’t be accessed historically. In addition, their ad-level reporting updates indetermiately. This required running multi-threaded web scrapers so that we could scrape each ad at least once a day.</p>
-
-<h4 id="changes-to-website-structure">Changes to Website structure</h4>
-<p>This is pretty similar to traditional data pipelines in that you need to be able to detect when a data source is down, or if the pipeline is not exporting outputs properly. You need canary tests that will trigger if no data is being collected over a certain point in time. You also need to log errors or missing data so you can trigger an alarm if missing data counts go over a certain threshold.</p>
-
-<h4 id="data-access">Data Access</h4>
-<p>There is exist fairly decent rights when it comes to collecting data from public webpages. This has unfortunate consequences for individuals who may not be anticipating that their Facebook photos are being used in large-scale computer vision and surveillance projects. But as long as it is open-season, it also applies to corporations and the content on their websites.</p>
-
-<p>However, they unlike individuals, have the ability to shut you down so you need to be careful.
-Even when not provided, you need to determine respectful limits for how often you are querying webpages.</p>
-
-<p>Finally you may have to authenticate using a UI process built for a human user. 2FA can be handled by automating the relevant protocols whether it is SMS or OTP (rotating numbers). I used Tossable Digits and PyOTP to handle the authentication.</p>
-
-<h4 id="incomplete-and-inaccurate-data">Incomplete and inaccurate data</h4>
-<p>The biggest issue for any web scraping project is making sure your data is complete – and knowing when it isn’t. This is issue is big enough that I would discourage web scraping for most projects with serious goals. You are basically trying to reverse engineer a dataset. 100% of the time, it is better to get access to the actual dataset. But if you have 0% chance of getting access to it and decide to go the web scraping route, you need to have a way of testing your data to make sure it is accurate and complete.</p>
-
-<p>To give an example of the problem, consider that the Facebook Transparency Report offers ad level data. However, metrics such as ad spend and ad reach are bucketed in fairly fuzzy bucket amounts. So if you are trying to evaluate the daily spend on an ad, it is impossible from just looking at what Facebook provides at the ad level. In addition, Facebook offers no history of the spend – you have to build that history yourself with daily web scraping.</p>
-
-<p>However, Facebook also provides exact daily ad spends at the advertiser level. So by collecting those you can know the daily spend for all ads for an advertiser.</p>
-
-<p>All this gives you enough data points to estimate the actual daily spend of an advertisement on Facebook. You just have to ensure that you are collecting one data point per day, per ad, as well as the daily spend of an advertiser per day. You can use the date of when an ad spend bucket changes to know when it has hit a minimum of spend. And using the advertiser level spend you can distribute the estimated spend among all the active ads that day.</p>
-
-<p>Finally, if you are running your own ads, or know someone that is. You can double check against the real numbers. And thus be confident in your own estimates.</p>
-
-<h2 id="political-advertising-analysis">Political Advertising Analysis</h2>
-
-<h4 id="when-not-to-use-ai">When not to use AI</h4>
-<p>I’m a big believer in not using more than what you need. Plenty of times I’ve seen attempts to use the latest AI or machine learning techniques to build a predictive model that then works less well than a basic technique such as linear regression. The linear regression is also easier to build. But it doesn’t sound as fun as chasing the buzzwords.</p>
-
-<p>On this project I had a data engineer who attempted to build a machine learning model that would automatically categorize ads into categories as well as predict the emotional content of the ad. They utilized paid data labelers and volunteers from the team to code the training data. It was an ambitious project that ultimately failed because to build the perfect model with so many parameters to predict, you need a very large amount of training data, more than what was available.</p>
-
-<p>As a backup plan I had prepared a very simple NLP algorithm that simply counted the occurances of coded keywords. For example if “immigration” appeared in an ad’s text, we assigned the label of “immigration” to the ad’s topics. For this we needed to manually maintain a list of keywords, but this was much less expensive that hiring manual data coders. It could also be developed and implemented by an analyst. And unlike the machine learning model, it actually worked. We were able to do something similar with sentiment analysis using coded “positive” and “negative” keywords. We even were able to automatically categorize the purpose of ad based on both keywords and basic analysis of the landing pages the ads linked to.</p>
-
-<p><img src="/assets/images/political/keyword1.png" alt="Ad Issue" />
-<img src="/assets/images/political/keyword2.png" alt="Ad Sentiment" />
-<img src="/assets/images/political/keyword3.png" alt="Ad Purpose" /></p>
-
-<h4 id="when-to-use-ai">When to use AI</h4>
-<p>Sometimes, however, simple classical techniques are not enough to obtain the results we need. AI is useful for the cleaning and processing of data where it doesn’t make sense to have a series of simple rules. In needing to get all our data into a basic text format for analysis, we had the problem of having many image, video, and audio ads that didn’t come with any easily readable text or captions. So I evaluated a few different models for processing and transcribing these formats and put them to work converting our data as it came in.</p>
-
-<p>In addition, returning to the problem of emotional content of ads – many ads contain information that does not map to text at all. Ad copy like “Vote Now!” tells you some important information about the ad creative, but an ad is as much images and it is words. Even by processing all image, video, and audio from ads to extract the textual information contained within, we were still missing key points of information. So I decided to add a facial emotion recognition component to our pipeline.</p>
-
-<p>I trained a basic model in Tensorflow on already existing public datasets, and used to assign a basic emotional context to ads just based off of the facial expressions in the ad creative.</p>
-
-<p><img src="/assets/images/political/ai1.png" alt="Emotion Recognition" /></p>
-
-<h4 id="final-product">Final Product</h4>
-<p>Once a reliable pipeline for ad level spend estimates and categorization has been established, one can easily answer a variety of questions about the current digital political ad environment:</p>
-
-<ul>
-  <li>How much are conservative groups spending on immigration topics?</li>
-  <li>How much money was spent on immigration related ads for certain period of time?</li>
-  <li>What total reach did ads utilitizing ‘negative’ sentiments towards immigration have during a certain period of time?</li>
-</ul>
-
-<p>At GMMB we ended up producing a variety of dashboards, alert triggers, automated emails, and APIs – all that were only possible due to time spent creating a reliable data pipeline. Our base dataset and assorted research tools were used by a variety of media groups and organizations such as BFP, the Kamala Harris campaign, DSCC, DCCC, DGA, Priorities USA, as well as in-house for GMMB digital campaigns.</p>
-
-<h4 id="traditional-media">Traditional Media</h4>
-
-<p>Traditional media (TV, Radio, etc.) is entirely another beast. Rather than a problem of web scraping, it was a problem of digitization. That can wait for another post.</p>]]></content><author><name>dario</name></author><category term="project" /><category term="data engineering" /><category term="political advertising" /><category term="political data analysis" /><summary type="html"><![CDATA[Building a Political Media Intelligence Platform]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>I’ve begun to publish my results <a href="https://www.dario.technology/the-grunfeld">here</a></p>]]></content><author><name>dario</name></author><category term="project" /><category term="data engineering" /><category term="basketball" /><summary type="html"><![CDATA[Ranking the best and worst NBA executives]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

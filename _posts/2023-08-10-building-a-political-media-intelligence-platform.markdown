@@ -8,6 +8,7 @@ tag:
 - data engineering
 - political advertising
 - political data analysis
+- research
 star: true
 category: project
 projects: true
