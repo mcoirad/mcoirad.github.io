@@ -42,6 +42,11 @@ github: mcoirad
 bandcamp: spritejewelry
 #email: myemail@gmail.com
 
+collections:
+  projects:
+    output: true
+    permalink: /projects/:title/
+
 authors:
   johndoe:
     name: Dario

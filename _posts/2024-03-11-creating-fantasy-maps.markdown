@@ -10,6 +10,7 @@ tag:
 star: true
 category: project
 projects: true
+project: Procedural Fantasy Maps
 author: dario
 description: Generating 2D Fantasy Maps
 ---

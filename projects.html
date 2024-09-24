@@ -6,9 +6,17 @@ title: Projects
     {% for post in site.posts %}
         {% if post.projects %}
             {% if post.hidden != true %}
+            {% assign project_posts = site.posts | where: "project", post.project | sort: "date" %}
+
                 <div class="item {% if post.star %}star{% endif %}">
                     <a class="url" href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">
-                        <aside><time datetime="{{ post.date | date:"%d-%m-%Y" }}">{{ post.date | date: "%b %d %Y" }}</time></aside>
+                        <aside>
+                            {% for project_post in project_posts %}
+                            <a class="url" href="{% if project_post.externalLink %}{{ project_post.externalLink }}{% else %}{{ site.url }}{{ project_post.url }}{% endif %}">
+                                {{ forloop.index }}
+                            <a/> /
+                            {% endfor %}
+                        </aside>
                         <h3 class="title">{{ post.title }}</h3>
                     </a>
                 </div>
