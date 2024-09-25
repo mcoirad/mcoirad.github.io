@@ -8,8 +8,8 @@ tag:
 - game development
 - procedural generation
 star: true
-category: project
-projects: true
+category: blog
+projects: false
 project: Procedural Fantasy Maps
 author: dario
 description: Generating 2D Fantasy Maps

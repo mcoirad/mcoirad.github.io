@@ -10,7 +10,7 @@ tag:
 star: true
 category: project
 projects: true
-project: Reflexive Quantitative Analysis for Basketball
+project: nba_executives
 author: dario
 description: Ranking the best and worst NBA executives
 ---

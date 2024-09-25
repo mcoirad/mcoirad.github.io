@@ -10,7 +10,7 @@ tag:
 star: true
 category: project
 projects: true
-project: Multiplayer Interactive Fiction
+project: multiplayer_novel_framework
 author: dario
 description: Building a framework with Unity3D
 ---

@@ -10,7 +10,7 @@ tag:
 star: true
 category: blog
 projects: false
-project: Multiplayer Interactive Fiction
+project: multiplayer_novel_framework
 author: dario
 description: Sprite Jewelry music release
 ---
