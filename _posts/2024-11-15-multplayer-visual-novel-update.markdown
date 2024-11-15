@@ -1,5 +1,5 @@
 ---
-title: "Multiplayer Visual Novel Framework Update"
+title: "Multiplayer Visual Novel Framework pt. 3"
 layout: post
 date: 2024-11-15 02:44
 image: /assets/images/markdown.jpg
