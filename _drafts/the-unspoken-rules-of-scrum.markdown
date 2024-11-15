@@ -16,22 +16,17 @@ description: Sprite Jewelry music release
 
 ## WIP Art
 
-Have accumulated a bunch of half-finished PC98-style art backgrounds for use in my multiplayer adventure/visual novel game.
+Scrum is honestly fun and great for getting things done. There's nothing like working on an independent team that gets things done on its own without too much intereference from the top. Self-organizing autonomous teams are asset to an organization and often very fulfilling to work under.
 
-I haven't yet nailed down the resolution I want to use as well as overall design which has kept me from grinding through and finishing these pieces. I'm still considering gameplay elements and I probably don't want to do too much art until I have more of the plot storyboarded out.
+The problem though is the Scrum philosophy and team organization makes a lot of assumptions about the people involved. Assumptions that generally are not true to various degrees about people and organizations in the real world.
 
-Nevertheless I've still needed to keep working and grow as an artist. You can see a bit of how my process works in these work-in-progress pieces.
+> Scrum Teams are cross-functional, meaning the members have all the skills necessary to create value each Sprint.
 
-![Government Laboratory](/assets/images/gameart/govtlab.png)
-![Boss Office](/assets/images/gameart/boss_office2.png)
-![MK Ultra](/assets/images/gameart/mkultra.png)
+The first big one is that Scrum only works when the Scrum team members actually know what they are doing. In the context of Scrum, the creation of value is not just the completing of assigned tasks, but knowing how, if, and if not your assigned tasks fit into the bigger picture. This is a markedly different form of expertise compared to that of the bare technical skills required to complete tasks in the context of software projects. In addition to being a different type of expertise, it requires a different sort committment, that of spending time and energy of soft skills that at the end of the day aren't usually measured in the tasks assigned during a sprint.
 
-These are still definitely learning pieces. For purposes of comparison here is some art from actual PC98 games:
+In practice, it more common for people to take this sort of mental leap when, 1. doing things for the first time during a project or 2. 
 
-![PC98 City](/assets/images/pc98/city.png)
-![PC98 HQ](/assets/images/pc98/hq.png)
-![PC98 Street](/assets/images/pc98/street.png)
 
-It's doubtful I could get all the graphics in the game to this level of quality just by myself, but the goal will get to produce at least a few pieces for the demo. Of course, not all PC98 games looked this good, the ones with the best graphics came along in the mid 1990s as opposed to earlier. Honestly it is insane how much effort it takes to get the cluttered machinery cyberpunk look that you can see in [quite a few of the PC98 games.](https://www.mobygames.com/game/platform:pc98/sort:moby_score/page:1/)
+In the context of software engineering, this means that team members are equipped with the technical skills and experience to actually successfully implement the Scrum team goals. One someone is learning to do somethi
 
-Going beyond the demo I will definitely need some extra help for art production.
+Not only do Scrum Teams need to be able to clear tickets, they need to maintain larger sight of the big picture (Sprint Goal) while doing so. They must be proactive rather reactive.

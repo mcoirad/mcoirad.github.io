@@ -12,7 +12,7 @@ category: blog
 projects: false
 project: multiplayer_novel_framework
 author: dario
-description: Sprite Jewelry music release
+description: Game Art Update
 ---
 
 ## WIP Art
