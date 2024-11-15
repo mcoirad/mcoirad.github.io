@@ -1,4 +1,73 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2024-09-24T19:23:46-05:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Flo Health: How to Badly (and Unethically) Use the Facebook SDK</title><link href="https://dario.technology/flo-health/" rel="alternate" type="text/html" title="Flo Health: How to Badly (and Unethically) Use the Facebook SDK" /><published>2024-09-18T02:44:00-05:00</published><updated>2024-09-18T02:44:00-05:00</updated><id>https://dario.technology/flo-health</id><content type="html" xml:base="https://dario.technology/flo-health/"><![CDATA[<p><em>Here is an article originally written for my Medium blog, but posted here as part of my explorations into technology ethics.</em></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2024-11-15T15:22:15-06:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Multiplayer Visual Novel Framework Update</title><link href="https://dario.technology/multplayer-visual-novel-update/" rel="alternate" type="text/html" title="Multiplayer Visual Novel Framework Update" /><published>2024-11-15T02:44:00-06:00</published><updated>2024-11-15T02:44:00-06:00</updated><id>https://dario.technology/multplayer-visual-novel-update</id><content type="html" xml:base="https://dario.technology/multplayer-visual-novel-update/"><![CDATA[<h2 id="hitting-a-milestone">Hitting a milestone</h2>
+
+<p>After a lot of hard work and effort, finally hit a preliminary milestone in this game’s development. Basically I’ve now got the scripting engine to the point where I can do just about everything that it needs to replicate the original game demo I produced in Renpy. Certainly have not replicated all of Renpy, but a minimum of functionality for the dialogue and exploration systems.</p>
+
+<p>I’ve taken the trouble of creating <a href="https://gist.github.com/mcoirad/e4b7de3f9794f51207882a3733e7043b">an automated running count (using Google App Script)</a> of <a href="https://docs.google.com/document/d/1eqjGHiL9UlSgFJ7AQlC8XVqqODP9ANND7Dhm50MLwaY/edit?usp=sharing">where we are in the engine implementation</a>:</p>
+
+<p><img src="/assets/images/gameart/progress1.png" alt="Game Engine Progress" /></p>
+
+<p>We are still about halfway through, despite all the continued work, but that’s more due to me continuing to flesh out some of the needed features of the game and thus adding more detail to the roadmap.</p>
+
+<p>The main part of it is the scripting engine, which like Renpy, allows for writing out the dialogue in script files.</p>
+
+<h3 id="creating-a-scene">Creating a scene</h3>
+<p><img src="/assets/images/gameart/engine_example1.gif" alt="Game Demo Example" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Begin
+scene
+{
+	addHotspot(newspapers, [look], (0.25, 0.1), (0.22, 0.19))
+	addHotspot(certificates, [look], (0, 0.55), (0.25, 0.35))
+}
+fadeToBlack(noise)
+setBackground(boss_office_back);setForeground(boss_office_front);fadeFromBlack(noise)
+</code></pre></div></div>
+
+<h4 id="hotspots-and-items">Hotspots and items</h4>
+<p>Our scripting engine defines a ‘scene’ by a collection of items and hotspots. Items are just images that are separate from the backgrounds. Hotspots are areas of interactivity that may or may not contain an image. We don’t have a real name for the scene, but we use a label prepended by a hashtag ‘#’ which also functions as a comment.</p>
+
+<p>The current example doesn’t include any items, which can be added by <code class="language-plaintext highlighter-rouge">addItem()</code>. Instead there are hotspots for ‘newspapers’ and ‘certificates’. Each hotspot has a list on interactions that will come up on a popup menu if the hotspot is interacted with, in this case each just has ‘look’. The final arguments just provide the position and size of the hotspots, relative to the size of the screen.</p>
+
+<p>The actual images of backgrounds are defined separately from the scene.</p>
+
+<h4 id="background-action-scripting">Background action scripting</h4>
+<p>Here we make use of some redefined actions to control the image backgrounds.</p>
+
+<p><code class="language-plaintext highlighter-rouge">fadeToBlack</code> and <code class="language-plaintext highlighter-rouge">fadeFromBlack</code> control scene transitions, using a ‘noise’ effect.</p>
+
+<p><code class="language-plaintext highlighter-rouge">setBackground</code> and <code class="language-plaintext highlighter-rouge">setForeground</code> use our layer system to provide two levels of backgrounds, one in front of and one behind our characters.</p>
+
+<h3 id="dialog-system">Dialog System</h3>
+<video controls="">
+  <source src="/assets/images/gameart/example_engine2.mp4" type="video/mp4" style="max-width:100%;" />
+  Your browser does not support the video tag.
+</video>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Intro
+narrator "Here we are, at the boss' office."
+enter(Boss,interactive=true,options=[look,talk]);setPosition(Boss,0.5,0.65)
+Boss "So you're wondering why I called you in tonight." 
+Boss "This is a real important case.{a} I don't know if you knew this about Gonzalez but she was colonel on the police force before making a big career in politics."
+...
+Boss "Mess up, and you'll be on the K9-unit clean-up detail."
+@AP "&lt;i&gt;Uh oh.{a} They won't even let the robots do that kind of work. If it came to it, I would rather be fired.&lt;/i&gt;"
+@AP "&lt;i&gt;I think my Boss is watching out for me, but it's hard to tell sometimes.&lt;/i&gt;"
+Boss "And before you leave, one more thing..."
+Boss "Kirke fixed up the...{a} whatchamacallit{a} &lt;b&gt;&lt;color=red&gt;EMP scanner&lt;/color&gt;&lt;/b&gt; thing, make sure to drop by the lab and take that with you." addKeyword(emp_scanner)
+jump(Explore)
+</code></pre></div></div>
+
+<h4 id="character-management">Character Management</h4>
+<p>We enter the ‘boss’ character using <code class="language-plaintext highlighter-rouge">enter()</code>, setting him to <code class="language-plaintext highlighter-rouge">interactive</code> (meaning the character will also have an interaction hotspot in exploration mode), as well as interaction options ‘look’ and ‘talk’. We also use <code class="language-plaintext highlighter-rouge">setPosition()</code> to place him in the middle of the scene. The engine will automatically search for this character’s art files in the Resources folder. The framework will also automatically search for a speaking animation and play it while the dialogue for a character is in progress.</p>
+
+<p>Similar to Renpy sytax, we start off dialog lines with a character’s name, and then dialog in doublequotes. Thing like dialog stops <code class="language-plaintext highlighter-rouge">{a}</code> and HTML styling like italics and bold text are all supported.</p>
+
+<p>One difference is that since this is multiplayer is that there is support for relative dialogue. In this case we have the <code class="language-plaintext highlighter-rouge">@AP</code> which stands for ‘active player’, i.e. generally whoever initiated the dialogue or interaction.
+In addition we have support for running our action functions within and at the end of each speech definition.</p>
+
+<p>Finally we use a very important action, <code class="language-plaintext highlighter-rouge">jump()</code> which jumps to the aforementioned labels, which are defined with hashtags. In this case, the script jumps to a label which begins the exploration mode.</p>
+
+<h3 id="going-from-here">Going from here</h3>
+<p>You’ll notice I haven’t posted the actual code that is behind the framework. Earlier I did consider the idea of releasing the framework, potentially as a licensed asset. That still is the goal, however, my priority now has changed to just working on my game. Plenty of behaviors are hardcoded and I’m not yet at the point where I want to spend too much time on cleaning things up and responding to questions and bugfixes. There will be time for that later, once the game is in a more advanced state. (Happy to still share code on a private basis with anyone interested)</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="interactive narratives" /><category term="2D Arts" /><summary type="html"><![CDATA[Game Engine Update]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Flo Health: How to Badly (and Unethically) Use the Facebook SDK</title><link href="https://dario.technology/flo-health/" rel="alternate" type="text/html" title="Flo Health: How to Badly (and Unethically) Use the Facebook SDK" /><published>2024-09-18T02:44:00-05:00</published><updated>2024-09-18T02:44:00-05:00</updated><id>https://dario.technology/flo-health</id><content type="html" xml:base="https://dario.technology/flo-health/"><![CDATA[<p><em>Here is an article originally written for my Medium blog, but posted here as part of my explorations into technology ethics.</em></p>
 
 <h2 id="flo-health-how-to-badly-and-unethically-use-the-facebooksdk">Flo Health: How to Badly (and Unethically) Use the Facebook SDK</h2>
 
@@ -109,7 +178,7 @@
 
 <p>It’s doubtful I could get all the graphics in the game to this level of quality just by myself, but the goal will get to produce at least a few pieces for the demo. Of course, not all PC98 games looked this good, the ones with the best graphics came along in the mid 1990s as opposed to earlier. Honestly it is insane how much effort it takes to get the cluttered machinery cyberpunk look that you can see in <a href="https://www.mobygames.com/game/platform:pc98/sort:moby_score/page:1/">quite a few of the PC98 games.</a></p>
 
-<p>Going beyond the demo I will definitely need some extra help for art production.</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="2D Arts" /><summary type="html"><![CDATA[Sprite Jewelry music release]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Sprite Jewelry EP rerelease</title><link href="https://dario.technology/sprite-jewelry-ep-rerelease/" rel="alternate" type="text/html" title="Sprite Jewelry EP rerelease" /><published>2024-07-09T02:44:00-05:00</published><updated>2024-07-09T02:44:00-05:00</updated><id>https://dario.technology/sprite-jewelry-ep-rerelease</id><content type="html" xml:base="https://dario.technology/sprite-jewelry-ep-rerelease/"><![CDATA[<h2 id="sprite-jewelry-ep">Sprite Jewelry EP</h2>
+<p>Going beyond the demo I will definitely need some extra help for art production.</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="2D Arts" /><summary type="html"><![CDATA[Game Art Update]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Sprite Jewelry EP rerelease</title><link href="https://dario.technology/sprite-jewelry-ep-rerelease/" rel="alternate" type="text/html" title="Sprite Jewelry EP rerelease" /><published>2024-07-09T02:44:00-05:00</published><updated>2024-07-09T02:44:00-05:00</updated><id>https://dario.technology/sprite-jewelry-ep-rerelease</id><content type="html" xml:base="https://dario.technology/sprite-jewelry-ep-rerelease/"><![CDATA[<h2 id="sprite-jewelry-ep">Sprite Jewelry EP</h2>
 
 <iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=3692447939/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless=""><a href="https://spritejewelry.bandcamp.com/album/sprite-jewelry-ep">sprite jewelry EP by sprite jewelry</a></iframe>
 
@@ -308,45 +377,4 @@ The game simulation behavior, other than the pathfinding, would scale fine since
 
 <p>At this point <a href="https://docs.google.com/document/d/1zSwSUPcDkkznFxj8uB94N8eU8m4bri6jeO3hq-L-hWw/edit?usp=sharing">I’m about 50-60% in on what I’d like to implement in my base feature set for the framework</a>. I’m kind of caught between two goals – developing the framework as to use as the basis for my own game, and developing the framework as something that could be shared and published. To the first end I’ve been working on getting out some art mockups of what I’d want the game to look like. And to the second I’m working on cleaning up the code and creating better documentation. But I probably don’t have the time to do both so I need to determine my goals so I know what to focus on.</p>
 
-<p><img src="/assets/images/preview.png" alt="Game Demo Screenshot" /></p>]]></content><author><name>dario</name></author><category term="project" /><category term="game development" /><category term="interactive narratives" /><summary type="html"><![CDATA[Building a framework with Unity3D]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Advanced Stats for Unadvanced NBA Executives</title><link href="https://dario.technology/basketball-stats-on-basketball-executives/" rel="alternate" type="text/html" title="Advanced Stats for Unadvanced NBA Executives" /><published>2023-11-24T22:44:00-06:00</published><updated>2023-11-24T22:44:00-06:00</updated><id>https://dario.technology/basketball-stats-on-basketball-executives</id><content type="html" xml:base="https://dario.technology/basketball-stats-on-basketball-executives/"><![CDATA[<p>As a basketball fan of a bad basketball team, something has always bothered me about the inaccessible nature of major league sports leadership. It seems… to put it nicely… to be less than a meritocracy. While playing sports at a professional level seems to be an extremely unique talent, I would argue that managing a sports team is much less than that. Of any NBA team, for example, there are probably some percentage of the fans that could conceivably make better decisions than the team’s own front office. (The same could probably said for large corporations)</p>
-
-<p>The performance of NBA players is scrutinized at a level that exemplifies data science’s “race to the bottom.” Just about everything is tracked statistically in the hope that some advantage can be gleaned. Draft evaluations include not just basic anthromorphic data but also surveys of NBA prospects mental states.</p>
-
-<p>I find it disappointing that we don’t have the same data points to measure the performance of the basketball executives that are at the end of the day responsible for the entire team’s performance. (Once again I feel the same way about executives of corporations in general) Thus I set out to create my own statistic for this.</p>
-
-<h3 id="assembling-the-dataset">Assembling the dataset</h3>
-
-<p>Most stats are easily available. However I needed transactions. I got this from basketball-reference.com and matched players to basic and advanced stats from there. The goal was to be able to assign a value to each transaction an executive made. Transaction are grouped into the following categories:</p>
-<ul>
-  <li>Trade</li>
-  <li>Draft</li>
-  <li>Free agent signing</li>
-  <li>Sale</li>
-</ul>
-
-<p>Free agent losses are hard to track and I would have to do more work to build the dataset for this type of transaction – so I have left that out for now.</p>
-
-<p>For the value of the transaction I used a very simple formula of:</p>
-
-<p>Player BPM * Number of minutes played for team</p>
-
-<p>By creating a running total of these values I can create a stat I’ll call “Executive BPM”.</p>
-
-<p>This works alright – but like any stat has its shortcomings:</p>
-<ul>
-  <li>trading for/playing a prospect heavy minutes will generate a lot of negative EBPM</li>
-  <li>Intentionally tanking will lead to a lot of negative EBPM</li>
-  <li>Trading a good player for picks also leads to negative EBPM</li>
-</ul>
-
-<p>We account for some of these like doing things like assigning a value to future first round and second round picks. But these will always be lower than that of a star player (and in the case of second round picks, may actually have negative value if an executive is bad at drafting.)</p>
-
-<h3 id="visualizing-results">Visualizing results</h3>
-
-<p><img src="/assets/images/nba/chart.png" alt="Popovich performance over time" /></p>
-
-<p>In getting some results up and out I opted for a static site generator. Creating a full-stack website would be fun but I’m more interested in the data and analysis for this rather than digging into the infrastructure.</p>
-
-<p>I know Jekyll is falling behind Hugo these days in popularity as a static site generator. But Jekyll is still so much simpler than Hugo to set up and get going. I used it to generate pages for each executive in the data I collected. I also used Chart.js to generate some interactive visualizations. I took a long look at D3 but I don’t really like the way its gone with Observable (with all due respect to the folks using Observable) it the attempt to emulate Juptyer/R Markdown style notebooks. It seems that a lot of d3 examples got nuked and are no longer available. Chart.js was a lot easier to get up and running with.</p>
-
-<p>I’ve begun to publish my results <a href="https://www.dario.technology/the-grunfeld">here</a></p>]]></content><author><name>dario</name></author><category term="project" /><category term="data engineering" /><category term="basketball" /><summary type="html"><![CDATA[Ranking the best and worst NBA executives]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p><img src="/assets/images/preview.png" alt="Game Demo Screenshot" /></p>]]></content><author><name>dario</name></author><category term="project" /><category term="game development" /><category term="interactive narratives" /><summary type="html"><![CDATA[Building a framework with Unity3D]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

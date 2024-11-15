@@ -1,7 +1,7 @@
 ---
-title: "Multiplayer Visual Novel Update"
+title: "Multiplayer Visual Novel Framework Update"
 layout: post
-date: 2024-09-18 02:44
+date: 2024-11-15 02:44
 image: /assets/images/markdown.jpg
 headerImage: false
 tag:
@@ -19,13 +19,17 @@ description: Game Engine Update
 
 After a lot of hard work and effort, finally hit a preliminary milestone in this game's development. Basically I've now got the scripting engine to the point where I can do just about everything that it needs to replicate the original game demo I produced in Renpy. Certainly have not replicated all of Renpy, but a minimum of functionality for the dialogue and exploration systems.
 
-I've taken the trouble of creating an automated running count of where we are in the engine implementation:
+I've taken the trouble of creating [an automated running count (using Google App Script)](https://gist.github.com/mcoirad/e4b7de3f9794f51207882a3733e7043b) of [where we are in the engine implementation](https://docs.google.com/document/d/1eqjGHiL9UlSgFJ7AQlC8XVqqODP9ANND7Dhm50MLwaY/edit?usp=sharing):
 
-We are still halfway through, despite all the continued work, but that's more due to me continuing to flesh out some of the needed features of the game.
+![Game Engine Progress](/assets/images/gameart/progress1.png)
+
+We are still about halfway through, despite all the continued work, but that's more due to me continuing to flesh out some of the needed features of the game and thus adding more detail to the roadmap.
 
 The main part of it is the scripting engine, which like Renpy, allows for writing out the dialogue in script files.
 
 ### Creating a scene
+![Game Demo Example](/assets/images/gameart/engine_example1.gif)
+
 ```
 # Begin
 scene
@@ -52,6 +56,10 @@ Here we make use of some redefined actions to control the image backgrounds.
 `setBackground` and `setForeground` use our layer system to provide two levels of backgrounds, one in front of and one behind our characters.
 
 ### Dialog System
+<video controls>
+  <source src="/assets/images/gameart/example_engine2.mp4" type="video/mp4" style="max-width:100%;">
+  Your browser does not support the video tag.
+</video>
 ```
 # Intro
 narrator "Here we are, at the boss' office."
@@ -68,7 +76,7 @@ jump(Explore)
 ```
 
 #### Character Management
-We enter the 'boss' character using `enter()`, setting him to `interactive` (meaning the character will also have an interaction hotspot in exploration mode), as well as interaction options 'look' and 'talk'. We also use `setPosition()` to place him in the middle of the scene. The engine will automatically search for this character's art files in the Resources folder.
+We enter the 'boss' character using `enter()`, setting him to `interactive` (meaning the character will also have an interaction hotspot in exploration mode), as well as interaction options 'look' and 'talk'. We also use `setPosition()` to place him in the middle of the scene. The engine will automatically search for this character's art files in the Resources folder. The framework will also automatically search for a speaking animation and play it while the dialogue for a character is in progress.
 
 Similar to Renpy sytax, we start off dialog lines with a character's name, and then dialog in doublequotes. Thing like dialog stops `{a}` and HTML styling like italics and bold text are all supported.
 
@@ -78,4 +86,4 @@ In addition we have support for running our action functions within and at the e
 Finally we use a very important action, `jump()` which jumps to the aforementioned labels, which are defined with hashtags. In this case, the script jumps to a label which begins the exploration mode.
 
 ### Going from here
-You'll notice I haven't posted the actual code that is behind the framework. Earlier I did consider the idea of releasing the framework, potentially as a licensed asset. That still is the goal, however, my priority now has changed to just working on my game. Plenty of behaviors are hardcoded and I'm not yet at the point where I want to spend too much time on cleaning things up and responding to questions and bugfixes. There will be time for that later, once the game is in a more advanced state.
+You'll notice I haven't posted the actual code that is behind the framework. Earlier I did consider the idea of releasing the framework, potentially as a licensed asset. That still is the goal, however, my priority now has changed to just working on my game. Plenty of behaviors are hardcoded and I'm not yet at the point where I want to spend too much time on cleaning things up and responding to questions and bugfixes. There will be time for that later, once the game is in a more advanced state. (Happy to still share code on a private basis with anyone interested)
