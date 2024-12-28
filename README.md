@@ -45,6 +45,12 @@ To run locally do the following:
 bundle install
 bundle exec jekyll serve
 ```
+
+or for us WsL freaks...
+```
+bundle exec jekyll serve --force_polling --livereload
+```
+
 4. Open it in your browser: [http://localhost:4000](http://localhost:4000)
 
 Or run with [docker](https://github.com/BretFisher/jekyll-serve).
