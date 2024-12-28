@@ -8,7 +8,7 @@ tag:
 - data engineering
 - basketball
 star: true
-category: project
+category: blog
 projects: true
 project: nba_executives
 author: dario
