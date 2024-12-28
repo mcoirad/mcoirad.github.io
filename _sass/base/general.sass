@@ -142,3 +142,47 @@ pre
 
 video
 	max-width: 100%
+
+#markdown-toc
+	background-color: #f9f9f9
+	border: 1px solid #ddd
+	border-radius: 5px
+	padding: 1rem
+	max-width: 500px
+
+	h2
+		font-size: 1.2rem
+		margin-top: 0
+		margin-bottom: 0.5rem
+		border-bottom: 1px solid #ddd
+		padding-bottom: 0.3rem
+
+
+	ul
+		list-style-type: none // Removes default bullets
+		margin-left: 0 // Removes extra margin
+
+	li
+		margin: 0.5rem 0
+		position: relative // Allows custom bullets
+		padding-left: 1rem // Indents text
+
+		&::before
+			content: '•' // Unicode bullet point
+			position: absolute
+			left: 0 // Aligns bullet to the left
+			color: #0073e6 // Matches link color
+		
+	
+
+
+	a
+		text-decoration: none
+		color: #0073e6
+		transition: color 0.2s
+
+		&:hover
+			color: #005bb5
+			text-decoration: underline
+	
+

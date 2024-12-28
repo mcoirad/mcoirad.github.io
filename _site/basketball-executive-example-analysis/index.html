@@ -286,6 +286,14 @@ pre { box-sizing: border-box; margin: 0 0 1.75em 0; width: 100%; padding: 5px 10
 
 video { max-width: 100%; }
 
+#markdown-toc { background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; padding: 1rem; max-width: 500px; }
+#markdown-toc h2 { font-size: 1.2rem; margin-top: 0; margin-bottom: 0.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.3rem; }
+#markdown-toc ul { list-style-type: none; margin-left: 0; }
+#markdown-toc li { margin: 0.5rem 0; position: relative; padding-left: 1rem; }
+#markdown-toc li::before { content: "•"; position: absolute; left: 0; color: #0073e6; }
+#markdown-toc a { text-decoration: none; color: #0073e6; transition: color 0.2s; }
+#markdown-toc a:hover { color: #005bb5; text-decoration: underline; }
+
 /* general helpers */
 .text-center { text-align: center; }
 
@@ -613,6 +621,13 @@ video { max-width: 100%; }
 @media (prefers-color-scheme: dark) { .wrapper-normal { max-width: 560px; }
   .wrapper-large { max-width: 810px; }
   video { max-width: 100%; }
+  #markdown-toc { background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 5px; padding: 1rem; max-width: 500px; }
+  #markdown-toc h2 { font-size: 1.2rem; margin-top: 0; margin-bottom: 0.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.3rem; }
+  #markdown-toc ul { list-style-type: none; margin-left: 0; }
+  #markdown-toc li { margin: 0.5rem 0; position: relative; padding-left: 1rem; }
+  #markdown-toc li::before { content: "•"; position: absolute; left: 0; color: #0073e6; }
+  #markdown-toc a { text-decoration: none; color: #0073e6; transition: color 0.2s; }
+  #markdown-toc a:hover { color: #005bb5; text-decoration: underline; }
   /* general helpers */
   .text-center { text-align: center; }
   .clearfix:before, .clearfix:after { content: ""; display: table; }
@@ -803,7 +818,7 @@ video { max-width: 100%; }
     
 
     
-        7 mins
+        8 mins
     
 </span>
 
@@ -818,6 +833,27 @@ video { max-width: 100%; }
         
     </div>
 
+
+<ul id="markdown-toc">
+  <li><a href="#documentation-of-full-analysis" id="markdown-toc-documentation-of-full-analysis">Documentation of full analysis</a>    <ul>
+      <li><a href="#the-data" id="markdown-toc-the-data">The Data</a>        <ul>
+          <li><a href="#ernie-grunfeld" id="markdown-toc-ernie-grunfeld">Ernie Grunfeld</a></li>
+          <li><a href="#draft-calculations" id="markdown-toc-draft-calculations">Draft Calculations</a>            <ul>
+              <li><a href="#calculating-the-value-of-future-draft-picks" id="markdown-toc-calculating-the-value-of-future-draft-picks">Calculating the value of future draft picks</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#executive-ratings" id="markdown-toc-executive-ratings">Executive Ratings</a>        <ul>
+          <li><a href="#signing-rating" id="markdown-toc-signing-rating">Signing Rating</a></li>
+          <li><a href="#trade-rating" id="markdown-toc-trade-rating">Trade Rating</a></li>
+          <li><a href="#draft-rating" id="markdown-toc-draft-rating">Draft Rating</a></li>
+          <li><a href="#overall" id="markdown-toc-overall">Overall</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
 
 <h1 id="documentation-of-full-analysis">Documentation of full analysis</h1>
 

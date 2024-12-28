@@ -14,6 +14,10 @@ project: nba_executives
 author: dario
 description: Methods and Analysis on NBA Executives
 ---
+
+* Do not remove this line (it will not be displayed)
+{:toc}
+
 # Documentation of full analysis
 
 Here I'm trying to set out and summarize my methods for rating executive managers in the NBA. Some of this is for my own benefit since the analytical pipeline code doesn't lend itself well to high-level documentation internally.
