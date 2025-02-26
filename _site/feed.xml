@@ -1,4 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2024-12-28T16:40:25-06:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Executive Basketball Stats: Methods Rundown</title><link href="https://dario.technology/basketball-executive-example-analysis/" rel="alternate" type="text/html" title="Executive Basketball Stats: Methods Rundown" /><published>2024-12-05T22:44:00-06:00</published><updated>2024-12-05T22:44:00-06:00</updated><id>https://dario.technology/basketball-executive-example-analysis</id><content type="html" xml:base="https://dario.technology/basketball-executive-example-analysis/"><![CDATA[<ul id="markdown-toc">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2025-02-26T08:53:56-06:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Procedural Generation for Diplomacy Maps</title><link href="https://dario.technology/procedural-generation-for-diplomacy-maps/" rel="alternate" type="text/html" title="Procedural Generation for Diplomacy Maps" /><published>2025-01-25T22:44:00-06:00</published><updated>2025-01-25T22:44:00-06:00</updated><id>https://dario.technology/procedural-generation-for-diplomacy-maps</id><content type="html" xml:base="https://dario.technology/procedural-generation-for-diplomacy-maps/"><![CDATA[<h2 id="returning-to-maps">Returning to Maps</h2>
+
+<p><a href="https://github.com/kestasjk/webDiplomacy">WebDiplomacy</a> is a great open source gaming project. It basically creates an online platform for playing the Diplomacy board game, something that has been played by mail since the 1960s. It is a very simple and elegant game that provides a sometimes brutal introduction to the game theory concepts of cooperation and betrayal.</p>
+
+<p>In the past I had my own server that I set up to play with coworkers during the pandemic. <a href="https://github.com/mcoirad/gameofthrones-diplomacy">I even created my own Game of Thrones variant</a></p>
+
+<p><img src="/assets/images/maps/got.png" alt="Game of Thrones Diplomacy Map" /></p>
+
+<p>I was recently on the road and had the idea to return to it, but with the question of what would be involved in generating fairly balanced random maps.</p>
+
+<h2 id="diplomacy-random-map-editor">Diplomacy Random Map Editor</h2>
+
+<p>Compared to my last attempt at random map generation, I tried to keep things lightweight and relatively efficient.</p>
+
+<p>The main steps were:</p>
+<ul>
+  <li>Generate perlin noise</li>
+  <li>Smooth/Modify with a gradient</li>
+  <li>Set the water level dividing into water and land</li>
+  <li>Place cities, using a minimum distance that they must be apart</li>
+  <li>Calculate the actual territories off of the city placement, using the landscape to determine boundaries</li>
+  <li>Create players, assign them territories</li>
+  <li>Place supply centers</li>
+</ul>
+
+<p>The most fun was coming up with the gradients, which are sort of the flavors for each map type.</p>
+
+<h3 id="radial-map">Radial Map</h3>
+<p><img src="/assets/images/maps/diplomacy_radial.png" alt="Randomly Generated Radial Diplomacy Map" /></p>
+
+<h3 id="mediterranean-map">Mediterranean Map</h3>
+<p><img src="/assets/images/maps/diplomacy_med.png" alt="Randomly Generated Mediterranean Diplomacy Map" /></p>
+
+<h3 id="spiral-map">Spiral Map</h3>
+<p><img src="/assets/images/maps/diplomacy_spiral.png" alt="Randomly Generated Spiral Diplomacy Map" /></p>
+
+<h3 id="flat-map">“Flat” Map</h3>
+<p><img src="/assets/images/maps/diplomacy_none.png" alt="Randomly Generated Diplomacy Map" /></p>
+
+<p>And of course:</p>
+
+<h3 id="custom-image-map">Custom Image Map</h3>
+
+<p>The silliest is probably the ability to build a random map off of an imported image. This allows the creation of some rather cursed variants.</p>
+
+<h4 id="battle-of-austria-hungarys">Battle of Austria Hungarys</h4>
+<p><img src="/assets/images/maps/austriabattle.png" alt="Randomly Generated Diplomacy Map" /></p>
+
+<h4 id="battle-for-mcdonalds">Battle for McDonalds</h4>
+<p><img src="/assets/images/maps/mcdonalds.png" alt="Randomly Generated Diplomacy Map" /></p>
+
+<h2 id="map-editor">Map Editor</h2>
+<p>Here is the editor itself:</p>
+<iframe src="https://editor.p5js.org/mcoirad/full/om-x0gXQF" width="850" height="1200"></iframe>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="procedural generation" /><summary type="html"><![CDATA[Generating Random Maps for the Diplomacy Board Game]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Executive Basketball Stats: Methods Rundown</title><link href="https://dario.technology/basketball-executive-example-analysis/" rel="alternate" type="text/html" title="Executive Basketball Stats: Methods Rundown" /><published>2024-12-05T22:44:00-06:00</published><updated>2024-12-05T22:44:00-06:00</updated><id>https://dario.technology/basketball-executive-example-analysis</id><content type="html" xml:base="https://dario.technology/basketball-executive-example-analysis/"><![CDATA[<ul id="markdown-toc">
   <li><a href="#documentation-of-full-analysis" id="markdown-toc-documentation-of-full-analysis">Documentation of full analysis</a>    <ul>
       <li><a href="#the-data" id="markdown-toc-the-data">The Data</a>        <ul>
           <li><a href="#ernie-grunfeld" id="markdown-toc-ernie-grunfeld">Ernie Grunfeld</a></li>
@@ -437,75 +490,4 @@ I thought it would be cool to make some Morrowind great house themed lamps.</p>
 <h2 id="source-files">Source Files</h2>
 
 <p>I am keeping all files for these lamps <a href="https://github.com/mcoirad/morrowind-lasercutting-files">in this Github repo</a>.
-Feel free to use them as you see fit!</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="IRL technology" /><category term="laser cutting" /><category term="morrowind" /><summary type="html"><![CDATA[Creating morrowind themed lamp designs]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Procedural Fantasy Map Generation</title><link href="https://dario.technology/creating-fantasy-maps/" rel="alternate" type="text/html" title="Procedural Fantasy Map Generation" /><published>2024-03-11T22:44:00-05:00</published><updated>2024-03-11T22:44:00-05:00</updated><id>https://dario.technology/creating-fantasy-maps</id><content type="html" xml:base="https://dario.technology/creating-fantasy-maps/"><![CDATA[<h2 id="building-fantasy-maps">Building fantasy maps</h2>
-
-<p>On taking a break from some of my other projects I got into another interest. I really love fantasy maps. There is something about the gestalt escapism of new worlds that is captured by them for me. To the point where they maybe interest me more than reading fantasy books, for example. I used to spend time drawing them by hand and imagining the cultures and peoples that would inhabit them. So eventually I got to thinking about how I could build rules for generating my own.</p>
-
-<p>I found some great already existing work:</p>
-
-<ul>
-  <li><a href="https://www.redblobgames.com/maps/mapgen4/">Red Blob Games Mapgen4</a></li>
-  <li><a href="https://mewo2.com/notes/terrain/">mewo2’s excellent walkthrough</a></li>
-</ul>
-
-<p>So naturally I cribbed some to create my own.</p>
-
-<h3 id="environment-modeling">Environment modeling</h3>
-
-<p>The basic steps to follow are to do a simple simulation of natural forces. I used fractals but you can get good results from a variety of noise generators.</p>
-
-<p>First randomly generate a heighmap of elevation.</p>
-
-<p><img src="/assets/images/maps/height.png" alt="2D Pixel Art Fantasy Map" /></p>
-
-<p>Then do a gradient for temperature.</p>
-
-<p><img src="/assets/images/maps/heat.png" alt="2D Pixel Art Fantasy Map" /></p>
-
-<p>Simulate moisture and flux.</p>
-
-<p><img src="/assets/images/maps/moisture.png" alt="2D Pixel Art Fantasy Map" />
-<img src="/assets/images/maps/flux.png" alt="2D Pixel Art Fantasy Map" /></p>
-
-<p>Then use these different values to color your biomes.</p>
-
-<p><img src="/assets/images/maps/biome.png" alt="2D Pixel Art Fantasy Map" /></p>
-
-<p>From there you can do a lot of different things, but you may find that attention realism may slow you down and actually produce worse results. For example, I tried to include an erosion simulation. But I don’t really like the results.</p>
-
-<p><img src="/assets/images/maps/erosion.png" alt="2D Pixel Art Fantasy Map" /></p>
-
-<p>Placing map symbols though turned out very nicely.</p>
-
-<p><img src="/assets/images/maps/symbols.png" alt="2D Pixel Art Fantasy Map" /></p>
-
-<h3 id="politicaleconomic-boundaries">Political/economic boundaries</h3>
-
-<p>Next I came up with some different country boundaries. Also creatd a method to place cities.</p>
-
-<p>Then roads to connect the cities, placed with an A* Pathfinding algorithm. This however turned out to be quite slow so I wonder if there is a better way to build realistic looking results with a lot less computation.
-Once we get too deep into optimization this stops being a side project though lol.</p>
-
-<p><img src="/assets/images/maps/territory.png" alt="2D Pixel Art Fantasy Map" /></p>
-
-<h3 id="turning-it-into-a-video-game">Turning it into a video game</h3>
-
-<p>After spending so much time on the map I tried adding some gameplay to flesh out a minigame. Since I had countries and cities I added units that can be built and sent out to fight other units or conquer cities. For now I just used a Fire Emblem style Horses vs. Spears vs. Swords rock-paper-scissors type of deal.</p>
-
-<p>At this point this turned from a side-project into a real project! I think this could be the basis of a very fun game. But I don’t have unlimited time so I’ll put it back to the side and return to my other projects.</p>
-
-<p><img src="/assets/images/maps/game.png" alt="2D Pixel Art Fantasy Map" /></p>
-
-<h2 id="more-maps">More maps</h2>
-
-<p>I’m happy with how they’ve come out generally. I don’t really like how the sea monster came out.
-But they have a unique style. If I return to this there will be some need for optimization. Currently things really bog down after 3000px size maps. 
-Ideally would want to be able to generate a chunk of a map, and then continually generate other chunks as needed.
-The game simulation behavior, other than the pathfinding, would scale fine since it doesn’t have to be attached to the view.</p>
-
-<p><img src="/assets/images/maps/map3.png" alt="2D Pixel Art Fantasy Map" />
-<img src="/assets/images/maps/map392.png" alt="2D Pixel Art Fantasy Map" /></p>
-
-<p>Larger Examples:
-<a href="/assets/images/maps/map470.png">2000x3000px</a>
-<a href="/assets/images/maps/map324.png">3000x2000px</a></p>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="procedural generation" /><summary type="html"><![CDATA[Generating 2D Fantasy Maps]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+Feel free to use them as you see fit!</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="IRL technology" /><category term="laser cutting" /><category term="morrowind" /><summary type="html"><![CDATA[Creating morrowind themed lamp designs]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
