@@ -9,8 +9,8 @@ tag:
 - procedural generation
 star: true
 category: blog
-projects: false
-project: Procedural Fantasy Maps
+projects: true
+project: procedural_maps
 author: dario
 description: Generating 2D Fantasy Maps
 ---

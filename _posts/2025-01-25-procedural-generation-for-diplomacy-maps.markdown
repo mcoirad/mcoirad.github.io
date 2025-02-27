@@ -9,8 +9,8 @@ tag:
 - procedural generation
 star: true
 category: blog
-projects: false
-project: Procedural Fantasy Maps
+projects: true
+project: procedural_maps
 author: dario
 description: Generating Random Maps for the Diplomacy Board Game
 ---
@@ -66,4 +66,4 @@ The silliest is probably the ability to build a random map off of an imported im
 
 ## Map Editor
 Here is the editor itself:
-<iframe src="https://editor.p5js.org/mcoirad/full/om-x0gXQF" width="850" height="1200"></iframe>
+<iframe src="https://editor.p5js.org/mcoirad/full/om-x0gXQF" width="1050" height="1400"></iframe>
