@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2025-02-27T08:58:25-06:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Procedural Generation for Diplomacy Maps</title><link href="https://dario.technology/procedural-generation-for-diplomacy-maps/" rel="alternate" type="text/html" title="Procedural Generation for Diplomacy Maps" /><published>2025-01-25T22:44:00-06:00</published><updated>2025-01-25T22:44:00-06:00</updated><id>https://dario.technology/procedural-generation-for-diplomacy-maps</id><content type="html" xml:base="https://dario.technology/procedural-generation-for-diplomacy-maps/"><![CDATA[<h2 id="returning-to-maps">Returning to Maps</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2025-03-04T14:06:13-06:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Finished Morrowind Hlaalu Lamp</title><link href="https://dario.technology/finished-hlaalu-lamp/" rel="alternate" type="text/html" title="Finished Morrowind Hlaalu Lamp" /><published>2025-02-20T22:44:00-06:00</published><updated>2025-02-20T22:44:00-06:00</updated><id>https://dario.technology/finished-hlaalu-lamp</id><content type="html" xml:base="https://dario.technology/finished-hlaalu-lamp/"><![CDATA[<h2 id="finished-a-lamp">Finished a lamp</h2>
+
+<p>Not much but I finally finished staining and putting together a lamp I had designed for a gift based on House Hlaalu from Morrowind.</p>
+
+<p>House Hlaalu being the most mercantile and pro-Empire of the three Morrowind houses.
+<img src="/assets/images/lamps/hlaalucastle.jpg" alt="Hlaalu Castle" />
+<img src="/assets/images/lamps/hlaalumeme.png" alt="Hlaalu Meme" /></p>
+
+<p>I think I joined the Telvanni in my playthrough but I was always an Imperial sympathizer. Nobody likes the Camonna Tong!</p>
+
+<p><a href="https://www.youtube.com/watch?v=8r7xmuSx6Pg">I found this video to be helpful for an intro to staining the wood.</a></p>
+
+<h3 id="pretty-happy-with-the-final-product">Pretty happy with the final product</h3>
+<p><img src="/assets/images/lamps/finished_hlaalu1.jpg" alt="Morrowind Hlaalu Lamp" /></p>
+
+<p><img src="/assets/images/lamps/finished_hlaalu2.jpg" alt="Morrowind Hlaalu Lamp" /></p>
+
+<p>In my next design I think I will add a way to cover up the corners which I think are super emblematic of lasercut things. But just a minor point to fit.</p>
+
+<p>Design files here: <a href="https://github.com/mcoirad/morrowind-lasercutting-files">https://github.com/mcoirad/morrowind-lasercutting-files</a></p>]]></content><author><name>dario</name></author><category term="blog" /><category term="IRL technology" /><category term="laser cutting" /><category term="morrowind" /><summary type="html"><![CDATA[Finished creating a Morrowind Hlaalu Lamp]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Procedural Generation for Diplomacy Maps</title><link href="https://dario.technology/procedural-generation-for-diplomacy-maps-copy/" rel="alternate" type="text/html" title="Procedural Generation for Diplomacy Maps" /><published>2025-01-25T22:44:00-06:00</published><updated>2025-01-25T22:44:00-06:00</updated><id>https://dario.technology/procedural-generation-for-diplomacy-maps%20copy</id><content type="html" xml:base="https://dario.technology/procedural-generation-for-diplomacy-maps-copy/"><![CDATA[<h2 id="returning-to-maps">Returning to Maps</h2>
 
 <p><a href="https://github.com/kestasjk/webDiplomacy">WebDiplomacy</a> is a great open source gaming project. It basically creates an online platform for playing the Diplomacy board game, something that has been played by mail since the 1960s. It is a very simple and elegant game that provides a sometimes brutal introduction to the game theory concepts of cooperation and betrayal.</p>
 
@@ -50,7 +69,7 @@
 <p><img src="/assets/images/maps/mcdonalds.png" alt="Randomly Generated Diplomacy Map" /></p>
 
 <h2 id="map-editor">Map Editor</h2>
-<p>Here is the editor itself:</p>
+<p><a href="https://editor.p5js.org/mcoirad/full/om-x0gXQF">Here is the editor itself</a>:</p>
 <iframe src="https://editor.p5js.org/mcoirad/full/om-x0gXQF" width="1050" height="1400"></iframe>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="procedural generation" /><summary type="html"><![CDATA[Generating Random Maps for the Diplomacy Board Game]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Executive Basketball Stats: Methods Rundown</title><link href="https://dario.technology/basketball-executive-example-analysis/" rel="alternate" type="text/html" title="Executive Basketball Stats: Methods Rundown" /><published>2024-12-05T22:44:00-06:00</published><updated>2024-12-05T22:44:00-06:00</updated><id>https://dario.technology/basketball-executive-example-analysis</id><content type="html" xml:base="https://dario.technology/basketball-executive-example-analysis/"><![CDATA[<ul id="markdown-toc">
   <li><a href="#documentation-of-full-analysis" id="markdown-toc-documentation-of-full-analysis">Documentation of full analysis</a>    <ul>
       <li><a href="#the-data" id="markdown-toc-the-data">The Data</a>        <ul>
@@ -456,38 +475,4 @@ In addition we have support for running our action functions within and at the e
 
 <p>The phone number (724) COCO-CAT also needed a memeable voicemail system for our Dial-A-Meow service. I’ve used <a href="https://www.tossabledigits.com/">TossableDigits.com</a> in the past but <a href="https://www.twilio.com/en-us">Twilio</a> is the real deal for setting up programmable voice for phone numbers. Was able to quickly set up and deploy a Flask server with the <a href="https://www.serverless.com/">Serverless Framework</a> and have it respond to calls at that number. Source code at: <a href="https://github.com/mcoirad/meow_as_a_service">Meow-as-a-Service</a>. It was easy enough I am even considering creating a video game you play just by calling a number.</p>
 
-<p>So far all this has been worth the effort. I was even thinking about how to automatically set up ‘free 15 minute business consultations’ with Zoom calls. I don’t know if I will get to that but it would be funny.</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="interactive narratives" /><category term="software development" /><category term="memes" /><category term="startup" /><summary type="html"><![CDATA[Dial-a-meow Services]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Morrowind Lamp Designs</title><link href="https://dario.technology/dunmer-lamp-designs/" rel="alternate" type="text/html" title="Morrowind Lamp Designs" /><published>2024-04-18T22:44:00-05:00</published><updated>2024-04-18T22:44:00-05:00</updated><id>https://dario.technology/dunmer-lamp-designs</id><content type="html" xml:base="https://dario.technology/dunmer-lamp-designs/"><![CDATA[<h2 id="making-my-first-lamp">Making my first lamp</h2>
-
-<p>This past year I’ve come to have access to a hackerspace, something that I’ve never utilized before and honestly I feel like I’ve really missed out!</p>
-
-<p>One of the first things I’ve tried to do is get the hang of the laser cutters.</p>
-
-<p>My first project was to make a lamp, which I did through a class at the hackerspace. This is a super basic project that requires no IRL fabrication skills so seemed like a good start.</p>
-
-<p>My 2D design was centered around making a rectangular shape but avoiding the visible finger joints common in a lot of laser cut pieces. My solution was a bit ambitious as it led to a very difficult assembly process.</p>
-
-<p><img src="/assets/images/lamps/lamp1.png" alt="First lamp 2D design" /></p>
-
-<p>The many small parts in the design made it a bit difficult to punch out all the parts that had been cut out. The laser cutter also didn’t cut through everything, even though I made 2 passes with the laser. Curved pieces in particular didn’t do the best.</p>
-
-<p>However, over a few days I was eventually able to glue it together!</p>
-
-<p><img src="/assets/images/lamps/lamp2.jpg" alt="Assembling the lamp" />
-<img src="/assets/images/lamps/lamp3.jpg" alt="Assembling the lamp" />
-<img src="/assets/images/lamps/lamp4.jpg" alt="Lamp is assembled!" /></p>
-
-<h2 id="but-what-about-morrowind">But what about Morrowind?</h2>
-
-<p>Once I finished the first lamp, I started thinking about other lamps to make.
-I thought it would be cool to make some Morrowind great house themed lamps.</p>
-
-<p>Since my sister played through as Hlaalu, I started with that one as a gift.</p>
-
-<p><img src="/assets/images/lamps/morrowind_lamp1.png" alt="Hlaalu lamp design" /></p>
-
-<p>Still have to finish cutting it out.</p>
-
-<h2 id="source-files">Source Files</h2>
-
-<p>I am keeping all files for these lamps <a href="https://github.com/mcoirad/morrowind-lasercutting-files">in this Github repo</a>.
-Feel free to use them as you see fit!</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="IRL technology" /><category term="laser cutting" /><category term="morrowind" /><summary type="html"><![CDATA[Creating morrowind themed lamp designs]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>So far all this has been worth the effort. I was even thinking about how to automatically set up ‘free 15 minute business consultations’ with Zoom calls. I don’t know if I will get to that but it would be funny.</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="interactive narratives" /><category term="software development" /><category term="memes" /><category term="startup" /><summary type="html"><![CDATA[Dial-a-meow Services]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
