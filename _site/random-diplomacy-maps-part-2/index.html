@@ -9,26 +9,26 @@
     <meta name=author content="Dario Macieira Mitchell">
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Advanced Stats for Unadvanced NBA Executives | Dario Macieira Mitchell</title>
+<title>Random Diplomacy Maps Part 2 | Dario Macieira Mitchell</title>
 <meta name="generator" content="Jekyll v3.9.5" />
-<meta property="og:title" content="Advanced Stats for Unadvanced NBA Executives" />
+<meta property="og:title" content="Random Diplomacy Maps Part 2" />
 <meta name="author" content="dario" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Ranking the best and worst NBA executives" />
-<meta property="og:description" content="Ranking the best and worst NBA executives" />
-<link rel="canonical" href="https://dario.technology/basketball-stats-on-basketball-executives/" />
-<meta property="og:url" content="https://dario.technology/basketball-stats-on-basketball-executives/" />
+<meta name="description" content="Environmental modeling for Diplomacy board game maps" />
+<meta property="og:description" content="Environmental modeling for Diplomacy board game maps" />
+<link rel="canonical" href="https://dario.technology/random-diplomacy-maps-part-2/" />
+<meta property="og:url" content="https://dario.technology/random-diplomacy-maps-part-2/" />
 <meta property="og:site_name" content="Dario Macieira Mitchell" />
 <meta property="og:image" content="https://dario.technology/assets/images/markdown.jpg" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-11-24T22:44:00-06:00" />
+<meta property="article:published_time" content="2025-03-25T22:44:00-05:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="https://dario.technology/assets/images/markdown.jpg" />
-<meta property="twitter:title" content="Advanced Stats for Unadvanced NBA Executives" />
+<meta property="twitter:title" content="Random Diplomacy Maps Part 2" />
 <meta name="twitter:site" content="@" />
 <meta name="twitter:creator" content="@dario" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"dario"},"dateModified":"2023-11-24T22:44:00-06:00","datePublished":"2023-11-24T22:44:00-06:00","description":"Ranking the best and worst NBA executives","headline":"Advanced Stats for Unadvanced NBA Executives","image":"https://dario.technology/assets/images/markdown.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://dario.technology/basketball-stats-on-basketball-executives/"},"url":"https://dario.technology/basketball-stats-on-basketball-executives/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"dario"},"dateModified":"2025-03-25T22:44:00-05:00","datePublished":"2025-03-25T22:44:00-05:00","description":"Environmental modeling for Diplomacy board game maps","headline":"Random Diplomacy Maps Part 2","image":"https://dario.technology/assets/images/markdown.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://dario.technology/random-diplomacy-maps-part-2/"},"url":"https://dario.technology/random-diplomacy-maps-part-2/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -810,15 +810,15 @@ video { max-width: 100%; }
 
 
 
-<h1 class="title">Advanced Stats for Unadvanced NBA Executives</h1>
+<h1 class="title">Random Diplomacy Maps Part 2</h1>
 
 <span class="date">
-    <time datetime="24-11-2023">Friday. November 24, 2023</time>
+    <time datetime="25-03-2025">Tuesday. March 25, 2025</time>
      - <span class="reading-time" title="Estimated read time">
     
 
     
-        3 mins
+        4 mins
     
 </span>
 
@@ -827,58 +827,78 @@ video { max-width: 100%; }
 
     <div class="post-tags">
         
-            <a class="item" href="https://dario.technology/tags/#data-engineering">data engineering</a>
+            <a class="item" href="https://dario.technology/tags/#game-development">game development</a>
         
-            <a class="item" href="https://dario.technology/tags/#basketball">basketball</a>
+            <a class="item" href="https://dario.technology/tags/#procedural-generation">procedural generation</a>
         
     </div>
 
 
-<p>As a basketball fan of a bad basketball team, something has always bothered me about the inaccessible nature of major league sports leadership. It seems… to put it nicely… to be less than a meritocracy. While playing sports at a professional level seems to be an extremely unique talent, I would argue that managing a sports team is much less than that. Of any NBA team, for example, there are probably some percentage of the fans that could conceivably make better decisions than the team’s own front office. (The same could probably said for large corporations)</p>
+<h2 id="continued-working-on-random-map-generation-for-diplomacy">Continued working on random map generation for Diplomacy</h2>
 
-<p>The performance of NBA players is scrutinized at a level that exemplifies data science’s “race to the bottom.” Just about everything is tracked statistically in the hope that some advantage can be gleaned. Draft evaluations include not just basic anthromorphic data but also surveys of NBA prospects mental states.</p>
+<p>I got some feedback on my map generation tool from Diplomacy players that mentioned some more features that would be useful for balance:</p>
 
-<p>I find it disappointing that we don’t have the same data points to measure the performance of the basketball executives that are at the end of the day responsible for the entire team’s performance. (Once again I feel the same way about executives of corporations in general) Thus I set out to create my own statistic for this.</p>
-
-<h3 id="assembling-the-dataset">Assembling the dataset</h3>
-
-<p>Most stats are easily available. However I needed transactions. I got this from basketball-reference.com and matched players to basic and advanced stats from there. The goal was to be able to assign a value to each transaction an executive made. Transaction are grouped into the following categories:</p>
 <ul>
-  <li>Trade</li>
-  <li>Draft</li>
-  <li>Free agent signing</li>
-  <li>Sale</li>
+  <li>Every player has access to the water</li>
+  <li>All water zones are connected</li>
+  <li>Each player has access to at least one neutral supply center</li>
+  <li>Central players have a bonus supply center</li>
+  <li>Starting supply centers do not border other players’ starting supply centers</li>
 </ul>
 
-<p>Free agent losses are hard to track and I would have to do more work to build the dataset for this type of transaction – so I have left that out for now.</p>
+<h3 id="managing-water-access">Managing water access</h3>
+<p>To ensure water access, I added a check for each player to see if they are bordering water. To ensure water connectivity I had to implement a check to group all water zones in groups that are connected. If the list is larger than 1 the water zones are not all connected.</p>
 
-<p>For the value of the transaction I used a very simple formula of:</p>
+<p>First we connect all the coastal zones. For now for simplicity we are only supporting “Kiel” type coasts, where a naval unit can move across land to another adjoining body of water.
+<img src="/assets/images/maps/details/waterconnections.png" alt="Water connections" /></p>
 
-<p>Player BPM * Number of minutes played for team</p>
+<p>Then all the deep bodies of water that are no adjacent to land (these are tracked separately)
+<img src="/assets/images/maps/details/waterconnections2.png" alt="Water connections" /></p>
 
-<p>By creating a running total of these values I can create a stat I’ll call “Executive BPM”.</p>
+<p>In this example all players can access water, but not all water zones are connected.
+<img src="/assets/images/maps/details/waterconnections3.png" alt="Water connections" /></p>
 
-<p>This works alright – but like any stat has its shortcomings:</p>
-<ul>
-  <li>trading for/playing a prospect heavy minutes will generate a lot of negative EBPM</li>
-  <li>Intentionally tanking will lead to a lot of negative EBPM</li>
-  <li>Trading a good player for picks also leads to negative EBPM</li>
-</ul>
+<p>To solve this, we want to be able to draw rivers that can connect bodies of water. We want our rivers to look natural, so we’ll adjust their paths to following terrain height values.</p>
 
-<p>We account for some of these like doing things like assigning a value to future first round and second round picks. But these will always be lower than that of a star player (and in the case of second round picks, may actually have negative value if an executive is bad at drafting.)</p>
+<p>The first attempt was drawn with too wide a width lol.
+<img src="/assets/images/maps/details/waterconnections4.png" alt="Water connections" /></p>
 
-<h3 id="visualizing-results">Visualizing results</h3>
+<p>A lower width looks better.
+<img src="/assets/images/maps/details/waterconnections5.png" alt="Water connections" /></p>
 
-<p><img src="/assets/images/nba/chart.png" alt="Popovich performance over time" /></p>
+<p>Instead of a hardcoded start and end point, we want the starting and ending points to be from two different groups of unconnected water zones – we’ll find the closest zones in each group and attempt to connect them. We’ll also want to keep drawing rivers until everything is connected. Provinces are regenerated each time a river is drawn so the political map will look different.
+<img src="/assets/images/maps/details/waterconnections6.png" alt="Water connections" /></p>
 
-<p>In getting some results up and out I opted for a static site generator. Creating a full-stack website would be fun but I’m more interested in the data and analysis for this rather than digging into the infrastructure.</p>
+<p>We also added a couple of improvements – random names for regions – as well as an additional method to find large groups of land pixels and add them as territories (usually adds a couple of islands as regions which is fun)
+<img src="/assets/images/maps/details/waterconnections8.png" alt="Water connections" /></p>
 
-<p>I know Jekyll is falling behind Hugo these days in popularity as a static site generator. But Jekyll is still so much simpler than Hugo to set up and get going. I used it to generate pages for each executive in the data I collected. I also used Chart.js to generate some interactive visualizations. I took a long look at D3 but I don’t really like the way its gone with Observable (with all due respect to the folks using Observable) it the attempt to emulate Juptyer/R Markdown style notebooks. It seems that a lot of d3 examples got nuked and are no longer available. Chart.js was a lot easier to get up and running with.</p>
+<p>What is not pictured is the starting composition of units. They can be armies or navies. This is addressed in the WebDiplomacy variant export which includes an option to specity naval/army unit balance. As an option there can be a fleet minimum, such as 1, to ensure every player has a fleet.</p>
 
-<p>I’ve begun to publish my results <a href="https://www.dario.technology/the-grunfeld">here</a></p>
+<h3 id="supply-center-balance">Supply center balance</h3>
+<p>As here the most central player (calculated by average distance to each other players’ territories) has been given an extra unit. The number of most central players to boost has been added as an option to the generation process
+<img src="/assets/images/maps/details/waterconnections9.png" alt="Water connections" /></p>
+
+<p>In addition supply center generation has been changed from randomly placing supply center to now attempting at the beginning to give each player a supply center at the closest available neutral location. This is not always 100% fair but is a lot more fair than the random placement.</p>
+
+<p>What is still to be done is avoiding starting supply centers between different players that border each other. That will be an option for a next update.</p>
+
+<h3 id="webdiplomacy-variant-export">WebDiplomacy Variant export</h3>
+<p>The maps themselves are fun to play with, but the end goal was always to support use in Diplomacy game hosting software. The main platform in-use is WebDiplomacy, so I’ve added experimental support for exporting the required files for us in WebDiplomacy. These can be exported with the ‘Export’ button. What this does is generate several versions of the map (small and large), as well as place the city names in separate images finally. It generates the necessary PHP scripts to install the variant. Everything is zipped client-side and then downloaded from the browser. At some point it would be cool to add the ability in WebDiplomacy to have a ‘random map’ game mode where the system generates the variant dynamically – but that will take some more work to fully integrate.
+<img src="/assets/images/maps/details/variant.png" alt="Water connections" /></p>
+
+<p>That’s it for now as I rotate back to my other projects. <a href="https://p5js.org/">p5.js</a> has been a great tool and has been much more performant that the generation <a href="/creating-fantasy-maps/">I was pursuing in Unity3D with C#</a>. At some point I want to return to this again as a starting point for some more Game Dev but that will wait for now.</p>
+
+<iframe src="https://editor.p5js.org/mcoirad/full/NxyGxcgZK" width="1050" height="1550"></iframe>
 
 
 
+
+    <div class="blog-navigation">
+        
+            <a class="prev" href="https://dario.technology/finished-hlaalu-lamp/">&laquo; Finished Morrowind Hlaalu Lamp</a>
+        
+        
+    </div>
 
 
 
@@ -925,27 +945,12 @@ video { max-width: 100%; }
         
             
                 
-            
-                
-            
-        
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
                     
                     <h4>Related Posts</h4>
                     <ul>
                     
                     <li class="relatedPost">
-                        <a href="https://dario.technology/basketball-executive-example-analysis/">Executive Basketball Stats: Methods Rundown
+                        <a href="https://dario.technology/procedural-generation-for-diplomacy-maps-copy/">Procedural Generation for Diplomacy Maps
                         
                         </a>
                     </li>
@@ -977,152 +982,23 @@ video { max-width: 100%; }
                 
             
         
-            
-                
-            
-                
-            
-        
     
         
         
             
                 
-            
-                
-            
-        
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
+                    
+                    <li class="relatedPost">
+                        <a href="https://dario.technology/multplayer-visual-novel-update/">Multiplayer Visual Novel Framework pt. 3
+                        
+                        </a>
+                    </li>
+                    
+                    
                 
             
                 
             
-        
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-        
-    
-        
         
             
                 
@@ -1158,12 +1034,183 @@ video { max-width: 100%; }
                 
                     
                     <li class="relatedPost">
-                        <a href="https://dario.technology/building-a-political-media-intelligence-platform/">Building a Political Media Research Platform
+                        <a href="https://dario.technology/multiplayer-visual-novel-art-update/">Multiplayer Visual Novel Art Update
                         
                         </a>
                     </li>
                     
                     
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
+                    
+                    <li class="relatedPost">
+                        <a href="https://dario.technology/creating-fantasy-maps/">Procedural Fantasy Map Generation
+                        
+                        </a>
+                    </li>
+                    
+                    
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
+                    
+                    <li class="relatedPost">
+                        <a href="https://dario.technology/creating-framework-multiplayer-novel-copy/">Building a Multiplayer Framework for Interactive Novels
+                        
+                        </a>
+                    </li>
+                    
+                    
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
                 
             
                 
@@ -1214,7 +1261,7 @@ video { max-width: 100%; }
             <!-- If site width is set to normal, you may choose any two share links -->
             <a
                 class="twitter"
-                href="https://twitter.com/intent/tweet?text=https://dario.technology/basketball-stats-on-basketball-executives/ - Advanced Stats for Unadvanced NBA Executives by @"
+                href="https://twitter.com/intent/tweet?text=https://dario.technology/random-diplomacy-maps-part-2/ - Random Diplomacy Maps Part 2 by @"
             >
                 <i class="fa-brands fa-twitter"></i>
                 <span class="icon-twitter">Tweet</span>
@@ -1229,7 +1276,7 @@ video { max-width: 100%; }
                 <span class="icon-facebook-rect">Share</span>
             </a>
 
-            <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://dario.technology/basketball-stats-on-basketball-executives/&amp;title=Advanced Stats for Unadvanced NBA Executives&amp;summary=Ranking the best and worst NBA executives&amp;source=https://dario.technology" target="_blank">
+            <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://dario.technology/random-diplomacy-maps-part-2/&amp;title=Random Diplomacy Maps Part 2&amp;summary=Environmental modeling for Diplomacy board game maps&amp;source=https://dario.technology" target="_blank">
                 <i class="fa-brands fa-linkedin"></i>
                 <span class="icon-linkedin">Share</span>
             </a> -->
@@ -1245,8 +1292,8 @@ video { max-width: 100%; }
     <script type="text/javascript">
 
         var disqus_config = function () {
-            this.page.url = 'https://dario.technology/basketball-stats-on-basketball-executives/';
-            this.page.identifier = '/basketball-stats-on-basketball-executives';
+            this.page.url = 'https://dario.technology/random-diplomacy-maps-part-2/';
+            this.page.identifier = '/random-diplomacy-maps-part-2';
         };
         var disqus_shortname = 'github';
         var disqus_developer = 0;

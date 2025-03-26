@@ -1,4 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2025-03-04T14:06:13-06:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Finished Morrowind Hlaalu Lamp</title><link href="https://dario.technology/finished-hlaalu-lamp/" rel="alternate" type="text/html" title="Finished Morrowind Hlaalu Lamp" /><published>2025-02-20T22:44:00-06:00</published><updated>2025-02-20T22:44:00-06:00</updated><id>https://dario.technology/finished-hlaalu-lamp</id><content type="html" xml:base="https://dario.technology/finished-hlaalu-lamp/"><![CDATA[<h2 id="finished-a-lamp">Finished a lamp</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2025-03-26T13:26:06-05:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Random Diplomacy Maps Part 2</title><link href="https://dario.technology/random-diplomacy-maps-part-2/" rel="alternate" type="text/html" title="Random Diplomacy Maps Part 2" /><published>2025-03-25T22:44:00-05:00</published><updated>2025-03-25T22:44:00-05:00</updated><id>https://dario.technology/random-diplomacy-maps-part-2</id><content type="html" xml:base="https://dario.technology/random-diplomacy-maps-part-2/"><![CDATA[<h2 id="continued-working-on-random-map-generation-for-diplomacy">Continued working on random map generation for Diplomacy</h2>
+
+<p>I got some feedback on my map generation tool from Diplomacy players that mentioned some more features that would be useful for balance:</p>
+
+<ul>
+  <li>Every player has access to the water</li>
+  <li>All water zones are connected</li>
+  <li>Each player has access to at least one neutral supply center</li>
+  <li>Central players have a bonus supply center</li>
+  <li>Starting supply centers do not border other players’ starting supply centers</li>
+</ul>
+
+<h3 id="managing-water-access">Managing water access</h3>
+<p>To ensure water access, I added a check for each player to see if they are bordering water. To ensure water connectivity I had to implement a check to group all water zones in groups that are connected. If the list is larger than 1 the water zones are not all connected.</p>
+
+<p>First we connect all the coastal zones. For now for simplicity we are only supporting “Kiel” type coasts, where a naval unit can move across land to another adjoining body of water.
+<img src="/assets/images/maps/details/waterconnections.png" alt="Water connections" /></p>
+
+<p>Then all the deep bodies of water that are no adjacent to land (these are tracked separately)
+<img src="/assets/images/maps/details/waterconnections2.png" alt="Water connections" /></p>
+
+<p>In this example all players can access water, but not all water zones are connected.
+<img src="/assets/images/maps/details/waterconnections3.png" alt="Water connections" /></p>
+
+<p>To solve this, we want to be able to draw rivers that can connect bodies of water. We want our rivers to look natural, so we’ll adjust their paths to following terrain height values.</p>
+
+<p>The first attempt was drawn with too wide a width lol.
+<img src="/assets/images/maps/details/waterconnections4.png" alt="Water connections" /></p>
+
+<p>A lower width looks better.
+<img src="/assets/images/maps/details/waterconnections5.png" alt="Water connections" /></p>
+
+<p>Instead of a hardcoded start and end point, we want the starting and ending points to be from two different groups of unconnected water zones – we’ll find the closest zones in each group and attempt to connect them. We’ll also want to keep drawing rivers until everything is connected. Provinces are regenerated each time a river is drawn so the political map will look different.
+<img src="/assets/images/maps/details/waterconnections6.png" alt="Water connections" /></p>
+
+<p>We also added a couple of improvements – random names for regions – as well as an additional method to find large groups of land pixels and add them as territories (usually adds a couple of islands as regions which is fun)
+<img src="/assets/images/maps/details/waterconnections8.png" alt="Water connections" /></p>
+
+<p>What is not pictured is the starting composition of units. They can be armies or navies. This is addressed in the WebDiplomacy variant export which includes an option to specity naval/army unit balance. As an option there can be a fleet minimum, such as 1, to ensure every player has a fleet.</p>
+
+<h3 id="supply-center-balance">Supply center balance</h3>
+<p>As here the most central player (calculated by average distance to each other players’ territories) has been given an extra unit. The number of most central players to boost has been added as an option to the generation process
+<img src="/assets/images/maps/details/waterconnections9.png" alt="Water connections" /></p>
+
+<p>In addition supply center generation has been changed from randomly placing supply center to now attempting at the beginning to give each player a supply center at the closest available neutral location. This is not always 100% fair but is a lot more fair than the random placement.</p>
+
+<p>What is still to be done is avoiding starting supply centers between different players that border each other. That will be an option for a next update.</p>
+
+<h3 id="webdiplomacy-variant-export">WebDiplomacy Variant export</h3>
+<p>The maps themselves are fun to play with, but the end goal was always to support use in Diplomacy game hosting software. The main platform in-use is WebDiplomacy, so I’ve added experimental support for exporting the required files for us in WebDiplomacy. These can be exported with the ‘Export’ button. What this does is generate several versions of the map (small and large), as well as place the city names in separate images finally. It generates the necessary PHP scripts to install the variant. Everything is zipped client-side and then downloaded from the browser. At some point it would be cool to add the ability in WebDiplomacy to have a ‘random map’ game mode where the system generates the variant dynamically – but that will take some more work to fully integrate.
+<img src="/assets/images/maps/details/variant.png" alt="Water connections" /></p>
+
+<p>That’s it for now as I rotate back to my other projects. <a href="https://p5js.org/">p5.js</a> has been a great tool and has been much more performant that the generation <a href="/creating-fantasy-maps/">I was pursuing in Unity3D with C#</a>. At some point I want to return to this again as a starting point for some more Game Dev but that will wait for now.</p>
+
+<iframe src="https://editor.p5js.org/mcoirad/full/NxyGxcgZK" width="1050" height="1550"></iframe>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="procedural generation" /><summary type="html"><![CDATA[Environmental modeling for Diplomacy board game maps]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Finished Morrowind Hlaalu Lamp</title><link href="https://dario.technology/finished-hlaalu-lamp/" rel="alternate" type="text/html" title="Finished Morrowind Hlaalu Lamp" /><published>2025-02-20T22:44:00-06:00</published><updated>2025-02-20T22:44:00-06:00</updated><id>https://dario.technology/finished-hlaalu-lamp</id><content type="html" xml:base="https://dario.technology/finished-hlaalu-lamp/"><![CDATA[<h2 id="finished-a-lamp">Finished a lamp</h2>
 
 <p>Not much but I finally finished staining and putting together a lamp I had designed for a gift based on House Hlaalu from Morrowind.</p>
 
@@ -459,20 +513,4 @@ In addition we have support for running our action functions within and at the e
 
 <p><img src="/assets/images/music/lesser arcana.png" alt="Lesser Arcana OST" /></p>
 
-<p>I have a somewhat hoarder mentality when it comes to collecting virtual synthesizers and electronic samples. (probably better than collecting real synthesizers) So I can’t really speak to everything I used in my music. However, I have gotten a lot of mileage out of software emulation of the Nord Lead 2, Jupiter 8, Yamaha DX7 synthesizers, as well as emulated sound chips from old video game consoles and ripped sound files from old video games.</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="music" /><category term="2D Arts" /><summary type="html"><![CDATA[Finishing an album]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MaaS: Meows as a Service</title><link href="https://dario.technology/meow-as-a-service/" rel="alternate" type="text/html" title="MaaS: Meows as a Service" /><published>2024-05-03T22:44:00-05:00</published><updated>2024-05-03T22:44:00-05:00</updated><id>https://dario.technology/meow-as-a-service</id><content type="html" xml:base="https://dario.technology/meow-as-a-service/"><![CDATA[<h2 id="awhile-ago-i-had-an-idea">Awhile ago I had an idea…</h2>
-
-<p>Coffeeshops always have a board with a bunch of business cards pinned onto it. They are always an interesting way to see the local businesses in your community. Usually they are pretty mundane but sometimes you find some unusual or interesting ones. Currently I don’t have any business cards for myself to post around town but for some reason I really had the desire to have something to post. Maybe not a business of my own, but for someone else who really needed to start pulling their own weight around the house.</p>
-
-<p>So without ado, introducing my latest bootstrapped startup cofounder:</p>
-
-<p><img src="/assets/images/cat/businesscard.png" alt="Business card for cats" /></p>
-
-<p><img src="/assets/images/cat/businesscard2.png" alt="Business card for cats" /></p>
-
-<p>500 cards for $20 at <a href="https://hotcards.com/">https://hotcards.com/</a> was a great deal for basically an unlimited source of meme material that I can spread to any coffeeshop I go to. On the back are QR codes to Coco’s <a href="https://www.linkedin.com/in/coco-cat-423a132a9/">Linkedin</a> and <a href="https://meowmeowmeowmeowmeow.com/">website</a>. As it turns out <a href="https://meow.com/">meow.com</a>, <a href="https://meowmeow.com/">meowmeow.com</a>, and <a href="https://meowmeowmeow.com/">meowmeowmeow.com</a> were all taken so I had to settle for what I could get.</p>
-
-<p><img src="/assets/images/cat/businesscard3.jpg" alt="Business card for cats" /></p>
-
-<p>The phone number (724) COCO-CAT also needed a memeable voicemail system for our Dial-A-Meow service. I’ve used <a href="https://www.tossabledigits.com/">TossableDigits.com</a> in the past but <a href="https://www.twilio.com/en-us">Twilio</a> is the real deal for setting up programmable voice for phone numbers. Was able to quickly set up and deploy a Flask server with the <a href="https://www.serverless.com/">Serverless Framework</a> and have it respond to calls at that number. Source code at: <a href="https://github.com/mcoirad/meow_as_a_service">Meow-as-a-Service</a>. It was easy enough I am even considering creating a video game you play just by calling a number.</p>
-
-<p>So far all this has been worth the effort. I was even thinking about how to automatically set up ‘free 15 minute business consultations’ with Zoom calls. I don’t know if I will get to that but it would be funny.</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="interactive narratives" /><category term="software development" /><category term="memes" /><category term="startup" /><summary type="html"><![CDATA[Dial-a-meow Services]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>I have a somewhat hoarder mentality when it comes to collecting virtual synthesizers and electronic samples. (probably better than collecting real synthesizers) So I can’t really speak to everything I used in my music. However, I have gotten a lot of mileage out of software emulation of the Nord Lead 2, Jupiter 8, Yamaha DX7 synthesizers, as well as emulated sound chips from old video game consoles and ripped sound files from old video games.</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="music" /><category term="2D Arts" /><summary type="html"><![CDATA[Finishing an album]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
