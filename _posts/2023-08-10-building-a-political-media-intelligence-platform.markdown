@@ -7,8 +7,9 @@ headerImage: false
 tag:
 - data engineering
 - political advertising
-- political data analysis
+- data science
 - research
+- tech ethics
 star: true
 category: project
 projects: true

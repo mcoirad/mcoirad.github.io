@@ -1,0 +1,18 @@
+<div class="tags">
+<section class="list">
+
+    {% assign tags_list = site.tags %}
+
+    {% if tags_list.first[0] == null %}
+        {% for tag in tags_list %}
+            <a class="item" href="tags/#{{ tag | slugify }}">{{ tag }}</a>
+        {% endfor %}
+    {% else %}
+        {% for tag in tags_list %}
+            <a class="item" href="tags/#{{ tag[0] | slugify }}">{{ tag[0] }}</a>
+        {% endfor %}
+    {% endif %}
+
+    {% assign tags_list = nil %}
+</section>
+</div>

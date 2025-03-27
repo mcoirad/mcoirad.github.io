@@ -7,6 +7,7 @@ headerImage: false
 tag:
 - tech ethics
 - research
+- startups
 star: true
 category: blog
 projects: false

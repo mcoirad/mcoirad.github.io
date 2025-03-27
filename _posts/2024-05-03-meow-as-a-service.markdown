@@ -8,7 +8,7 @@ tag:
 - interactive narratives
 - software development
 - memes
-- startup
+- startups
 star: true
 category: blog
 projects: false

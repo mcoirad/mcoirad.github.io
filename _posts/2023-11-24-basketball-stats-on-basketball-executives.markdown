@@ -6,7 +6,7 @@ image: /assets/images/markdown.jpg
 headerImage: false
 tag:
 - data engineering
-- basketball
+- data science
 star: true
 category: project
 projects: true
