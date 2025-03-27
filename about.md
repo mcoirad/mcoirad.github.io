@@ -29,7 +29,7 @@ I studied History and Statistics at [the New College of Florida](https://www.ncf
 	<li>AI Stuff (Tensorflow, LangChain)</li>
 	<li>Software Dev (Django, FastAPI, Unity3D)</li>
 	<li>Hardware Prototyping (Raspberry Pi)</li>
-	<li>Data Viz (Shiny/Dash, Chart.js, Tableau/Google Data Studio/etc.)</li>
+	<li>Data Viz (Shiny/Dash, Chart.js, Tableau/Looker Studio/etc.)</li>
 	<li>Adobe Creative Suite + open source alternatives</li>
 	<li>C#, Typescript, PHP, R (as needed)</li>
 	<li>Git, Agile (the real version)</li>
