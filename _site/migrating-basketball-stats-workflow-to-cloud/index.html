@@ -9,26 +9,26 @@
     <meta name=author content="Dario Macieira Mitchell">
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Finished Morrowind Hlaalu Lamp | Dario Macieira Mitchell</title>
+<title>Migrating my basketball stats workflow to the cloud | Dario Macieira Mitchell</title>
 <meta name="generator" content="Jekyll v3.9.5" />
-<meta property="og:title" content="Finished Morrowind Hlaalu Lamp" />
+<meta property="og:title" content="Migrating my basketball stats workflow to the cloud" />
 <meta name="author" content="dario" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Finished creating a Morrowind Hlaalu Lamp" />
-<meta property="og:description" content="Finished creating a Morrowind Hlaalu Lamp" />
-<link rel="canonical" href="https://dario.technology/finished-hlaalu-lamp/" />
-<meta property="og:url" content="https://dario.technology/finished-hlaalu-lamp/" />
+<meta name="description" content="On-premises to cloud migration" />
+<meta property="og:description" content="On-premises to cloud migration" />
+<link rel="canonical" href="https://dario.technology/migrating-basketball-stats-workflow-to-cloud/" />
+<meta property="og:url" content="https://dario.technology/migrating-basketball-stats-workflow-to-cloud/" />
 <meta property="og:site_name" content="Dario Macieira Mitchell" />
 <meta property="og:image" content="https://dario.technology/assets/images/markdown.jpg" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-02-20T22:44:00-06:00" />
+<meta property="article:published_time" content="2025-04-09T22:44:00-05:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="https://dario.technology/assets/images/markdown.jpg" />
-<meta property="twitter:title" content="Finished Morrowind Hlaalu Lamp" />
+<meta property="twitter:title" content="Migrating my basketball stats workflow to the cloud" />
 <meta name="twitter:site" content="@" />
 <meta name="twitter:creator" content="@dario" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"dario"},"dateModified":"2025-02-20T22:44:00-06:00","datePublished":"2025-02-20T22:44:00-06:00","description":"Finished creating a Morrowind Hlaalu Lamp","headline":"Finished Morrowind Hlaalu Lamp","image":"https://dario.technology/assets/images/markdown.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://dario.technology/finished-hlaalu-lamp/"},"url":"https://dario.technology/finished-hlaalu-lamp/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"dario"},"dateModified":"2025-04-09T22:44:00-05:00","datePublished":"2025-04-09T22:44:00-05:00","description":"On-premises to cloud migration","headline":"Migrating my basketball stats workflow to the cloud","image":"https://dario.technology/assets/images/markdown.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://dario.technology/migrating-basketball-stats-workflow-to-cloud/"},"url":"https://dario.technology/migrating-basketball-stats-workflow-to-cloud/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -810,15 +810,15 @@ video { max-width: 100%; }
 
 
 
-<h1 class="title">Finished Morrowind Hlaalu Lamp</h1>
+<h1 class="title">Migrating my basketball stats workflow to the cloud</h1>
 
 <span class="date">
-    <time datetime="20-02-2025">Thursday. February 20, 2025</time>
+    <time datetime="09-04-2025">Wednesday. April 09, 2025</time>
      - <span class="reading-time" title="Estimated read time">
     
 
     
-        1 min
+        2 mins
     
 </span>
 
@@ -827,44 +827,56 @@ video { max-width: 100%; }
 
     <div class="post-tags">
         
-            <a class="item" href="https://dario.technology/tags/#irl-technology">IRL technology</a>
+            <a class="item" href="https://dario.technology/tags/#data-engineering">data engineering</a>
         
-            <a class="item" href="https://dario.technology/tags/#laser-cutting">laser cutting</a>
-        
-            <a class="item" href="https://dario.technology/tags/#morrowind">morrowind</a>
+            <a class="item" href="https://dario.technology/tags/#data-science">data science</a>
         
     </div>
 
 
-<h2 id="finished-a-lamp">Finished a lamp</h2>
+<h2 id="moving-to-google-cloud">Moving to Google Cloud</h2>
 
-<p>Not much but I finally finished staining and putting together a lamp I had designed for a gift based on House Hlaalu from Morrowind.</p>
+<p>With the NBA season finishing up I returned to my basketball stats project.
+So far I’ve been running it locally or in Cloud IDEs such as Cloud9. Cloud9 sunset awhile ago so I switched over to the Google Cloud IDE after experimenting with Github CodeSpaces. Both seem pretty comparable but I went with the Google Cloud IDE since I was aiming to use that cloud provider anyways.</p>
 
-<p>House Hlaalu being the most mercantile and pro-Empire of the three Morrowind houses.
-<img src="/assets/images/lamps/hlaalucastle.jpg" alt="Hlaalu Castle" />
-<img src="/assets/images/lamps/hlaalumeme.png" alt="Hlaalu Meme" /></p>
+<p>I chose Google Cloud over AWS since it is better for analytics and a bit more lightweight for single-person projects like I am working on. I use AWS much more professionally but it is always good to branch out lol.</p>
 
-<p>I think I joined the Telvanni in my playthrough but I was always an Imperial sympathizer. Nobody likes the Camonna Tong!</p>
+<p>My goal this around was to get my whole workflow which downloads and uses data locally to fully use the cloud. The architecture I settled on iteratively was:</p>
 
-<p><a href="https://www.youtube.com/watch?v=8r7xmuSx6Pg">I found this video to be helpful for an intro to staining the wood.</a></p>
+<ul>
+  <li>Data stored in Bigquery</li>
+  <li>ETL, basic analysis, static site generation in Cloud Run Functions &amp; Jobs</li>
+  <li>Orchestration with Workflows</li>
+  <li>Site publishing with Jekyll + Github Actions (already done)</li>
+</ul>
 
-<h3 id="pretty-happy-with-the-final-product">Pretty happy with the final product</h3>
-<p><img src="/assets/images/lamps/finished_hlaalu1.jpg" alt="Morrowind Hlaalu Lamp" /></p>
+<p><img src="/assets/images/nba/bk_pipeline.png" alt="Basketball Stats Pipeline Architecture" /></p>
 
-<p><img src="/assets/images/lamps/finished_hlaalu2.jpg" alt="Morrowind Hlaalu Lamp" /></p>
+<p>Nothing too fancy but pretty well optimized for cost, costs less than a quarter to run.</p>
 
-<p>In my next design I think I will add a way to cover up the corners which I think are super emblematic of lasercut things. But just a minor point to fit.</p>
+<h3 id="next-steps">Next steps</h3>
 
-<p>Design files here: <a href="https://github.com/mcoirad/morrowind-lasercutting-files">https://github.com/mcoirad/morrowind-lasercutting-files</a></p>
+<p>Now there are a few different directions to go in. A big fun goal would be being able to produce automated trade grades on trades as they happen. To do that I would need to do a few things:</p>
+
+<ul>
+  <li>Player projections (i.e. what total BPM will a player produce in the next couple of years?)</li>
+  <li>Team projections (i.e. will this team be good or bad, relevant for values of picks)</li>
+  <li>Team strategy (i.e. is the team tanking – in which being bad would be a good thing)</li>
+  <li>Salaries (i.e. does a move save money, there is some value in that)</li>
+</ul>
+
+<p>None of these pieces needs to be super in-depth or rigorous. But we’d like to have these data points for the trade grade model.</p>
+
+<p>For now will be thinking these through while continue to iterate on the current pipeline. I am also thinking about a GraphQL back-end for the site rather than a statically generated site. But I haven’t decided yet.</p>
+
+<p><a href="https://www.dario.technology/the-grunfeld">Site is currently accessible here</a></p>
 
 
 
     <div class="blog-navigation">
         
-            <a class="prev" href="https://dario.technology/procedural-generation-for-diplomacy-maps/">&laquo; Procedural Generation for Diplomacy Maps</a>
+            <a class="prev" href="https://dario.technology/random-diplomacy-maps-part-2/">&laquo; Random Diplomacy Maps Part 2</a>
         
-        
-            <a class="next" href="https://dario.technology/random-diplomacy-maps-part-2/">Random Diplomacy Maps Part 2 &raquo;</a>
         
     </div>
 
@@ -880,11 +892,7 @@ video { max-width: 100%; }
             
                 
             
-                
-            
         
-            
-                
             
                 
             
@@ -899,11 +907,7 @@ video { max-width: 100%; }
             
                 
             
-                
-            
         
-            
-                
             
                 
             
@@ -918,19 +922,13 @@ video { max-width: 100%; }
             
                 
             
-                
-            
         
             
                 
             
                 
             
-                
-            
         
-            
-                
             
                 
             
@@ -945,11 +943,7 @@ video { max-width: 100%; }
             
                 
             
-                
-            
         
-            
-                
             
                 
             
@@ -958,144 +952,6 @@ video { max-width: 100%; }
         
     
         
-        
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
-            
-                
-            
-                
-            
         
             
                 
@@ -1104,7 +960,7 @@ video { max-width: 100%; }
                     <ul>
                     
                     <li class="relatedPost">
-                        <a href="https://dario.technology/casio-ctk-7000-keyboard-repair/">Casio CTK-7000 Keyboard repair
+                        <a href="https://dario.technology/basketball-executive-example-analysis/">Executive Basketball Stats: Methods Rundown
                         
                         </a>
                     </li>
@@ -1114,22 +970,7 @@ video { max-width: 100%; }
             
                 
             
-                
-            
         
-    
-        
-        
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
             
                 
             
@@ -1144,27 +985,13 @@ video { max-width: 100%; }
             
                 
             
-                
-            
         
             
                 
             
                 
             
-                
-            
         
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
             
                 
             
@@ -1178,7 +1005,7 @@ video { max-width: 100%; }
                 
                     
                     <li class="relatedPost">
-                        <a href="https://dario.technology/dunmer-lamp-designs/">Morrowind Lamp Designs
+                        <a href="https://dario.technology/thinking-beyond-sql/">Thinking beyond SQL: When DBT is not the answer	
                         
                         </a>
                     </li>
@@ -1188,19 +1015,7 @@ video { max-width: 100%; }
             
                 
             
-                
-            
         
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
             
                 
             
@@ -1215,30 +1030,13 @@ video { max-width: 100%; }
             
                 
             
-                
-            
         
             
                 
             
                 
             
-                
-            
         
-    
-        
-        
-            
-                
-            
-                
-            
-                
-            
-        
-            
-                
             
                 
             
@@ -1253,11 +1051,7 @@ video { max-width: 100%; }
             
                 
             
-                
-            
         
-            
-                
             
                 
             
@@ -1272,6 +1066,19 @@ video { max-width: 100%; }
             
                 
             
+        
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
+            
                 
             
         
@@ -1280,6 +1087,13 @@ video { max-width: 100%; }
             
                 
             
+        
+    
+        
+        
+            
+                
+            
                 
             
         
@@ -1288,6 +1102,13 @@ video { max-width: 100%; }
             
                 
             
+        
+    
+        
+        
+            
+                
+            
                 
             
         
@@ -1296,11 +1117,130 @@ video { max-width: 100%; }
             
                 
             
+        
+            
+                
+            
                 
             
         
             
                 
+            
+                
+            
+        
+    
+        
+        
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
+                    
+                    <li class="relatedPost">
+                        <a href="https://dario.technology/basketball-stats-on-basketball-executives/">Advanced Stats for Unadvanced NBA Executives
+                        
+                        </a>
+                    </li>
+                    
+                    
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
+                    
+                    <li class="relatedPost">
+                        <a href="https://dario.technology/building-a-political-media-intelligence-platform/">Building a Political Media Research Platform
+                        
+                        </a>
+                    </li>
+                    
+                    
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
             
                 
             
@@ -1334,7 +1274,7 @@ video { max-width: 100%; }
             <!-- If site width is set to normal, you may choose any two share links -->
             <a
                 class="twitter"
-                href="https://twitter.com/intent/tweet?text=https://dario.technology/finished-hlaalu-lamp/ - Finished Morrowind Hlaalu Lamp by @"
+                href="https://twitter.com/intent/tweet?text=https://dario.technology/migrating-basketball-stats-workflow-to-cloud/ - Migrating my basketball stats workflow to the cloud by @"
             >
                 <i class="fa-brands fa-twitter"></i>
                 <span class="icon-twitter">Tweet</span>
@@ -1349,7 +1289,7 @@ video { max-width: 100%; }
                 <span class="icon-facebook-rect">Share</span>
             </a>
 
-            <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://dario.technology/finished-hlaalu-lamp/&amp;title=Finished Morrowind Hlaalu Lamp&amp;summary=Finished creating a Morrowind Hlaalu Lamp&amp;source=https://dario.technology" target="_blank">
+            <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://dario.technology/migrating-basketball-stats-workflow-to-cloud/&amp;title=Migrating my basketball stats workflow to the cloud&amp;summary=On-premises to cloud migration&amp;source=https://dario.technology" target="_blank">
                 <i class="fa-brands fa-linkedin"></i>
                 <span class="icon-linkedin">Share</span>
             </a> -->
@@ -1365,8 +1305,8 @@ video { max-width: 100%; }
     <script type="text/javascript">
 
         var disqus_config = function () {
-            this.page.url = 'https://dario.technology/finished-hlaalu-lamp/';
-            this.page.identifier = '/finished-hlaalu-lamp';
+            this.page.url = 'https://dario.technology/migrating-basketball-stats-workflow-to-cloud/';
+            this.page.identifier = '/migrating-basketball-stats-workflow-to-cloud';
         };
         var disqus_shortname = 'github';
         var disqus_developer = 0;
