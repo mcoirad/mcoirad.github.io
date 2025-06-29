@@ -1,4 +1,105 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2025-04-10T16:51:04-05:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Migrating my basketball stats workflow to the cloud</title><link href="https://dario.technology/migrating-basketball-stats-workflow-to-cloud/" rel="alternate" type="text/html" title="Migrating my basketball stats workflow to the cloud" /><published>2025-04-09T22:44:00-05:00</published><updated>2025-04-09T22:44:00-05:00</updated><id>https://dario.technology/migrating-basketball-stats-workflow-to-cloud</id><content type="html" xml:base="https://dario.technology/migrating-basketball-stats-workflow-to-cloud/"><![CDATA[<h2 id="moving-to-google-cloud">Moving to Google Cloud</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2025-06-28T23:39:15-05:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Glyph Grammar: A System for Procedurally Generating Alphabets</title><link href="https://dario.technology/glyph-grammar-a-system-for-procedurally-generating-alphabets/" rel="alternate" type="text/html" title="Glyph Grammar: A System for Procedurally Generating Alphabets" /><published>2025-06-28T22:44:00-05:00</published><updated>2025-06-28T22:44:00-05:00</updated><id>https://dario.technology/glyph-grammar-a-system-for-procedurally-generating-alphabets</id><content type="html" xml:base="https://dario.technology/glyph-grammar-a-system-for-procedurally-generating-alphabets/"><![CDATA[<h3 id="life-update">Life Update</h3>
+<p>Have been pretty good at making a monthly update here on my site the last year or so, but have seemed to miss the month of May. This blog has all less been aimed at getting people to read and look at my work, more about keeping myself accountable with creative activities. However past couple months have been pretty busy with a lot of life and work stuff so haven’t had to time to progress things to make a post here. One thing I started doing IRL though is Improv Comedy over at a local theater called <a href="https://thisismettlesome.com/">Mettlesome</a>. performing and specifically improvising in front of an audience is something new and very different for me (by the gods, I became an engineer for a reason!) and something I can recommend to anyone looking to improve social skills after the pandemic.</p>
+
+<h2 id="inspiration">Inspiration</h2>
+<p>In keeping with thoughts about fantasy world building, I was thinking about how alphabets are created. Was looking at the Phoenician alphabet specifically and was inspired how each glyph could generally be broken down into discrete parts. Yes, technically it is all lines, but beyond that it is just rectangles, triangles, and circles, with some segments removed on occasion.</p>
+
+<p><img src="/assets/images/glyphs/wiki_phoe.png" alt="Phoenician Alphabet - source Wikipedia" /> <em>Phoenician Alphabet - source: Wikipedia</em></p>
+
+<p>So to create new Phoenician-like alphabets, we’d just need a system to generate, modify, and combine those shapes.</p>
+
+<h2 id="procedural-glyphs">Procedural Glyphs</h2>
+
+<p>Early attempts were kind of sketchy
+<img src="/assets/images/glyphs/attempt1.png" alt="Early attempts" />
+<img src="/assets/images/glyphs/attempt2.png" alt="Early attempts" /></p>
+
+<p>Naive attempts at randomization, while sort of interesting, didn’t approach something that looked like an alphabet.</p>
+
+<p>#
+#
+#</p>
+
+<p>Some of this was due to bugs in the code, but I didn’t really have an overall way of organizing everything.</p>
+
+<h2 id="glyph-grammar">Glyph Grammar</h2>
+<p>Then I remembered L-Systems. Basically a formal grammar for procedurally creating interesting models. I didn’t think L-systems were the answer really for the procedural generation, but an L-system style grammar could be implemented (and eventually we could test out the L-system, although recursive fractals don’t really seem to be the best solution for generating alphabets). However a grammar would be useful for reducing characters down to a string representation which would make use some other interesting analysis.</p>
+
+<p>The grammar I ended up using was:</p>
+
+<h4 id="primitives">Primitives:</h4>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">C</code>: Circle</li>
+  <li><code class="language-plaintext highlighter-rouge">T</code>: Triangle (3 sided polygon)\</li>
+  <li><code class="language-plaintext highlighter-rouge">R</code>: Rectangle (4 sided polygon, technically a square)</li>
+  <li><code class="language-plaintext highlighter-rouge">S</code>: Starburst, 8 lines by default</li>
+</ul>
+
+<h4 id="modifiers">Modifiers:</h4>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">|</code>: Denote new row</li>
+  <li><code class="language-plaintext highlighter-rouge">*</code>: Denote overlapping primitives</li>
+  <li><code class="language-plaintext highlighter-rouge">[]</code>: Group primitives</li>
+  <li><code class="language-plaintext highlighter-rouge">X</code>: where X is a decimal representation of a bitmask indicating which segments of a primitive to show. Ie (R1) (0001 in binary) would show a rectangle with only its first segment showing) R9 (1001 in binary) would show the first and last segments. Triangles are 3 bits (e.g. 101), while starbursts are 8 bits (e.g. 01010101), representing the cardinal and ordinal directions. No number indicates the full primitive is shown.</li>
+  <li><code class="language-plaintext highlighter-rouge">rX</code>: Rotation, where X is a decimal representation of the angle to rotate the glyph by. (e.g. Tr90, rotate triangle by 90 degrees)</li>
+</ul>
+
+<h3 id="phoenician-alphabet">Phoenician Alphabet</h3>
+<p>Using this grammar you can encode the entire Phoenician alphabet into a simple JSON:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>phoenician_glyphs = {
+  "aleph": "T5r270*S17",
+  "bet": "Tr270|R6",
+  "giml": "T3r270|R2",
+  "delat": "T",
+  "he": "R3|R3|R3|R3",
+  "waw": "S146",
+  "tet": "S170*C",
+  "zayin": "R5*S17",
+  "het": "R12R6|R13R7|R13R7|R9R3",
+  "tet": "C*S170",
+  "yod": "R3|R3R4",
+  "kap": "S177|S1",
+  "lamed": "S17|S3",
+  "mem": "T5r180 T5r180 R8 | R0 R0 R8 | R0 R0 R8",
+  "nun": "T5r180 R8 | R0 R8 | R0 R8",
+  "samekh" : "R3R9|R3R9|R3R9|R3R9",
+  "ayin": "C",
+  "pe": "C3",
+  "sade": "S19S130",
+  "qop": "[C*S17]|S1",
+  "res": "Tr270|R2",
+  "shin": "T5r180T5r180",
+  "taw": "S170"
+}
+</code></pre></div></div>
+
+<p>Which when combined with a grammar parser produces the following image:</p>
+
+<p><img src="/assets/images/glyphs/final_alphabet.png" alt="Phoenician Alphabet Rendered by the GlyphGrammar parser" /> <em>Phoenician Alphabet generated by the glyph grammar</em></p>
+
+<p>Pretty accurate, main remaining issues are the ‘sade’ and ‘pe’ glyphs which aren’t completely accurate to the originals. This begs a few additions to the grammar:</p>
+
+<p>-<code class="language-plaintext highlighter-rouge">t</code>: transpose a glyph, so that not everything has to perfectly fit the grid system
+-<code class="language-plaintext highlighter-rouge">s</code>: scale a glyph
+-<code class="language-plaintext highlighter-rouge">c</code>: curve a line segment, potentially with some simple parameter for the bezier curve</p>
+<ul>
+  <li>starbursts work off of a consistent radius. we need an option for a starburst with lines effectively reaching the bounds of the box, rather than a circular radius</li>
+</ul>
+
+<p>Implementing the above would get this to 1.0 and also let us fully implement the Runic alphabet. Although we could implement most of those glyphs right now as well.</p>
+
+<p><img src="/assets/images/glyphs/wiki_rune.png" alt="Runic Alphabet - source Wikipedia" /> <em>Runic Alphabet - source: Wikipedia</em></p>
+
+<p>Technically with the above we could also implement Chinese characters too. <a href="https://github.com/LingDong-/rrpl">When doing research for the above I found there’s a project that sort of does that already in a cool way too</a></p>
+
+<h3 id="procedural-generation">Procedural Generation</h3>
+<p>We got this far without getting to the main point: actually procedurally generating new alphabets. We had too much fun with the grammar and ran out of time (i wanted to make a post of something for this month). We could try an actual L system, while I don’t think that would be what we want it would at least be interesting to see the results. Rather we should do some analysis and base our procedural rules on the alphabets we already have available, sample the ratios and combinations that come and repeat them. And also do something for symmetrey. We’ll get to that next.</p>
+
+<h3 id="working-demo">Working Demo</h3>
+
+<script async="" src="//jsfiddle.net/mcoirad/yrkmvpas/11/embed/result/dark/"></script>
+
+<p>As an aside I used JS Fiddle for this but I think I won’t again. The IDE doesn’t work well on Firefox and at one point bugged out, costing me some unsaved work that I had to do. But it is what I used so far. Please forgive the code, right now it is basically a messy sketchbook, not a finished piece lol.</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="procedural generation" /><summary type="html"><![CDATA[A grammar for defining alphabets, starting with the Phoenician alphabet]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Migrating my basketball stats workflow to the cloud</title><link href="https://dario.technology/migrating-basketball-stats-workflow-to-cloud-copy/" rel="alternate" type="text/html" title="Migrating my basketball stats workflow to the cloud" /><published>2025-04-09T22:44:00-05:00</published><updated>2025-04-09T22:44:00-05:00</updated><id>https://dario.technology/migrating-basketball-stats-workflow-to-cloud%20copy</id><content type="html" xml:base="https://dario.technology/migrating-basketball-stats-workflow-to-cloud-copy/"><![CDATA[<h2 id="moving-to-google-cloud">Moving to Google Cloud</h2>
 
 <p>With the NBA season finishing up I returned to my basketball stats project.
 So far I’ve been running it locally or in Cloud IDEs such as Cloud9. Cloud9 sunset awhile ago so I switched over to the Google Cloud IDE after experimenting with Github CodeSpaces. Both seem pretty comparable but I went with the Google Cloud IDE since I was aiming to use that cloud provider anyways.</p>
@@ -16,7 +117,7 @@ So far I’ve been running it locally or in Cloud IDEs such as Cloud9. Cloud9 su
 
 <p><img src="/assets/images/nba/bk_pipeline.png" alt="Basketball Stats Pipeline Architecture" /></p>
 
-<p>Nothing too fancy but pretty well optimized for cost, costs less than a quarter to run.</p>
+<p>Nothing too fancy but pretty well optimized for cost, costs less than a quarter to run. For now am running it weekly.</p>
 
 <h3 id="next-steps">Next steps</h3>
 
@@ -498,20 +599,4 @@ In addition we have support for running our action functions within and at the e
 
 <p>It’s doubtful I could get all the graphics in the game to this level of quality just by myself, but the goal will get to produce at least a few pieces for the demo. Of course, not all PC98 games looked this good, the ones with the best graphics came along in the mid 1990s as opposed to earlier. Honestly it is insane how much effort it takes to get the cluttered machinery cyberpunk look that you can see in <a href="https://www.mobygames.com/game/platform:pc98/sort:moby_score/page:1/">quite a few of the PC98 games.</a></p>
 
-<p>Going beyond the demo I will definitely need some extra help for art production.</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="2D Arts" /><summary type="html"><![CDATA[Game Art Update]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Sprite Jewelry EP rerelease</title><link href="https://dario.technology/sprite-jewelry-ep-rerelease/" rel="alternate" type="text/html" title="Sprite Jewelry EP rerelease" /><published>2024-07-09T02:44:00-05:00</published><updated>2024-07-09T02:44:00-05:00</updated><id>https://dario.technology/sprite-jewelry-ep-rerelease</id><content type="html" xml:base="https://dario.technology/sprite-jewelry-ep-rerelease/"><![CDATA[<h2 id="sprite-jewelry-ep">Sprite Jewelry EP</h2>
-
-<iframe style="border: 0; width: 350px; height: 350px;" src="https://bandcamp.com/EmbeddedPlayer/album=3692447939/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless=""><a href="https://spritejewelry.bandcamp.com/album/sprite-jewelry-ep">sprite jewelry EP by sprite jewelry</a></iframe>
-
-<p>Cleaning up and backing up an old laptop I found some old music of mine, very much in a similar style to my recently released album.</p>
-
-<p>I went ahead and made a separate release for it on bandcamp.</p>
-
-<p>It was fun drawing the album art again in a PC98 style. I feel this types of graphics capture some of the minimalism of pixel art without being too reductive. Low resolution pixel art is honestly sort of ugly in my opinion, but it may be that I really don’t have nostalgia for the period of technology. Same for PC98 games, I didn’t play them growing up or anything, and as an adult I only played <a href="https://www.youtube.com/watch?v=Upr6zoYUFAw">Policenauts</a>. I got into this more originally just from drawing on a graphing calculator during math class. To me doodling is as much pushing a single pixel around as it is scribbling on paper.</p>
-
-<p><img src="/assets/images/music/policenauts.jpg" alt="Policenauts" /></p>
-
-<p>Once again I’m pretty happy with how it came out although I am already recognizing some flaws in it lol. I’ve put a lot of time into figure drawing the past year and I’m glad that it is starting to show improvement. I am still learning a lot of anatomy and the principles of lighting though. With this piece it took a lot of iteration with my friend CTRL-Z and many duplications of layers. I have a lot of anxiety around art so every little step forward gives me lots of confidence.</p>
-
-<p>I think next I will start to focus on drawing game assets for the games I’ve been working on. Some will need to be animated which will be a new challenge.</p>
-
-<p><img src="/assets/images/music/sprite jewelry.png" alt="Sprite Jewelry EP" /></p>]]></content><author><name>dario</name></author><category term="blog" /><category term="music" /><category term="2D Arts" /><summary type="html"><![CDATA[Sprite Jewelry music release]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Going beyond the demo I will definitely need some extra help for art production.</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="2D Arts" /><summary type="html"><![CDATA[Game Art Update]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

@@ -31,7 +31,7 @@ My goal this around was to get my whole workflow which downloads and uses data l
 
 ![Basketball Stats Pipeline Architecture](/assets/images/nba/bk_pipeline.png)
 
-Nothing too fancy but pretty well optimized for cost, costs less than a quarter to run.
+Nothing too fancy but pretty well optimized for cost, costs less than a quarter to run. For now am running it weekly.
 
 ### Next steps
 

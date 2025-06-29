@@ -9,26 +9,26 @@
     <meta name=author content="Dario Macieira Mitchell">
 
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Building a Multiplayer Framework for Interactive Novels | Dario Macieira Mitchell</title>
+<title>Glyph Grammar: A System for Procedurally Generating Alphabets | Dario Macieira Mitchell</title>
 <meta name="generator" content="Jekyll v3.9.5" />
-<meta property="og:title" content="Building a Multiplayer Framework for Interactive Novels" />
+<meta property="og:title" content="Glyph Grammar: A System for Procedurally Generating Alphabets" />
 <meta name="author" content="dario" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Building a framework with Unity3D" />
-<meta property="og:description" content="Building a framework with Unity3D" />
-<link rel="canonical" href="https://dario.technology/creating-framework-multiplayer-novel-copy/" />
-<meta property="og:url" content="https://dario.technology/creating-framework-multiplayer-novel-copy/" />
+<meta name="description" content="A grammar for defining alphabets, starting with the Phoenician alphabet" />
+<meta property="og:description" content="A grammar for defining alphabets, starting with the Phoenician alphabet" />
+<link rel="canonical" href="https://dario.technology/glyph-grammar-a-system-for-procedurally-generating-alphabets/" />
+<meta property="og:url" content="https://dario.technology/glyph-grammar-a-system-for-procedurally-generating-alphabets/" />
 <meta property="og:site_name" content="Dario Macieira Mitchell" />
 <meta property="og:image" content="https://dario.technology/assets/images/markdown.jpg" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-02-24T22:44:00-06:00" />
+<meta property="article:published_time" content="2025-06-28T22:44:00-05:00" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta property="twitter:image" content="https://dario.technology/assets/images/markdown.jpg" />
-<meta property="twitter:title" content="Building a Multiplayer Framework for Interactive Novels" />
+<meta property="twitter:title" content="Glyph Grammar: A System for Procedurally Generating Alphabets" />
 <meta name="twitter:site" content="@" />
 <meta name="twitter:creator" content="@dario" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"dario"},"dateModified":"2024-02-24T22:44:00-06:00","datePublished":"2024-02-24T22:44:00-06:00","description":"Building a framework with Unity3D","headline":"Building a Multiplayer Framework for Interactive Novels","image":"https://dario.technology/assets/images/markdown.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://dario.technology/creating-framework-multiplayer-novel-copy/"},"url":"https://dario.technology/creating-framework-multiplayer-novel-copy/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"dario"},"dateModified":"2025-06-28T22:44:00-05:00","datePublished":"2025-06-28T22:44:00-05:00","description":"A grammar for defining alphabets, starting with the Phoenician alphabet","headline":"Glyph Grammar: A System for Procedurally Generating Alphabets","image":"https://dario.technology/assets/images/markdown.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://dario.technology/glyph-grammar-a-system-for-procedurally-generating-alphabets/"},"url":"https://dario.technology/glyph-grammar-a-system-for-procedurally-generating-alphabets/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -810,15 +810,15 @@ video { max-width: 100%; }
 
 
 
-<h1 class="title">Building a Multiplayer Framework for Interactive Novels</h1>
+<h1 class="title">Glyph Grammar: A System for Procedurally Generating Alphabets</h1>
 
 <span class="date">
-    <time datetime="24-02-2024">Saturday. February 24, 2024</time>
+    <time datetime="28-06-2025">Saturday. June 28, 2025</time>
      - <span class="reading-time" title="Estimated read time">
     
 
     
-        2 mins
+        5 mins
     
 </span>
 
@@ -829,36 +829,122 @@ video { max-width: 100%; }
         
             <a class="item" href="https://dario.technology/tags/#game-development">game development</a>
         
-            <a class="item" href="https://dario.technology/tags/#interactive-narratives">interactive narratives</a>
+            <a class="item" href="https://dario.technology/tags/#procedural-generation">procedural generation</a>
         
     </div>
 
 
-<h2 id="the-ease-of-developing-interactive-narratives">The ease of developing interactive narratives</h2>
+<h3 id="life-update">Life Update</h3>
+<p>Have been pretty good at making a monthly update here on my site the last year or so, but have seemed to miss the month of May. This blog has all less been aimed at getting people to read and look at my work, more about keeping myself accountable with creative activities. However past couple months have been pretty busy with a lot of life and work stuff so haven’t had to time to progress things to make a post here. One thing I started doing IRL though is Improv Comedy over at a local theater called <a href="https://thisismettlesome.com/">Mettlesome</a>. performing and specifically improvising in front of an audience is something new and very different for me (by the gods, I became an engineer for a reason!) and something I can recommend to anyone looking to improve social skills after the pandemic.</p>
 
-<p>Today there exist many tools and engines that allow for the easy creation of interactive literature.</p>
+<h2 id="inspiration">Inspiration</h2>
+<p>In keeping with thoughts about fantasy world building, I was thinking about how alphabets are created. Was looking at the Phoenician alphabet specifically and was inspired how each glyph could generally be broken down into discrete parts. Yes, technically it is all lines, but beyond that it is just rectangles, triangles, and circles, with some segments removed on occasion.</p>
 
-<p>As an example, <a href="https://www.renpy.org/">Renpy</a> allows the creation of complex interactive novels, while using a scripting language that closely mirrors that of writing a movie script. Its features can also be greatly expanded through use of Python, making it a great tool for teaching introductory programming concepts.</p>
+<p><img src="/assets/images/glyphs/wiki_phoe.png" alt="Phoenician Alphabet - source Wikipedia" /> <em>Phoenician Alphabet - source: Wikipedia</em></p>
 
-<p>I was interested in creating similar games, but found most frameworks for interactive storytelling to be too limited. As great of a tool that Renpy is, I found it to be most useful for replicating experiences that have been already created. I.e. one could remake the Ace Attorney games their own way, but what is the exact point? I got to the point of creating a demo of my own game, but quickly got to the point of wanting to implement features that Renpy was not built for.</p>
+<p>So to create new Phoenician-like alphabets, we’d just need a system to generate, modify, and combine those shapes.</p>
 
-<p><img src="/assets/images/1.png" alt="Renpy Screenshot" /></p>
+<h2 id="procedural-glyphs">Procedural Glyphs</h2>
 
-<p><img src="/assets/images/bossoffice.gif" alt="Game Demo Screenshot" /></p>
+<p>Early attempts were kind of sketchy
+<img src="/assets/images/glyphs/attempt1.png" alt="Early attempts" />
+<img src="/assets/images/glyphs/attempt2.png" alt="Early attempts" /></p>
 
-<p><img src="/assets/images/3.png" alt="Game Demo Screenshot" /></p>
+<p>Naive attempts at randomization, while sort of interesting, didn’t approach something that looked like an alphabet.</p>
 
-<h2 id="creating-my-own-framework">Creating my own framework</h2>
+<p>#
+#
+#</p>
 
-<p>I wanted to create a system for multiplayer storytelling. Something like a novel, that can be shared with multiple people. So I started work on a framework for my own interactive novel efforts. The basic goal was to replicate the gameplay of Ace Attorney, as if it were a multiplayer game.</p>
+<p>Some of this was due to bugs in the code, but I didn’t really have an overall way of organizing everything.</p>
 
-<p>This precluded the creation of my own scripting language, which has borrowed heavily from Renpy. So far I have used Unity as the view layer, but have also been looking at Godot as an alternative.</p>
+<h2 id="glyph-grammar">Glyph Grammar</h2>
+<p>Then I remembered L-Systems. Basically a formal grammar for procedurally creating interesting models. I didn’t think L-systems were the answer really for the procedural generation, but an L-system style grammar could be implemented (and eventually we could test out the L-system, although recursive fractals don’t really seem to be the best solution for generating alphabets). However a grammar would be useful for reducing characters down to a string representation which would make use some other interesting analysis.</p>
 
-<p>At this point <a href="https://docs.google.com/document/d/1zSwSUPcDkkznFxj8uB94N8eU8m4bri6jeO3hq-L-hWw/edit?usp=sharing">I’m about 50-60% in on what I’d like to implement in my base feature set for the framework</a>. I’m kind of caught between two goals – developing the framework as to use as the basis for my own game, and developing the framework as something that could be shared and published. To the first end I’ve been working on getting out some art mockups of what I’d want the game to look like. And to the second I’m working on cleaning up the code and creating better documentation. But I probably don’t have the time to do both so I need to determine my goals so I know what to focus on.</p>
+<p>The grammar I ended up using was:</p>
 
-<p><img src="/assets/images/preview.png" alt="Game Demo Screenshot" /></p>
+<h4 id="primitives">Primitives:</h4>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">C</code>: Circle</li>
+  <li><code class="language-plaintext highlighter-rouge">T</code>: Triangle (3 sided polygon)\</li>
+  <li><code class="language-plaintext highlighter-rouge">R</code>: Rectangle (4 sided polygon, technically a square)</li>
+  <li><code class="language-plaintext highlighter-rouge">S</code>: Starburst, 8 lines by default</li>
+</ul>
+
+<h4 id="modifiers">Modifiers:</h4>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">|</code>: Denote new row</li>
+  <li><code class="language-plaintext highlighter-rouge">*</code>: Denote overlapping primitives</li>
+  <li><code class="language-plaintext highlighter-rouge">[]</code>: Group primitives</li>
+  <li><code class="language-plaintext highlighter-rouge">X</code>: where X is a decimal representation of a bitmask indicating which segments of a primitive to show. Ie (R1) (0001 in binary) would show a rectangle with only its first segment showing) R9 (1001 in binary) would show the first and last segments. Triangles are 3 bits (e.g. 101), while starbursts are 8 bits (e.g. 01010101), representing the cardinal and ordinal directions. No number indicates the full primitive is shown.</li>
+  <li><code class="language-plaintext highlighter-rouge">rX</code>: Rotation, where X is a decimal representation of the angle to rotate the glyph by. (e.g. Tr90, rotate triangle by 90 degrees)</li>
+</ul>
+
+<h3 id="phoenician-alphabet">Phoenician Alphabet</h3>
+<p>Using this grammar you can encode the entire Phoenician alphabet into a simple JSON:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>phoenician_glyphs = {
+  "aleph": "T5r270*S17",
+  "bet": "Tr270|R6",
+  "giml": "T3r270|R2",
+  "delat": "T",
+  "he": "R3|R3|R3|R3",
+  "waw": "S146",
+  "tet": "S170*C",
+  "zayin": "R5*S17",
+  "het": "R12R6|R13R7|R13R7|R9R3",
+  "tet": "C*S170",
+  "yod": "R3|R3R4",
+  "kap": "S177|S1",
+  "lamed": "S17|S3",
+  "mem": "T5r180 T5r180 R8 | R0 R0 R8 | R0 R0 R8",
+  "nun": "T5r180 R8 | R0 R8 | R0 R8",
+  "samekh" : "R3R9|R3R9|R3R9|R3R9",
+  "ayin": "C",
+  "pe": "C3",
+  "sade": "S19S130",
+  "qop": "[C*S17]|S1",
+  "res": "Tr270|R2",
+  "shin": "T5r180T5r180",
+  "taw": "S170"
+}
+</code></pre></div></div>
+
+<p>Which when combined with a grammar parser produces the following image:</p>
+
+<p><img src="/assets/images/glyphs/final_alphabet.png" alt="Phoenician Alphabet Rendered by the GlyphGrammar parser" /> <em>Phoenician Alphabet generated by the glyph grammar</em></p>
+
+<p>Pretty accurate, main remaining issues are the ‘sade’ and ‘pe’ glyphs which aren’t completely accurate to the originals. This begs a few additions to the grammar:</p>
+
+<p>-<code class="language-plaintext highlighter-rouge">t</code>: transpose a glyph, so that not everything has to perfectly fit the grid system
+-<code class="language-plaintext highlighter-rouge">s</code>: scale a glyph
+-<code class="language-plaintext highlighter-rouge">c</code>: curve a line segment, potentially with some simple parameter for the bezier curve</p>
+<ul>
+  <li>starbursts work off of a consistent radius. we need an option for a starburst with lines effectively reaching the bounds of the box, rather than a circular radius</li>
+</ul>
+
+<p>Implementing the above would get this to 1.0 and also let us fully implement the Runic alphabet. Although we could implement most of those glyphs right now as well.</p>
+
+<p><img src="/assets/images/glyphs/wiki_rune.png" alt="Runic Alphabet - source Wikipedia" /> <em>Runic Alphabet - source: Wikipedia</em></p>
+
+<p>Technically with the above we could also implement Chinese characters too. <a href="https://github.com/LingDong-/rrpl">When doing research for the above I found there’s a project that sort of does that already in a cool way too</a></p>
+
+<h3 id="procedural-generation">Procedural Generation</h3>
+<p>We got this far without getting to the main point: actually procedurally generating new alphabets. We had too much fun with the grammar and ran out of time (i wanted to make a post of something for this month). We could try an actual L system, while I don’t think that would be what we want it would at least be interesting to see the results. Rather we should do some analysis and base our procedural rules on the alphabets we already have available, sample the ratios and combinations that come and repeat them. And also do something for symmetrey. We’ll get to that next.</p>
+
+<h3 id="working-demo">Working Demo</h3>
+
+<script async="" src="//jsfiddle.net/mcoirad/yrkmvpas/11/embed/result/dark/"></script>
+
+<p>As an aside I used JS Fiddle for this but I think I won’t again. The IDE doesn’t work well on Firefox and at one point bugged out, costing me some unsaved work that I had to do. But it is what I used so far. Please forgive the code, right now it is basically a messy sketchbook, not a finished piece lol.</p>
 
 
+
+    <div class="blog-navigation">
+        
+            <a class="prev" href="https://dario.technology/migrating-basketball-stats-workflow-to-cloud-copy/">&laquo; Migrating my basketball stats workflow to the cloud</a>
+        
+        
+    </div>
 
 
 
@@ -869,48 +955,39 @@ video { max-width: 100%; }
         
             
                 
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
+            
+                
+            
+        
+            
+                
+            
+                
+            
+        
+    
+        
+        
+            
+                
                     
                     <h4>Related Posts</h4>
                     <ul>
-                    
-                    <li class="relatedPost">
-                        <a href="https://dario.technology/glyph-grammar-a-system-for-procedurally-generating-alphabets/">Glyph Grammar: A System for Procedurally Generating Alphabets
-                        
-                        </a>
-                    </li>
-                    
-                    
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
-            
-                
-            
-        
-            
-                
-            
-                
-            
-        
-    
-        
-        
-            
-                
                     
                     <li class="relatedPost">
                         <a href="https://dario.technology/random-diplomacy-maps-part-2/">Random Diplomacy Maps Part 2
@@ -1178,6 +1255,15 @@ video { max-width: 100%; }
         
             
                 
+                    
+                    <li class="relatedPost">
+                        <a href="https://dario.technology/creating-fantasy-maps/">Procedural Fantasy Map Generation
+                        
+                        </a>
+                    </li>
+                    
+                    
+                
             
                 
             
@@ -1278,7 +1364,7 @@ video { max-width: 100%; }
             <!-- If site width is set to normal, you may choose any two share links -->
             <a
                 class="twitter"
-                href="https://twitter.com/intent/tweet?text=https://dario.technology/creating-framework-multiplayer-novel-copy/ - Building a Multiplayer Framework for Interactive Novels by @"
+                href="https://twitter.com/intent/tweet?text=https://dario.technology/glyph-grammar-a-system-for-procedurally-generating-alphabets/ - Glyph Grammar: A System for Procedurally Generating Alphabets by @"
             >
                 <i class="fa-brands fa-twitter"></i>
                 <span class="icon-twitter">Tweet</span>
@@ -1293,7 +1379,7 @@ video { max-width: 100%; }
                 <span class="icon-facebook-rect">Share</span>
             </a>
 
-            <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://dario.technology/creating-framework-multiplayer-novel-copy/&amp;title=Building a Multiplayer Framework for Interactive Novels&amp;summary=Building a framework with Unity3D&amp;source=https://dario.technology" target="_blank">
+            <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://dario.technology/glyph-grammar-a-system-for-procedurally-generating-alphabets/&amp;title=Glyph Grammar: A System for Procedurally Generating Alphabets&amp;summary=A grammar for defining alphabets, starting with the Phoenician alphabet&amp;source=https://dario.technology" target="_blank">
                 <i class="fa-brands fa-linkedin"></i>
                 <span class="icon-linkedin">Share</span>
             </a> -->
@@ -1309,8 +1395,8 @@ video { max-width: 100%; }
     <script type="text/javascript">
 
         var disqus_config = function () {
-            this.page.url = 'https://dario.technology/creating-framework-multiplayer-novel-copy/';
-            this.page.identifier = '/creating-framework-multiplayer-novel copy';
+            this.page.url = 'https://dario.technology/glyph-grammar-a-system-for-procedurally-generating-alphabets/';
+            this.page.identifier = '/glyph-grammar-a-system-for-procedurally-generating-alphabets';
         };
         var disqus_shortname = 'github';
         var disqus_developer = 0;
