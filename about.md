@@ -6,7 +6,7 @@ layout: page
 
 ## Hi! I'm Dario Macieira Mitchell
 
-<p>I'm a software engineer and data scientist with two main interests:</p>
+<p>I'm a software engineer and data technologist with two main interests:</p>
 - Harnessing the power of data for social good
 - Exploring the creation of novel forms of computational narrative
 
@@ -16,10 +16,21 @@ The second comes from my interest in human-computer interaction. The potential o
 
 Both of these interests come together in a variety of projects spanning art and interactive design, data visualization and modeling, as well as in writing non-fiction, and writing code.
 
-I've worked as a consultant for a variety of clients such as the [US State Department](https://www.100kstrongamericas.org/), the [ACLU](https://www.acludc.org/), [Partners for the Americas](https://www.partners.net/), [Priorities USA](https://priorities.org/), [the Democratic Senate Campaign Committee](https://www.dscc.org/), and many electoral campaigns such as [the Biden for President campaign](https://joebiden.com/). Most recently I worked at a startup called [Retina AI](https://www.crunchbase.com/organization/retina-ai). 
+I've worked as a consultant for a variety of clients such as the [US State Department](https://www.100kstrongamericas.org/), the [ACLU](https://www.acludc.org/), [Partners for the Americas](https://www.partners.net/), [Priorities USA](https://priorities.org/), [the Democratic Senate Campaign Committee](https://www.dscc.org/), and many electoral campaigns such as [the Biden for President campaign](https://joebiden.com/). Recently I worked at a startup called [Retina AI](https://www.crunchbase.com/organization/retina-ai). 
 
-I studied History and Statistics at [the New College of Florida](https://www.ncf.edu/), taking a B.A. with Honors, graduating before [the right-wing takeover](https://apnews.com/article/desantis-new-college-florida-woke-timeline-5a5bcd78230ddd2a1adb8021fea8a755). I am deeply indebted to my professors and advisors from my time there.
+I studied History and Statistics at [the New College of Florida](https://www.ncf.edu/), taking a B.A. with Honors, graduating before [the recent changes in leadership and administration](https://apnews.com/article/desantis-new-college-florida-woke-timeline-5a5bcd78230ddd2a1adb8021fea8a755). I am deeply indebted to my professors and advisors from my time there.
 
+<h2>Experience</h2>
+<ul class="job-list">
+
+	<li>Senior Data Engineer, the University of Texas at Austin (2023-present)</li>
+	<li>Tech Consultant, ACLU, Partners of the Americas, others (2017-present)</li>
+	<li>Data Engineer, Retina AI (2022-2023)</li>
+	<li>Data Engineer, GMMB (2018-2023)</li>
+	<li>Sushi Chef (2013-2016)</li>
+	<li>Software Engineering Intern, Star2Star Communications (2015-2016)</li>
+	<li>Research Intern, Lovelace Biomedical (2014-2015)</li>
+</ul>
 <h2>Skills</h2>
 
 <ul class="skill-list">
@@ -27,12 +38,12 @@ I studied History and Statistics at [the New College of Florida](https://www.ncf
 	<li>Dev Ops (Docker, AWS CDK, Github Actions)</li>
 	<li>Cloud Tech (AWS, Google Cloud)</li>
 	<li>AI Stuff (Tensorflow, LangChain)</li>
-	<li>Software Dev (Django, FastAPI, Unity3D)</li>
+	<li>Software Dev (Django, FastAPI, React, Unity3D)</li>
 	<li>Hardware Prototyping (Raspberry Pi)</li>
 	<li>Data Viz (Shiny/Dash, Chart.js, Tableau/Looker Studio/etc.)</li>
 	<li>Adobe Creative Suite + open source alternatives</li>
 	<li>C#, Typescript, PHP, R (as needed)</li>
-	<li>Git, Agile (the real version)</li>
+	<li>Git, Agile</li>
 </ul>
 
 <h2>Selected Writing</h2>
