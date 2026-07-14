@@ -1,7 +1,7 @@
 ---
 title: "Projects I would spend time on"
 layout: post
-date: 2025-08-09 22:44
+date: 2026-08-09 22:44
 image: /assets/images/markdown.jpg
 headerImage: false
 tag:

@@ -25,3 +25,20 @@
 {% endif %}
 
 {% include nav.html %}
+
+{% if page.mermaid %}
+<script type="module">
+    // Step 1: Find all elements Jekyll labeled as language-mermaid
+    // Step 2: Inject the 'mermaid' class so the Mermaid engine detects them
+    Array.from(document.getElementsByClassName("language-mermaid")).forEach(element => {
+      element.classList.add("mermaid");
+    });
+  
+    // Step 3: Safely import and initialize the core Mermaid engine via CDN
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ 
+      startOnLoad: true,
+      theme: 'default' // Options: 'default', 'dark', 'neutral', 'forest'
+    });
+  </script>
+  {% endif %}

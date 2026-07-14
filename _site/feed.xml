@@ -1,4 +1,210 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.5">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2025-07-19T12:39:30-05:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Glyph Grammar: A System for Procedurally Generating Alphabets</title><link href="https://dario.technology/glyph-grammar-a-system-for-procedurally-generating-alphabets/" rel="alternate" type="text/html" title="Glyph Grammar: A System for Procedurally Generating Alphabets" /><published>2025-06-28T22:44:00-05:00</published><updated>2025-06-28T22:44:00-05:00</updated><id>https://dario.technology/glyph-grammar-a-system-for-procedurally-generating-alphabets</id><content type="html" xml:base="https://dario.technology/glyph-grammar-a-system-for-procedurally-generating-alphabets/"><![CDATA[<h3 id="life-update">Life Update</h3>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://dario.technology/feed.xml" rel="self" type="application/atom+xml" /><link href="https://dario.technology/" rel="alternate" type="text/html" /><updated>2026-07-14T00:50:42-04:00</updated><id>https://dario.technology/feed.xml</id><title type="html">Dario Macieira Mitchell</title><subtitle>A blog about technology and ethics</subtitle><entry><title type="html">Glyph Grammar Part 2</title><link href="https://dario.technology/glyph-grammar-pt2/" rel="alternate" type="text/html" title="Glyph Grammar Part 2" /><published>2026-07-12T00:44:00-04:00</published><updated>2026-07-12T00:44:00-04:00</updated><id>https://dario.technology/glyph-grammar-pt2</id><content type="html" xml:base="https://dario.technology/glyph-grammar-pt2/"><![CDATA[<h1 id="glyph-grammar-online-demo"><a href="https://dario.technology/glyph-gen/">Glyph Grammar Online Demo</a></h1>
+
+<h2 id="long-time-no-post">Long time, no post</h2>
+
+<p>I can’t believe it has been a year since my last post. I really thought I could do a monthly post, I sort of kept that up for awhile but yeah… sometimes life gets in the way. In fact I’ve been busy, and haven’t had a lot of time for creative projects. The main things that happened this past year were:</p>
+
+<h4 id="i-started-a-new-job">I started a new job</h4>
+
+<p>I now work at Ignite Reading, a startup focused on improving early childhood literacy. It is actually a really cool place (I’ve begun drinking some of the koolaid). The work there has been enough to fill out a couple more posts on itself. An example of something I’ve worked on is a Tableau Server extension that allows faster extract refreshes, including support for incremental loads. But that job has kept me on my toes in some new ways so a lot of mental energy has been on that the past year.</p>
+
+<h4 id="i-traveled-the-world">I traveled the world</h4>
+
+<p>Using home in Washington DC as a base I’ve done a lot of traveling for weddings, events, and just for fun. I got to six new countries this year which is crazy for someone who did not like traveling just a few years ago! In fact it is a lifetime of traveling in one year. Sitting here and typing this out I feel insane!  and improved my french, spanish, and picked up some Arabic and Japanese. To be honest I wish I had studied a bit more before each visit, but now I have motivation to continue learning.</p>
+
+<p>I don’t post a lot of photos, but here is one relevant one.
+<img src="/assets/images/glyphs/museum.jpg" alt="The Mesha'Stele" />
+The Mesha’Stele from the Moabite kingdom!</p>
+
+<h4 id="ai-changed-basically-my-entire-profession">AI changed basically my entire profession</h4>
+
+<p>No way of getting around it, “software engineering” and basically any other job mediated by the virtual world has been changed up a bit by this AI thing. In theory it makes projects like this easier, but in practice I’ve been spending a decent amount of time figuring out how to do my job as a data engineer in better ways. There’s been a whole another wave of attempts at automation and everyone is trying to figure out what is worth automating and where the human should remain in the loop. This could be another post as we are headed in an interesting direction with where the AI bubble has gotten to. I think my old posts about the ramifications of the technology have largely stayed true though.</p>
+
+<p>So yes, between the above not a lot of room for fun little side quests. My main computer workstation of course has been at home while traveling. Even so…</p>
+
+<h1 id="glyph-grammar-part-2">Glyph Grammar, Part 2</h1>
+
+<p>In the last post I left off before actually getting to generating new glyph procedurally. That has been the focus of my recent work. Basically my plan was:</p>
+
+<ol>
+  <li>Come up with a simple way to describe glyphs</li>
+  <li>Come up with way to generate version of that simple representation</li>
+</ol>
+
+<p>Honestly going back I probably could have skipped step 1. And just gone ahead and written out the line segments and curves using an existing system. But whatever. So I created the ‘glyph grammar’ which I could use to describe the phoenician alphabet.</p>
+
+<p><img src="/assets/images/glyphs/phoe1.png" alt="Phoenician Alphabet, rendered from the glyph grammar" /></p>
+
+<p>Once that was done, the Runic alphabet was also pretty easy.</p>
+
+<p><img src="/assets/images/glyphs/runic1.png" alt="Runic Alphabet, rendered from the glyph grammar" /></p>
+
+<p>And roman. And katakana. Etcetera. (I haven’t finished implementing those because I’m lazy. Or don’t have time. You choose)</p>
+
+<p>So now onto generation</p>
+
+<h2 id="generating-new-alphabets">Generating new alphabets</h2>
+
+<p>As shown in my last post generating random glyphs is easy. But generating good looking ones is harder.</p>
+
+<p><img src="/assets/images/glyphs/attempt5.png" alt="Early attempts" /></p>
+
+<p>The approach I ended up taking was to induce a little probabilistic grammar from an existing alphabet. Basically, you take a source set like Phoenician, implement it in the glyph grammar, and then do some automated analysis of the forms.</p>
+
+<p>Things like:</p>
+
+<ul>
+  <li>how often the basic shapes (triangles, rectangles, arcs, and starbursts) appear</li>
+  <li>how often glyphs are single cells versus grids</li>
+  <li>how often shapes are overlaid</li>
+  <li>what kinds of rotations show up</li>
+  <li>which bitmasks are common</li>
+  <li>what modifiers are used</li>
+  <li>how complex each glyph slot tends to be</li>
+</ul>
+
+<p>So instead of hard-coding “Phoenician-like glyphs should look like this”, the program looks at the actual Phoenician definitions and builds a grammar from them.</p>
+
+<p>The generated grammar is serializable too, which I like. It means the learned grammar is an actual artifact, not just some temporary runtime state. You can generate it, save it, reload it, and use it later without needing the original source glyphs.</p>
+
+<p>It looks something like this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+  "metadata": {
+    "source": "phoenician",
+    "glyphCount": 22
+  },
+
+  "structureModel": {
+    "what kind of node?": {
+      "grid": 0.70,
+      "overlay": 0.10,
+      "primitive": 0.20
+    },
+    "if grid, what shape?": {
+      "one row": 0.65,
+      "two rows": 0.35
+    },
+    "if overlay, how many shapes?": {
+      "2": 0.90,
+      "3": 0.10
+    }
+  },
+
+  "attributeModel": {
+    "which primitive?": {
+      "triangle": 0.40,
+      "square": 0.25,
+      "arc": 0.20,
+      "starburst": 0.15
+    },
+    "which rotation?": {
+      "none": 0.50,
+      "90": 0.15,
+      "180": 0.10,
+      "270": 0.25
+    },
+    "which visible edges?": {
+      "all": 0.30,
+      "left+bottom": 0.20,
+      "diagonal-ish": 0.15
+    }
+  },
+
+  "slotProfiles": {
+    "aleph": {
+      "source": "T5r270*S17",
+      "should be roughly": {
+        "complexity": "low-medium",
+        "density": "medium",
+        "symmetry": "mostly horizontal",
+        "segments": "2-6",
+        "overlays": "0-2"
+      }
+    }
+  },
+
+  "acceptanceRules": {
+    "minimumScore": 0.42,
+    "minimumConnectivity": 0.50,
+    "maximumComplexity": 0.60,
+    "minimumNovelty": 0.04
+  }
+}
+</code></pre></div></div>
+
+<p>The first version of this did technically work, but the results were not so great looking to human eyes.</p>
+
+<p>That led to the second big piece: scoring.</p>
+
+<h2 id="scoring-glyphs">Scoring glyphs</h2>
+
+<p>I needed a way to push the generator to acceptable looking glyphs. I am no linguistics expert but there are some forms that can tracked and measured.</p>
+
+<p>So I added a scoring system. Each glyph gets compiled down into geometry, and then I extract a bunch of features from that geometry:</p>
+
+<ul>
+  <li>symmetry</li>
+  <li>connectivity</li>
+  <li>density</li>
+  <li>visual balance</li>
+  <li>complexity</li>
+  <li>novelty</li>
+  <li>component count</li>
+  <li>segment count</li>
+  <li>occupied area</li>
+</ul>
+
+<p><img src="/assets/images/glyphs/scoring.png" alt="Glyph scoring system" /></p>
+
+<p>This is very much a heuristic system. This isn’t some grand theory of letterforms. The original glyph grammar doesn’t even model the source alphabets perfectly. It is more like giving the program a few crude senses.</p>
+
+<p>For example, connectivity is useful because lots of generated glyphs would otherwise be disconnected fragments floating near each other. Density is useful because the generator can accidentally make shapes that are either almost empty or completely overworked. Balance helps catch glyphs where all the visual weight ends up shoved into one corner.</p>
+
+<p>Symmetry turned out to be trickier than I expected. My first version was too literal. It looked for mirrored points, but that is not really how people perceive symmetry. A glyph can feel symmetric even if the sampled geometry does not line up perfectly. So I added a more forgiving symmetry coverage metric that samples the rendered geometry and checks how well reflected points are covered.</p>
+
+<p><img src="/assets/images/glyphs/symmetry-tracking-diagram.svg" alt="Symmetry tracking v1 and v2" /></p>
+
+<p>Once I had scoring, generation became a rejection-sampling problem.</p>
+
+<p>For each glyph slot, the generator samples a candidate from the induced grammar, compiles it, scores it, and compares it against the profile learned from the source glyph in that slot. If it is close enough, it accepts it. If not, it tries again. It is a dumb system that is using brute force, but it is okay at a first step.</p>
+
+<p>But basically we create a glyph that according to heuristics, is an equivalent to the glyph in the source set.</p>
+
+<h2 id="generating-a-whole-set">Generating a whole set</h2>
+
+<p>I added some heuristics at the set level too. Something that seems to be common in the source sets are repeated structures. So I make sure a set has some level of repitition of some of the base features it decides to use.</p>
+
+<h2 id="making-it-usable">Making it usable</h2>
+
+<p>I added a UI which was pretty easy to spin up (yay AI). There are a lot of options to constrain the generation, and while they can produce better results the brute force method can actually be quite slow as candidates will often fail to meet the bounds for acceptance.</p>
+
+<p>I had some fun with the rendering because I couldn’t actually find a good JS library to use for drawing the glyphs so I wrote some of my own methods for simulating brush strokes.</p>
+
+<h2 id="where-it-is-now">Where it is now</h2>
+
+<p><a href="https://dario.technology/glyph-gen/">The current version of the Glyph Grammar prototype is hosted here.</a></p>
+
+<ol>
+  <li>Pick a source alphabet.</li>
+  <li>Parse every glyph in that alphabet.</li>
+  <li>Induce a probabilistic grammar from the parsed structures.</li>
+  <li>Build score profiles for each glyph slot.</li>
+  <li>Generate candidate glyphs from the induced grammar.</li>
+  <li>Score and reject candidates until something acceptable appears.</li>
+  <li>Evaluate the generated alphabet as a set.</li>
+  <li>Preview the result as both a glyph table and sample writing.</li>
+</ol>
+
+<p>That is the basic loop.</p>
+
+<p>The generated alphabets actually look kind of decent. But things are still a big WIP, haven’t even finshed implementing the source alphabets (the AI drafts were not super great). I had to stop in the middle to force myself to write this post basically.</p>
+
+<p><img src="/assets/images/glyphs/result1.png" alt="Result based on phoenician alphabet" />
+<img src="/assets/images/glyphs/result2.png" alt="Result based on phoenician alphabet" />
+<img src="/assets/images/glyphs/result3.png" alt="Result based on runic alphabet" />
+<img src="/assets/images/glyphs/result4.png" alt="Result based on runic alphabet" /></p>
+
+<p>The next step though is to make the generation smarter. Some sort of evolutionary algorithm or something would probably work. But until next time.</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="procedural generation" /><category term="data science" /><category term="2D arts" /><summary type="html"><![CDATA[Part Two in series on procedurally generating alphabets]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Glyph Grammar: A System for Procedurally Generating Alphabets</title><link href="https://dario.technology/glyph-grammar-a-system-for-procedurally-generating-alphabets/" rel="alternate" type="text/html" title="Glyph Grammar: A System for Procedurally Generating Alphabets" /><published>2025-06-28T22:44:00-04:00</published><updated>2025-06-28T22:44:00-04:00</updated><id>https://dario.technology/glyph-grammar-a-system-for-procedurally-generating-alphabets</id><content type="html" xml:base="https://dario.technology/glyph-grammar-a-system-for-procedurally-generating-alphabets/"><![CDATA[<h3 id="life-update">Life Update</h3>
 <p>Have been pretty good at making a monthly update here on my site the last year or so, but have seemed to miss the month of May. This blog has all less been aimed at getting people to read and look at my work, more about keeping myself accountable with creative activities. However past couple months have been pretty busy with a lot of life and work stuff so haven’t had to time to progress things to make a post here. One thing I started doing IRL though is Improv Comedy over at a local theater called <a href="https://thisismettlesome.com/">Mettlesome</a>. performing and specifically improvising in front of an audience is something new and very different for me (by the gods, I became an engineer for a reason!) and something I can recommend to anyone looking to improve social skills after the pandemic.</p>
 
 <h2 id="inspiration">Inspiration</h2>
@@ -99,7 +305,7 @@
 
 <iframe width="100%" height="300" src="//jsfiddle.net/mcoirad/yrkmvpas/11/embedded/result/dark/" frameborder="0" loading="lazy" allowtransparency="true" allowfullscreen="true"></iframe>
 
-<p>As an aside I used JS Fiddle for this but I think I won’t again. The IDE doesn’t work well on Firefox and at one point bugged out, costing me some unsaved work that I had to do. But it is what I used so far. Please forgive the code, right now it is basically a messy sketchbook, not a finished piece lol.</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="procedural generation" /><summary type="html"><![CDATA[A grammar for defining alphabets, starting with the Phoenician alphabet]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Migrating my basketball stats workflow to the cloud</title><link href="https://dario.technology/migrating-basketball-stats-workflow-to-cloud-copy/" rel="alternate" type="text/html" title="Migrating my basketball stats workflow to the cloud" /><published>2025-04-09T22:44:00-05:00</published><updated>2025-04-09T22:44:00-05:00</updated><id>https://dario.technology/migrating-basketball-stats-workflow-to-cloud%20copy</id><content type="html" xml:base="https://dario.technology/migrating-basketball-stats-workflow-to-cloud-copy/"><![CDATA[<h2 id="moving-to-google-cloud">Moving to Google Cloud</h2>
+<p>As an aside I used JS Fiddle for this but I think I won’t again. The IDE doesn’t work well on Firefox and at one point bugged out, costing me some unsaved work that I had to do. But it is what I used so far. Please forgive the code, right now it is basically a messy sketchbook, not a finished piece lol.</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="procedural generation" /><summary type="html"><![CDATA[A grammar for defining alphabets, starting with the Phoenician alphabet]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Migrating my basketball stats workflow to the cloud</title><link href="https://dario.technology/migrating-basketball-stats-workflow-to-cloud-copy/" rel="alternate" type="text/html" title="Migrating my basketball stats workflow to the cloud" /><published>2025-04-09T22:44:00-04:00</published><updated>2025-04-09T22:44:00-04:00</updated><id>https://dario.technology/migrating-basketball-stats-workflow-to-cloud%20copy</id><content type="html" xml:base="https://dario.technology/migrating-basketball-stats-workflow-to-cloud-copy/"><![CDATA[<h2 id="moving-to-google-cloud">Moving to Google Cloud</h2>
 
 <p>With the NBA season finishing up I returned to my basketball stats project.
 So far I’ve been running it locally or in Cloud IDEs such as Cloud9. Cloud9 sunset awhile ago so I switched over to the Google Cloud IDE after experimenting with Github CodeSpaces. Both seem pretty comparable but I went with the Google Cloud IDE since I was aiming to use that cloud provider anyways.</p>
@@ -134,7 +340,7 @@ So far I’ve been running it locally or in Cloud IDEs such as Cloud9. Cloud9 su
 
 <p>For now will be thinking these through while continue to iterate on the current pipeline. I am also thinking about a GraphQL back-end for the site rather than a statically generated site. But I haven’t decided yet.</p>
 
-<p><a href="https://www.dario.technology/the-grunfeld">Site is currently accessible here</a></p>]]></content><author><name>dario</name></author><category term="blog" /><category term="data engineering" /><category term="data science" /><summary type="html"><![CDATA[On-premises to cloud migration]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Random Diplomacy Maps Part 2</title><link href="https://dario.technology/random-diplomacy-maps-part-2/" rel="alternate" type="text/html" title="Random Diplomacy Maps Part 2" /><published>2025-03-25T22:44:00-05:00</published><updated>2025-03-25T22:44:00-05:00</updated><id>https://dario.technology/random-diplomacy-maps-part-2</id><content type="html" xml:base="https://dario.technology/random-diplomacy-maps-part-2/"><![CDATA[<h2 id="continued-working-on-random-map-generation-for-diplomacy">Continued working on random map generation for Diplomacy</h2>
+<p><a href="https://www.dario.technology/the-grunfeld">Site is currently accessible here</a></p>]]></content><author><name>dario</name></author><category term="blog" /><category term="data engineering" /><category term="data science" /><summary type="html"><![CDATA[On-premises to cloud migration]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Random Diplomacy Maps Part 2</title><link href="https://dario.technology/random-diplomacy-maps-part-2/" rel="alternate" type="text/html" title="Random Diplomacy Maps Part 2" /><published>2025-03-25T22:44:00-04:00</published><updated>2025-03-25T22:44:00-04:00</updated><id>https://dario.technology/random-diplomacy-maps-part-2</id><content type="html" xml:base="https://dario.technology/random-diplomacy-maps-part-2/"><![CDATA[<h2 id="continued-working-on-random-map-generation-for-diplomacy">Continued working on random map generation for Diplomacy</h2>
 
 <p>I got some feedback on my map generation tool from Diplomacy players that mentioned some more features that would be useful for balance:</p>
 
@@ -188,7 +394,7 @@ So far I’ve been running it locally or in Cloud IDEs such as Cloud9. Cloud9 su
 
 <p>That’s it for now as I rotate back to my other projects. <a href="https://p5js.org/">p5.js</a> has been a great tool and has been much more performant that the generation <a href="/creating-fantasy-maps/">I was pursuing in Unity3D with C#</a>. At some point I want to return to this again as a starting point for some more Game Dev but that will wait for now.</p>
 
-<iframe src="https://editor.p5js.org/mcoirad/full/NxyGxcgZK" width="1050" height="1550"></iframe>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="procedural generation" /><summary type="html"><![CDATA[Environmental modeling for Diplomacy board game maps]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Finished Morrowind Hlaalu Lamp</title><link href="https://dario.technology/finished-hlaalu-lamp/" rel="alternate" type="text/html" title="Finished Morrowind Hlaalu Lamp" /><published>2025-02-20T22:44:00-06:00</published><updated>2025-02-20T22:44:00-06:00</updated><id>https://dario.technology/finished-hlaalu-lamp</id><content type="html" xml:base="https://dario.technology/finished-hlaalu-lamp/"><![CDATA[<h2 id="finished-a-lamp">Finished a lamp</h2>
+<iframe src="https://editor.p5js.org/mcoirad/full/NxyGxcgZK" width="1050" height="1550"></iframe>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="procedural generation" /><summary type="html"><![CDATA[Environmental modeling for Diplomacy board game maps]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Finished Morrowind Hlaalu Lamp</title><link href="https://dario.technology/finished-hlaalu-lamp/" rel="alternate" type="text/html" title="Finished Morrowind Hlaalu Lamp" /><published>2025-02-20T22:44:00-05:00</published><updated>2025-02-20T22:44:00-05:00</updated><id>https://dario.technology/finished-hlaalu-lamp</id><content type="html" xml:base="https://dario.technology/finished-hlaalu-lamp/"><![CDATA[<h2 id="finished-a-lamp">Finished a lamp</h2>
 
 <p>Not much but I finally finished staining and putting together a lamp I had designed for a gift based on House Hlaalu from Morrowind.</p>
 
@@ -207,7 +413,7 @@ So far I’ve been running it locally or in Cloud IDEs such as Cloud9. Cloud9 su
 
 <p>In my next design I think I will add a way to cover up the corners which I think are super emblematic of lasercut things. But just a minor point to fit.</p>
 
-<p>Design files here: <a href="https://github.com/mcoirad/morrowind-lasercutting-files">https://github.com/mcoirad/morrowind-lasercutting-files</a></p>]]></content><author><name>dario</name></author><category term="blog" /><category term="IRL technology" /><category term="laser cutting" /><category term="morrowind" /><summary type="html"><![CDATA[Finished creating a Morrowind Hlaalu Lamp]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Procedural Generation for Diplomacy Maps</title><link href="https://dario.technology/procedural-generation-for-diplomacy-maps/" rel="alternate" type="text/html" title="Procedural Generation for Diplomacy Maps" /><published>2025-01-25T22:44:00-06:00</published><updated>2025-01-25T22:44:00-06:00</updated><id>https://dario.technology/procedural-generation-for-diplomacy-maps</id><content type="html" xml:base="https://dario.technology/procedural-generation-for-diplomacy-maps/"><![CDATA[<h2 id="returning-to-maps">Returning to Maps</h2>
+<p>Design files here: <a href="https://github.com/mcoirad/morrowind-lasercutting-files">https://github.com/mcoirad/morrowind-lasercutting-files</a></p>]]></content><author><name>dario</name></author><category term="blog" /><category term="IRL technology" /><category term="laser cutting" /><category term="morrowind" /><summary type="html"><![CDATA[Finished creating a Morrowind Hlaalu Lamp]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Procedural Generation for Diplomacy Maps</title><link href="https://dario.technology/procedural-generation-for-diplomacy-maps/" rel="alternate" type="text/html" title="Procedural Generation for Diplomacy Maps" /><published>2025-01-25T22:44:00-05:00</published><updated>2025-01-25T22:44:00-05:00</updated><id>https://dario.technology/procedural-generation-for-diplomacy-maps</id><content type="html" xml:base="https://dario.technology/procedural-generation-for-diplomacy-maps/"><![CDATA[<h2 id="returning-to-maps">Returning to Maps</h2>
 
 <p><a href="https://github.com/kestasjk/webDiplomacy">WebDiplomacy</a> is a great open source gaming project. It basically creates an online platform for playing the Diplomacy board game, something that has been played by mail since the 1960s. It is a very simple and elegant game that provides a sometimes brutal introduction to the game theory concepts of cooperation and betrayal.</p>
 
@@ -260,7 +466,7 @@ So far I’ve been running it locally or in Cloud IDEs such as Cloud9. Cloud9 su
 
 <h2 id="map-editor">Map Editor</h2>
 <p><a href="https://editor.p5js.org/mcoirad/full/om-x0gXQF">Here is the editor itself</a>:</p>
-<iframe src="https://editor.p5js.org/mcoirad/full/om-x0gXQF" width="1050" height="1400"></iframe>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="procedural generation" /><summary type="html"><![CDATA[Generating Random Maps for the Diplomacy Board Game]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Executive Basketball Stats: Methods Rundown</title><link href="https://dario.technology/basketball-executive-example-analysis/" rel="alternate" type="text/html" title="Executive Basketball Stats: Methods Rundown" /><published>2024-12-05T22:44:00-06:00</published><updated>2024-12-05T22:44:00-06:00</updated><id>https://dario.technology/basketball-executive-example-analysis</id><content type="html" xml:base="https://dario.technology/basketball-executive-example-analysis/"><![CDATA[<ul id="markdown-toc">
+<iframe src="https://editor.p5js.org/mcoirad/full/om-x0gXQF" width="1050" height="1400"></iframe>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="procedural generation" /><summary type="html"><![CDATA[Generating Random Maps for the Diplomacy Board Game]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Executive Basketball Stats: Methods Rundown</title><link href="https://dario.technology/basketball-executive-example-analysis/" rel="alternate" type="text/html" title="Executive Basketball Stats: Methods Rundown" /><published>2024-12-05T22:44:00-05:00</published><updated>2024-12-05T22:44:00-05:00</updated><id>https://dario.technology/basketball-executive-example-analysis</id><content type="html" xml:base="https://dario.technology/basketball-executive-example-analysis/"><![CDATA[<ul id="markdown-toc">
   <li><a href="#documentation-of-full-analysis" id="markdown-toc-documentation-of-full-analysis">Documentation of full analysis</a>    <ul>
       <li><a href="#the-data" id="markdown-toc-the-data">The Data</a>        <ul>
           <li><a href="#ernie-grunfeld" id="markdown-toc-ernie-grunfeld">Ernie Grunfeld</a></li>
@@ -413,7 +619,7 @@ Of course, this shows a problem with our model, it assumes executives should alw
   <li>cleaning up the dataset, as the data from basketball-reference.com contains some obvious errors that will need to be fixed.</li>
   <li>finding a way to include free agent departures within the dataset.</li>
   <li>being able to use advanced stats other than BPM would be nice to better gauge transaction.</li>
-</ul>]]></content><author><name>dario</name></author><category term="blog" /><category term="data engineering" /><category term="data science" /><summary type="html"><![CDATA[Methods and Analysis on NBA Executives]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Multiplayer Visual Novel Framework pt. 3</title><link href="https://dario.technology/multplayer-visual-novel-update/" rel="alternate" type="text/html" title="Multiplayer Visual Novel Framework pt. 3" /><published>2024-11-15T02:44:00-06:00</published><updated>2024-11-15T02:44:00-06:00</updated><id>https://dario.technology/multplayer-visual-novel-update</id><content type="html" xml:base="https://dario.technology/multplayer-visual-novel-update/"><![CDATA[<h2 id="hitting-a-milestone">Hitting a milestone</h2>
+</ul>]]></content><author><name>dario</name></author><category term="blog" /><category term="data engineering" /><category term="data science" /><summary type="html"><![CDATA[Methods and Analysis on NBA Executives]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Multiplayer Visual Novel Framework pt. 3</title><link href="https://dario.technology/multplayer-visual-novel-update/" rel="alternate" type="text/html" title="Multiplayer Visual Novel Framework pt. 3" /><published>2024-11-15T02:44:00-05:00</published><updated>2024-11-15T02:44:00-05:00</updated><id>https://dario.technology/multplayer-visual-novel-update</id><content type="html" xml:base="https://dario.technology/multplayer-visual-novel-update/"><![CDATA[<h2 id="hitting-a-milestone">Hitting a milestone</h2>
 
 <p>After a lot of hard work and effort, finally hit a preliminary milestone in this game’s development. Basically I’ve now got the scripting engine to the point where I can do just about everything that it needs to replicate the original game demo I produced in Renpy. Certainly have not replicated all of Renpy, but a minimum of functionality for the dialogue and exploration systems.</p>
 
@@ -482,13 +688,13 @@ In addition we have support for running our action functions within and at the e
 <p>Finally we use a very important action, <code class="language-plaintext highlighter-rouge">jump()</code> which jumps to the aforementioned labels, which are defined with hashtags. In this case, the script jumps to a label which begins the exploration mode.</p>
 
 <h3 id="going-from-here">Going from here</h3>
-<p>You’ll notice I haven’t posted the actual code that is behind the framework. Earlier I did consider the idea of releasing the framework, potentially as a licensed asset. That still is the goal, however, my priority now has changed to just working on my game. Plenty of behaviors are hardcoded and I’m not yet at the point where I want to spend too much time on cleaning things up and responding to questions and bugfixes. There will be time for that later, once the game is in a more advanced state. (Happy to still share code on a private basis with anyone interested)</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="interactive narratives" /><category term="2D Arts" /><summary type="html"><![CDATA[Game Engine Update]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Thinking beyond SQL: When DBT is not the answer</title><link href="https://dario.technology/thinking-beyond-sql/" rel="alternate" type="text/html" title="Thinking beyond SQL: When DBT is not the answer" /><published>2024-11-04T02:44:00-06:00</published><updated>2024-11-04T02:44:00-06:00</updated><id>https://dario.technology/thinking-beyond-sql</id><content type="html" xml:base="https://dario.technology/thinking-beyond-sql/"><![CDATA[<p>While thinking through a bunch of things related to data engineering with data warehouses, I decided to note some things and turned it into an article.</p>
+<p>You’ll notice I haven’t posted the actual code that is behind the framework. Earlier I did consider the idea of releasing the framework, potentially as a licensed asset. That still is the goal, however, my priority now has changed to just working on my game. Plenty of behaviors are hardcoded and I’m not yet at the point where I want to spend too much time on cleaning things up and responding to questions and bugfixes. There will be time for that later, once the game is in a more advanced state. (Happy to still share code on a private basis with anyone interested)</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="interactive narratives" /><category term="2D Arts" /><summary type="html"><![CDATA[Game Engine Update]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Thinking beyond SQL: When DBT is not the answer</title><link href="https://dario.technology/thinking-beyond-sql/" rel="alternate" type="text/html" title="Thinking beyond SQL: When DBT is not the answer" /><published>2024-11-04T02:44:00-05:00</published><updated>2024-11-04T02:44:00-05:00</updated><id>https://dario.technology/thinking-beyond-sql</id><content type="html" xml:base="https://dario.technology/thinking-beyond-sql/"><![CDATA[<p>While thinking through a bunch of things related to data engineering with data warehouses, I decided to note some things and turned it into an article.</p>
 
 <p><a href="https://medium.com/@macieiramitchell/thinking-beyond-sql-when-dbt-is-not-the-answer-317eee5a56a5">I posted it on Medium, you can access the full text there.</a></p>
 
 <p>In summary I noted my frusterations with DBT and its limitations. It is still a good tool but I don’t think it is a great data engineering tool. It is a great analytics tool though, if that makes sense. But following SWE practices with feel to some degree feels like you are fighting with it. But it isn’t unique in that case.</p>
 
-<p>As a data engineer I like <a href="https://sqlmesh.com/">SQLMesh</a> a lot more and will be following that ecosystem with a lot of interest.</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="data engineering" /><category term="software development" /><summary type="html"><![CDATA[Game Engine Update]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Flo Health: How to Badly (and Unethically) Use the Facebook SDK</title><link href="https://dario.technology/flo-health/" rel="alternate" type="text/html" title="Flo Health: How to Badly (and Unethically) Use the Facebook SDK" /><published>2024-09-18T02:44:00-05:00</published><updated>2024-09-18T02:44:00-05:00</updated><id>https://dario.technology/flo-health</id><content type="html" xml:base="https://dario.technology/flo-health/"><![CDATA[<p><em>Here is an article originally written for my Medium blog, but posted here as part of my explorations into technology ethics.</em></p>
+<p>As a data engineer I like <a href="https://sqlmesh.com/">SQLMesh</a> a lot more and will be following that ecosystem with a lot of interest.</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="data engineering" /><category term="software development" /><summary type="html"><![CDATA[Game Engine Update]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Flo Health: How to Badly (and Unethically) Use the Facebook SDK</title><link href="https://dario.technology/flo-health/" rel="alternate" type="text/html" title="Flo Health: How to Badly (and Unethically) Use the Facebook SDK" /><published>2024-09-18T02:44:00-04:00</published><updated>2024-09-18T02:44:00-04:00</updated><id>https://dario.technology/flo-health</id><content type="html" xml:base="https://dario.technology/flo-health/"><![CDATA[<p><em>Here is an article originally written for my Medium blog, but posted here as part of my explorations into technology ethics.</em></p>
 
 <h2 id="flo-health-how-to-badly-and-unethically-use-the-facebooksdk">Flo Health: How to Badly (and Unethically) Use the Facebook SDK</h2>
 
@@ -579,24 +785,4 @@ In addition we have support for running our action functions within and at the e
       <p>This does not absolve developers of responsibility in either case. The issue remains that while many developers today are geared to asking questions such as “Is this SDK open source, and licensed for commercial use?,” they may be less likely to ask “Is this SDK license compatible with the license our app’s users are signing?” <a href="#fnref:19" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
-</div>]]></content><author><name>dario</name></author><category term="blog" /><category term="tech ethics" /><category term="research" /><category term="startups" /><summary type="html"><![CDATA[Research article on Flo Health and Data Ethics]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Multiplayer Visual Novel Art Update</title><link href="https://dario.technology/multiplayer-visual-novel-art-update/" rel="alternate" type="text/html" title="Multiplayer Visual Novel Art Update" /><published>2024-07-20T02:44:00-05:00</published><updated>2024-07-20T02:44:00-05:00</updated><id>https://dario.technology/multiplayer-visual-novel-art-update</id><content type="html" xml:base="https://dario.technology/multiplayer-visual-novel-art-update/"><![CDATA[<h2 id="wip-art">WIP Art</h2>
-
-<p>Have accumulated a bunch of half-finished PC98-style art backgrounds for use in my multiplayer adventure/visual novel game.</p>
-
-<p>I haven’t yet nailed down the resolution I want to use as well as overall design which has kept me from grinding through and finishing these pieces. I’m still considering gameplay elements and I probably don’t want to do too much art until I have more of the plot storyboarded out.</p>
-
-<p>Nevertheless I’ve still needed to keep working and grow as an artist. You can see a bit of how my process works in these work-in-progress pieces.</p>
-
-<p><img src="/assets/images/gameart/govtlab.png" alt="Government Laboratory" />
-<img src="/assets/images/gameart/boss_office2.png" alt="Boss Office" />
-<img src="/assets/images/gameart/mkultra.png" alt="MK Ultra" /></p>
-
-<p>These are still definitely learning pieces. For purposes of comparison here is some art from actual PC98 games:</p>
-
-<p><img src="/assets/images/pc98/city.png" alt="PC98 City" />
-<img src="/assets/images/pc98/hq.png" alt="PC98 HQ" />
-<img src="/assets/images/pc98/street.png" alt="PC98 Street" /></p>
-
-<p>It’s doubtful I could get all the graphics in the game to this level of quality just by myself, but the goal will get to produce at least a few pieces for the demo. Of course, not all PC98 games looked this good, the ones with the best graphics came along in the mid 1990s as opposed to earlier. Honestly it is insane how much effort it takes to get the cluttered machinery cyberpunk look that you can see in <a href="https://www.mobygames.com/game/platform:pc98/sort:moby_score/page:1/">quite a few of the PC98 games.</a></p>
-
-<p>Going beyond the demo I will definitely need some extra help for art production.</p>]]></content><author><name>dario</name></author><category term="blog" /><category term="game development" /><category term="2D Arts" /><summary type="html"><![CDATA[Game Art Update]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</div>]]></content><author><name>dario</name></author><category term="blog" /><category term="tech ethics" /><category term="research" /><category term="startups" /><summary type="html"><![CDATA[Research article on Flo Health and Data Ethics]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://dario.technology/assets/images/markdown.jpg" /><media:content medium="image" url="https://dario.technology/assets/images/markdown.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 840" role="img" aria-labelledby="title desc">
+  <title id="title">Symmetry tracking v1 and v2</title>
+  <desc id="desc">Diagram comparing the original mean nearest-distance symmetry metric with the newer thresholded coverage symmetry metric.</desc>
+  <defs>
+    <style>
+      .bg { fill: #f7f4ef; }
+      .panel { fill: #fffdf8; stroke: #d7cfc0; stroke-width: 2; }
+      .panel-title { font: 700 28px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #242424; }
+      .panel-subtitle { font: 400 16px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #5b5b5b; }
+      .label { font: 600 15px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #333; }
+      .small { font: 400 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #555; }
+      .formula { font: 500 15px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #333; }
+      .axis { stroke: #7a7a7a; stroke-width: 2; stroke-dasharray: 8 8; }
+      .glyph { fill: none; stroke: #262626; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+      .ghost { fill: none; stroke: #4c78a8; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 7 8; opacity: 0.62; }
+      .point { fill: #262626; stroke: #fffdf8; stroke-width: 2; }
+      .mirror-point { fill: #4c78a8; stroke: #fffdf8; stroke-width: 2; }
+      .distance { stroke: #d95f02; stroke-width: 2.5; stroke-linecap: round; marker-end: url(#arrow-orange); opacity: 0.86; }
+      .threshold { fill: #59a14f; opacity: 0.14; stroke: #59a14f; stroke-width: 2; stroke-dasharray: 5 6; }
+      .covered { fill: #59a14f; stroke: #fffdf8; stroke-width: 2; }
+      .miss { fill: #d95f02; stroke: #fffdf8; stroke-width: 2; }
+      .callout { fill: #f2eadc; stroke: #d7cfc0; stroke-width: 1.5; }
+      .step { fill: #242424; }
+      .step-text { font: 700 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #fff; }
+      .divider { stroke: #d7cfc0; stroke-width: 2; }
+    </style>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#d95f02"/>
+    </marker>
+    <marker id="arrow-dark" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1280" height="840"/>
+
+  <text x="64" y="56" class="panel-title">How the symmetry tracker changed</text>
+  <text x="64" y="84" class="panel-subtitle">
+    <tspan x="64" dy="0">Both versions reflect sampled glyph geometry across an axis.</tspan>
+    <tspan x="64" dy="21">The scoring question changed from "how far away is the nearest match?" to "how much of the reflected shape is covered?"</tspan>
+  </text>
+
+  <rect class="panel" x="64" y="120" width="552" height="600" rx="10"/>
+  <rect class="panel" x="664" y="120" width="552" height="600" rx="10"/>
+  <line class="divider" x1="640" y1="132" x2="640" y2="708"/>
+
+  <text x="96" y="166" class="panel-title">v1: mean nearest distance</text>
+  <text x="96" y="194" class="panel-subtitle">
+    <tspan x="96" dy="0">Reflect points, find the nearest original point,</tspan>
+    <tspan x="96" dy="21">then average the distances.</tspan>
+  </text>
+
+  <text x="696" y="166" class="panel-title">v2: coverage symmetry</text>
+  <text x="696" y="194" class="panel-subtitle">
+    <tspan x="696" dy="0">Reflect points, then ask whether each point</tspan>
+    <tspan x="696" dy="21">is covered within a tolerance.</tspan>
+  </text>
+
+  <!-- V1 drawing area -->
+  <g transform="translate(96 226)">
+    <rect x="0" y="0" width="488" height="260" rx="8" fill="#fbf7ee" stroke="#e3d8c6"/>
+    <line class="axis" x1="244" y1="22" x2="244" y2="238"/>
+    <text x="256" y="35" class="small">mirror axis</text>
+
+    <!-- Original glyph: left-heavy angled shape -->
+    <path class="glyph" d="M 120 204 L 184 64 L 184 204 M 122 204 L 214 204"/>
+    <circle class="point" cx="120" cy="204" r="6"/>
+    <circle class="point" cx="152" cy="134" r="6"/>
+    <circle class="point" cx="184" cy="64" r="6"/>
+    <circle class="point" cx="184" cy="134" r="6"/>
+    <circle class="point" cx="184" cy="204" r="6"/>
+    <circle class="point" cx="214" cy="204" r="6"/>
+
+    <!-- Mirrored ghost -->
+    <path class="ghost" d="M 368 204 L 304 64 L 304 204 M 366 204 L 274 204"/>
+    <circle class="mirror-point" cx="368" cy="204" r="6"/>
+    <circle class="mirror-point" cx="336" cy="134" r="6"/>
+    <circle class="mirror-point" cx="304" cy="64" r="6"/>
+    <circle class="mirror-point" cx="304" cy="134" r="6"/>
+    <circle class="mirror-point" cx="304" cy="204" r="6"/>
+    <circle class="mirror-point" cx="274" cy="204" r="6"/>
+
+    <!-- Nearest-distance arrows -->
+    <line class="distance" x1="304" y1="64" x2="184" y2="64"/>
+    <line class="distance" x1="304" y1="134" x2="184" y2="134"/>
+    <line class="distance" x1="304" y1="204" x2="214" y2="204"/>
+    <line class="distance" x1="274" y1="204" x2="214" y2="204"/>
+
+    <rect class="callout" x="20" y="22" width="145" height="56" rx="8"/>
+    <text x="34" y="45" class="label">original points</text>
+    <circle class="point" cx="39" cy="63" r="5"/>
+    <text x="52" y="68" class="small">sampled glyph</text>
+
+    <rect class="callout" x="320" y="22" width="145" height="56" rx="8"/>
+    <text x="334" y="45" class="label">reflected points</text>
+    <circle class="mirror-point" cx="339" cy="63" r="5"/>
+    <text x="352" y="68" class="small">mirror image</text>
+  </g>
+
+  <g transform="translate(96 510)">
+    <circle class="step" cx="14" cy="14" r="14"/>
+    <text class="step-text" x="10" y="19">1</text>
+    <text class="label" x="38" y="19">Build point cloud from visible segments.</text>
+
+    <circle class="step" cx="14" cy="54" r="14"/>
+    <text class="step-text" x="10" y="59">2</text>
+    <text class="label" x="38" y="59">Reflect the cloud across the vertical or horizontal axis.</text>
+
+    <circle class="step" cx="14" cy="94" r="14"/>
+    <text class="step-text" x="10" y="99">3</text>
+    <text class="label" x="38" y="99">Average nearest-point distances.</text>
+
+    <rect class="callout" x="0" y="124" width="488" height="70" rx="8"/>
+    <text class="formula" x="18" y="147">score = 1 - meanDistance / tolerance</text>
+    <text class="small" x="18" y="169">
+      <tspan x="18" dy="0">Good for broad alignment, but a few far misses</tspan>
+      <tspan x="18" dy="17">can dominate the score.</tspan>
+    </text>
+  </g>
+
+  <!-- V2 drawing area -->
+  <g transform="translate(696 226)">
+    <rect x="0" y="0" width="488" height="260" rx="8" fill="#fbf7ee" stroke="#e3d8c6"/>
+    <line class="axis" x1="244" y1="22" x2="244" y2="238"/>
+    <text x="256" y="35" class="small">mirror axis</text>
+
+    <!-- Original glyph: similar but with partial matching -->
+    <path class="glyph" d="M 118 204 L 184 64 L 184 204 M 122 204 L 214 204"/>
+    <circle class="point" cx="118" cy="204" r="6"/>
+    <circle class="point" cx="151" cy="134" r="6"/>
+    <circle class="point" cx="184" cy="64" r="6"/>
+    <circle class="point" cx="184" cy="134" r="6"/>
+    <circle class="point" cx="184" cy="204" r="6"/>
+    <circle class="point" cx="214" cy="204" r="6"/>
+
+    <!-- Nearby original coverage helper points on right side -->
+    <path class="glyph" d="M 303 66 L 303 204 M 274 204 L 346 204" opacity="0.32"/>
+    <circle class="covered" cx="303" cy="66" r="6"/>
+    <circle class="covered" cx="303" cy="134" r="6"/>
+    <circle class="covered" cx="303" cy="204" r="6"/>
+    <circle class="covered" cx="274" cy="204" r="6"/>
+    <circle class="miss" cx="346" cy="204" r="6"/>
+
+    <!-- Mirrored ghost from left glyph -->
+    <path class="ghost" d="M 370 204 L 304 64 L 304 204 M 366 204 L 274 204"/>
+    <circle class="mirror-point" cx="370" cy="204" r="5"/>
+    <circle class="mirror-point" cx="337" cy="134" r="5"/>
+    <circle class="mirror-point" cx="304" cy="64" r="5"/>
+    <circle class="mirror-point" cx="304" cy="134" r="5"/>
+    <circle class="mirror-point" cx="304" cy="204" r="5"/>
+    <circle class="mirror-point" cx="274" cy="204" r="5"/>
+
+    <!-- Threshold bubbles -->
+    <circle class="threshold" cx="304" cy="64" r="22"/>
+    <circle class="threshold" cx="304" cy="134" r="22"/>
+    <circle class="threshold" cx="304" cy="204" r="22"/>
+    <circle class="threshold" cx="274" cy="204" r="22"/>
+    <circle class="threshold" cx="370" cy="204" r="22"/>
+
+    <rect class="callout" x="20" y="22" width="154" height="62" rx="8"/>
+    <text x="34" y="45" class="label">covered points</text>
+    <circle class="covered" cx="39" cy="64" r="5"/>
+    <text x="52" y="69" class="small">near reflected shape</text>
+
+    <rect class="callout" x="322" y="22" width="145" height="62" rx="8"/>
+    <text x="336" y="45" class="label">misses</text>
+    <circle class="miss" cx="341" cy="64" r="5"/>
+    <text x="354" y="69" class="small">outside tolerance</text>
+  </g>
+
+  <g transform="translate(696 510)">
+    <circle class="step" cx="14" cy="14" r="14"/>
+    <text class="step-text" x="10" y="19">1</text>
+    <text class="label" x="38" y="19">Build and reflect the same sampled point cloud.</text>
+
+    <circle class="step" cx="14" cy="54" r="14"/>
+    <text class="step-text" x="10" y="59">2</text>
+    <text class="label" x="38" y="52">
+      <tspan x="38" dy="0">For each reflected point, score nearby coverage</tspan>
+      <tspan x="38" dy="18">inside a threshold.</tspan>
+    </text>
+
+    <circle class="step" cx="14" cy="94" r="14"/>
+    <text class="step-text" x="10" y="99">3</text>
+    <text class="label" x="38" y="99">Average coverage in both directions.</text>
+
+    <rect class="callout" x="0" y="124" width="488" height="70" rx="8"/>
+    <text class="formula" x="18" y="147">
+      <tspan x="18" dy="0">score = coverage(reflected -&gt; original)</tspan>
+      <tspan x="18" dy="18">      + coverage(original -&gt; reflected)</tspan>
+    </text>
+    <text class="small" x="18" y="187">Better for partial symmetry because near matches count as coverage.</text>
+  </g>
+
+  <rect class="callout" x="64" y="750" width="1152" height="58" rx="10"/>
+  <text class="label" x="88" y="784">Legend</text>
+
+  <g transform="translate(166 780)">
+    <circle class="point" cx="8" cy="0" r="6"/>
+    <text class="small" x="22" y="5">original sample point</text>
+    <circle class="mirror-point" cx="186" cy="0" r="6"/>
+    <text class="small" x="200" y="5">reflected point</text>
+    <line class="distance" x1="352" y1="-1" x2="398" y2="-1"/>
+    <text class="small" x="410" y="5">nearest-distance measurement</text>
+    <circle class="threshold" cx="622" cy="0" r="12"/>
+    <text class="small" x="642" y="5">v2 coverage tolerance</text>
+  </g>
+</svg>
