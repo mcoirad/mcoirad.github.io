@@ -221,4 +221,4 @@ The generated alphabets actually look kind of decent. But things are still a big
 
 
 
-The next step though is to make the generation smarter. Some sort of evolutionary algorithm or something would probably work. But until next time.
+The next step though is to make the generation smarter. Some sort of evolutionary algorithm or something would probably work. But until next time. (hopefully next month, not next year!)

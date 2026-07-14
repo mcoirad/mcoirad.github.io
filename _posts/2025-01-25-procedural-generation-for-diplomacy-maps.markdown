@@ -65,5 +65,5 @@ The silliest is probably the ability to build a random map off of an imported im
 ![Randomly Generated Diplomacy Map](/assets/images/maps/mcdonalds.png)
 
 ## Map Editor
-[Here is the editor itself](https://editor.p5js.org/mcoirad/full/om-x0gXQF):
-<iframe src="https://editor.p5js.org/mcoirad/full/om-x0gXQF" width="1050" height="1400"></iframe>
+[UPDATE: generator now hosted on github pages](https://dario.technology/DiplomacyMapGenerator/)
+<iframe src="https://dario.technology/DiplomacyMapGenerator/" width="1050" height="1400"></iframe>
