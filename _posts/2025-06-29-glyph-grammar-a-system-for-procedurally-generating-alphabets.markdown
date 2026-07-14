@@ -11,7 +11,7 @@ star: true
 category: blog
 projects: false
 author: dario
-description: A grammar for defining alphabets, starting with the Phoenician alphabet
+description: "Introducing Glyph Grammar, a system for defining and rendering alphabets with procedural rules, starting from Phoenician and runic forms."
 ---
 
 ### Life Update

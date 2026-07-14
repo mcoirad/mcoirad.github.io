@@ -12,7 +12,7 @@ star: true
 category: blog
 projects: false
 author: dario
-description: Creating morrowind themed lamp designs
+description: "Design notes for creating a Morrowind-inspired Hlaalu lamp, from 2D laser-cut patterns to assembly, materials, and visual references."
 ---
 
 ## Making my first lamp
@@ -51,6 +51,5 @@ Still have to finish cutting it out.
 
 I am keeping all files for these lamps [in this Github repo](https://github.com/mcoirad/morrowind-lasercutting-files).
 Feel free to use them as you see fit!
-
 
 

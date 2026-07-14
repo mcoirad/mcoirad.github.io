@@ -11,7 +11,7 @@ star: true
 category: blog
 projects: false
 author: dario
-description: Repairing piano keyboard
+description: "Repair notes from opening a Casio CTK-7000 keyboard, diagnosing broken contacts, soldering the hardware, and getting the instrument working."
 ---
 
 ## My main tool for making music is my piano keyboard

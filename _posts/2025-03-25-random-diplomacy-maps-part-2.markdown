@@ -12,7 +12,7 @@ category: blog
 projects: true
 project: procedural_maps
 author: dario
-description: Environmental modeling for Diplomacy board game maps
+description: "Part two of random Diplomacy map generation, focused on water connections, environmental modeling, variants, and improving map playability."
 ---
 
 ## Continued working on random map generation for Diplomacy
@@ -68,7 +68,6 @@ The maps themselves are fun to play with, but the end goal was always to support
 That's it for now as I rotate back to my other projects. [p5.js](https://p5js.org/) has been a great tool and has been much more performant that the generation [I was pursuing in Unity3D with C#]({% post_url 2024-03-11-creating-fantasy-maps %}). At some point I want to return to this again as a starting point for some more Game Dev but that will wait for now.
 
 <iframe src="https://editor.p5js.org/mcoirad/full/NxyGxcgZK" width="1050" height="1550"></iframe>
-
 
 
 

@@ -13,7 +13,7 @@ category: blog
 projects: false
 project: multiplayer_novel_framework
 author: dario
-description: Game Engine Update
+description: "A development update on the multiplayer visual novel framework, including game engine progress, interaction design, and technical direction."
 ---
 ## Hitting a milestone
 

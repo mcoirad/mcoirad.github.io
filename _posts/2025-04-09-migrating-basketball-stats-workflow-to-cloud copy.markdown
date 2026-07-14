@@ -12,7 +12,7 @@ category: blog
 projects: true
 project: nba_executives
 author: dario
-description: On-premises to cloud migration
+description: "Migrating a basketball statistics workflow from a local setup to the cloud, including pipeline architecture, automation, and deployment tradeoffs."
 ---
 
 ## Moving to Google Cloud

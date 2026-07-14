@@ -11,7 +11,7 @@ star: true
 category: blog
 projects: false
 author: dario
-description: Game Engine Update
+description: "Why dbt is not always the right answer for data engineering, and where SQLMesh, software engineering practices, and orchestration can help."
 ---
 While thinking through a bunch of things related to data engineering with data warehouses, I decided to note some things and turned it into an article.
 

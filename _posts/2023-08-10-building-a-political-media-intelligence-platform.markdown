@@ -15,7 +15,7 @@ category: project
 projects: true
 project: political_media
 author: dario
-description: Building a Political Media Intelligence Platform
+description: "How a political media research platform turned messy ad data into searchable, usable intelligence for analysts and campaign teams."
 ---
 
 2016 was a watershed year in American politics. It was a watershed year for me too, but all the details are too big for the scope of this post. But suffice to say it opened the eyes of many (including mine) to the power of data to manipulate social movement.

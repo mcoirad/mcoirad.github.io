@@ -12,7 +12,7 @@ category: project
 projects: true
 project: nba_executives
 author: dario
-description: Ranking the best and worst NBA executives
+description: "Building an NBA executive ranking system with player stats, draft outcomes, team context, and a more careful look at front office performance."
 ---
 
 As a basketball fan of a bad basketball team, something has always bothered me about the inaccessible nature of major league sports leadership. It seems... to put it nicely... to be less than a meritocracy. While playing sports at a professional level seems to be an extremely unique talent, I would argue that managing a sports team is much less than that. Of any NBA team, for example, there are probably some percentage of the fans that could conceivably make better decisions than the team's own front office. (The same could probably said for large corporations)
@@ -53,7 +53,6 @@ In getting some results up and out I opted for a static site generator. Creating
 I know Jekyll is falling behind Hugo these days in popularity as a static site generator. But Jekyll is still so much simpler than Hugo to set up and get going. I used it to generate pages for each executive in the data I collected. I also used Chart.js to generate some interactive visualizations. I took a long look at D3 but I don't really like the way its gone with Observable (with all due respect to the folks using Observable) it the attempt to emulate Juptyer/R Markdown style notebooks. It seems that a lot of d3 examples got nuked and are no longer available. Chart.js was a lot easier to get up and running with.
 
 I've begun to publish my results [here](https://www.dario.technology/the-grunfeld)
-
 
 
 

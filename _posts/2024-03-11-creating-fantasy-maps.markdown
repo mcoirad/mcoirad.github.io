@@ -12,7 +12,7 @@ category: blog
 projects: true
 project: procedural_maps
 author: dario
-description: Generating 2D Fantasy Maps
+description: "A walkthrough of generating 2D fantasy maps with terrain layers, biome simulation, erosion, territory borders, and pixel art rendering."
 ---
 
 ## Building fantasy maps
@@ -86,6 +86,5 @@ The game simulation behavior, other than the pathfinding, would scale fine since
 Larger Examples:
 [2000x3000px](/assets/images/maps/map470.png)
 [3000x2000px](/assets/images/maps/map324.png)
-
 
 

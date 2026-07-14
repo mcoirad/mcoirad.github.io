@@ -12,7 +12,7 @@ star: true
 category: blog
 projects: false
 author: dario
-description: Finished creating a Morrowind Hlaalu Lamp
+description: "A finished Morrowind Hlaalu lamp build, with photos, design choices, fabrication notes, and reflections on turning fan art into hardware."
 ---
 
 ## Finished a lamp

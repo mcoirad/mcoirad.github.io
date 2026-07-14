@@ -13,7 +13,7 @@ star: true
 category: blog
 author: dario
 mermaid: true
-description: Part Two in series on procedurally generating alphabets
+description: "Part two of Glyph Grammar, covering learned procedural alphabet models, glyph scoring, symmetry tracking, and generated writing systems."
 ---
 
 # [Glyph Grammar Online Demo](https://dario.technology/glyph-gen/)

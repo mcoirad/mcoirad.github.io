@@ -12,7 +12,7 @@ category: blog
 projects: false
 project: multiplayer_novel_framework
 author: dario
-description: Game Art Update
+description: "An art update for a multiplayer visual novel project, covering PC-98-inspired scenes, character environments, and visual direction."
 ---
 
 ## WIP Art

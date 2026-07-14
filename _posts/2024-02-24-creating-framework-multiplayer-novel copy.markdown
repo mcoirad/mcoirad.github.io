@@ -12,7 +12,7 @@ category: project
 projects: true
 project: multiplayer_novel_framework
 author: dario
-description: Building a framework with Unity3D
+description: "Designing a Unity framework for multiplayer interactive novels, including shared state, branching choices, and cooperative story mechanics."
 ---
 
 ## The ease of developing interactive narratives

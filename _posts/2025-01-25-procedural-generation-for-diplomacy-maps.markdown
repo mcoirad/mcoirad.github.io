@@ -12,7 +12,7 @@ category: blog
 projects: true
 project: procedural_maps
 author: dario
-description: Generating Random Maps for the Diplomacy Board Game
+description: "Generating random Diplomacy board game maps with territory layouts, sea connections, coastlines, and constraints for playable strategy."
 ---
 
 ## Returning to Maps

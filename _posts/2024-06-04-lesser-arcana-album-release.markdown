@@ -11,7 +11,7 @@ star: true
 category: blog
 projects: false
 author: dario
-description: Finishing an album
+description: "Releasing Lesser Arcana, a collection of electronic music sketches with PC-98-inspired album art and notes on making creative work finite."
 ---
 
 ## lesser arcana OST
@@ -33,7 +33,6 @@ That all being said, I've been moving to a new laptop and didn't want to lose al
 ![Lesser Arcana OST](/assets/images/music/lesser arcana.png)
 
 I have a somewhat hoarder mentality when it comes to collecting virtual synthesizers and electronic samples. (probably better than collecting real synthesizers) So I can't really speak to everything I used in my music. However, I have gotten a lot of mileage out of software emulation of the Nord Lead 2, Jupiter 8, Yamaha DX7 synthesizers, as well as emulated sound chips from old video game consoles and ripped sound files from old video games.
-
 
 
 

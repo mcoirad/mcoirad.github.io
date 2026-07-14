@@ -12,7 +12,7 @@ category: blog
 projects: true
 project: nba_executives
 author: dario
-description: Methods and Analysis on NBA Executives
+description: "A methods rundown for NBA executive analytics, using draft value, player development, BPM trends, and case studies like Ernie Grunfeld."
 ---
 
 * Do not remove this line (it will not be displayed)

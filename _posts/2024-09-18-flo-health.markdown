@@ -12,7 +12,7 @@ star: true
 category: blog
 projects: false
 author: dario
-description: Research article on Flo Health and Data Ethics
+description: "A data ethics analysis of Flo Health, the Facebook SDK, reproductive health privacy, cloud infrastructure, and developer responsibility."
 ---
 
 *Here is an article originally written for my Medium blog, but posted here as part of my explorations into technology ethics.*

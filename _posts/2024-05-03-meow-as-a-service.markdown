@@ -13,7 +13,7 @@ star: true
 category: blog
 projects: false
 author: dario
-description: Dial-a-meow Services
+description: "A small joke startup using cat business cards, Twilio, Flask, and Serverless Framework to build a programmable Dial-A-Meow phone line."
 ---
 
 ## Awhile ago I had an idea...
@@ -33,7 +33,6 @@ So without ado, introducing my latest bootstrapped startup cofounder:
 The phone number (724) COCO-CAT also needed a memeable voicemail system for our Dial-A-Meow service. I've used [TossableDigits.com](https://www.tossabledigits.com/) in the past but [Twilio](https://www.twilio.com/en-us) is the real deal for setting up programmable voice for phone numbers. Was able to quickly set up and deploy a Flask server with the [Serverless Framework](https://www.serverless.com/) and have it respond to calls at that number. Source code at: [Meow-as-a-Service](https://github.com/mcoirad/meow_as_a_service). It was easy enough I am even considering creating a video game you play just by calling a number.
 
 So far all this has been worth the effort. I was even thinking about how to automatically set up 'free 15 minute business consultations' with Zoom calls. I don't know if I will get to that but it would be funny.
-
 
 
 

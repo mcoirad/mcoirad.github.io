@@ -11,7 +11,7 @@ star: true
 category: blog
 projects: false
 author: dario
-description: Sprite Jewelry music release
+description: "Re-releasing the Sprite Jewelry EP with updated art, notes on electronic music production, and reflections on finishing old creative projects."
 ---
 
 ## Sprite Jewelry EP
