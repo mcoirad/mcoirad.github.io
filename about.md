@@ -1,6 +1,7 @@
 ---
 title: About
 layout: page
+description: About Dario Macieira Mitchell, a senior data engineer and creative technologist working across civic data, software, interactive narrative, and art.
 ---
 ![Profile Image]({% if site.external-image %}{{ site.picture }}{% else %}{{ site.url }}/{{ site.picture }}{% endif %})
 
@@ -23,7 +24,8 @@ I studied History and Statistics at [the New College of Florida](https://www.ncf
 <h2>Experience</h2>
 <ul class="job-list">
 
-	<li>Senior Data Engineer, the University of Texas at Austin (2023-present)</li>
+	<li>Senior Data Engineer, Ignite Reading (2025-present)</li>
+	<li>Senior Data Engineer, the University of Texas at Austin (2023-2025)</li>
 	<li>Tech Consultant, ACLU, Partners of the Americas, others (2017-present)</li>
 	<li>Data Engineer, Retina AI (2022-2023)</li>
 	<li>Data Engineer, GMMB (2018-2023)</li>

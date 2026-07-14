@@ -7,7 +7,8 @@ headerImage: false
 tag:
 - procedural generation
 - data science
-- 2D arts
+- 2D Arts
+- startups
 star: true
 category: blog
 author: dario
@@ -24,7 +25,7 @@ I can't believe it has been a year since my last post. I really thought I could 
 
 #### I started a new job
 
-I now work at Ignite Reading, a startup focused on improving early childhood literacy. It is actually a really cool place (I've begun drinking some of the koolaid). The work there has been enough to fill out a couple more posts on itself. An example of something I've worked on is a Tableau Server extension that allows faster extract refreshes, including support for incremental loads. But that job has kept me on my toes in some new ways so a lot of mental energy has been on that the past year.
+I now work at [Ignite Reading](https://ignite-reading.com/), a startup focused on improving early childhood literacy. It is actually a really cool place (I've begun drinking some of the koolaid). The work there has been enough to fill out a couple more posts on itself. An example of something I've worked on is a Tableau Server extension that allows faster extract refreshes, including support for incremental loads. But that job has kept me on my toes in some new ways so a lot of mental energy has been on that the past year.
 
 #### I traveled the world
 
@@ -37,7 +38,7 @@ The Mesha'Stele from the Moabite kingdom!
 
 #### AI changed basically my entire profession
 
-No way of getting around it, "software engineering" and basically any other job mediated by the virtual world has been changed up a bit by this AI thing. In theory it makes projects like this easier, but in practice I've been spending a decent amount of time figuring out how to do my job as a data engineer in better ways. There's been a whole another wave of attempts at automation and everyone is trying to figure out what is worth automating and where the human should remain in the loop. This could be another post as we are headed in an interesting direction with where the AI bubble has gotten to. I think my old posts about the ramifications of the technology have largely stayed true though.
+No way of getting around it, "software engineering" and basically any other job mediated by the virtual world has been changed up a bit by this AI thing. In theory it makes projects like this easier, but in practice I've been spending a decent amount of time figuring out how to do my job as a data engineer in better ways. There's been a whole another wave of attempts at automation and everyone is trying to figure out what is worth automating and where the human should remain in the loop. This could be another post as we are headed in an interesting direction with where the AI bubble has gotten to. [I think my old posts about the ramifications of the technology have largely stayed true though.](https://medium.com/@macieiramitchell)
 
 So yes, between the above not a lot of room for fun little side quests. My main computer workstation of course has been at home while traveling. Even so...
 
