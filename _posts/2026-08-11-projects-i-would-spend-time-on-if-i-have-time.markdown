@@ -12,6 +12,7 @@ category: blog
 projects: true
 project: nba_executives
 author: dario
+published: false
 description: "A survey of project ideas worth pursuing, from an AI-powered cat toy to illustrated history writing and other unfinished creative directions."
 ---
 
